@@ -1,10 +1,9 @@
 {
-	"name": "firefish",
-	"version": "1.0.5-dev20",
-	"codename": "aqua",
+	"name": "catodon",
+	"version": "alpha.1",
 	"repository": {
 		"type": "git",
-		"url": "https://git.joinfirefish.org/firefish/firefish.git"
+		"url": "https://codeberg.org/catodon/catodon"
 	},
 	"packageManager": "pnpm@8.10.2",
 	"private": true,
