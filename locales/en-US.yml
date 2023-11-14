@@ -175,9 +175,9 @@ flagAsCat: "Are you a cat? 😺"
 flagAsCatDescription: "You'll get cat ears and speak like a cat!"
 flagSpeakAsCat: "Speak as a cat"
 flagSpeakAsCatDescription: "Your posts will get nyanified when in cat mode"
-flagShowTimelineReplies: "Show replies in timeline"
-flagShowTimelineRepliesDescription: "Shows replies of users to posts of other users
-  in the timeline if turned on."
+flagShowTimelineReplies: "Show all replies in timeline"
+flagShowTimelineRepliesDescription: "Shows all replies of users to posts of other users
+  in the timeline if turned on (even if you don't follow the original poster)."
 autoAcceptFollowed: "Automatically approve follow requests from users you're following"
 addAccount: "Add account"
 loginFailed: "Failed to sign in"
@@ -1012,24 +1012,24 @@ type: "Type"
 speed: "Speed"
 slow: "Slow"
 fast: "Fast"
-sensitiveMediaDetection: "Detection of NSFW media"
+sensitiveMediaDetection: "Detection of Sensitive media"
 localOnly: "Local only"
 remoteOnly: "Remote only"
 failedToUpload: "Upload failed"
 cannotUploadBecauseInappropriate: "This file could not be uploaded because parts of
-  it have been detected as potentially NSFW."
+  it have been detected as potentially Sensitive."
 cannotUploadBecauseNoFreeSpace: "Upload failed due to lack of Drive capacity."
 cannotUploadBecauseExceedsFileSizeLimit: "This file could not be uploaded because
   it exceeds the maximum allowed size."
 beta: "Beta"
-enableAutoSensitive: "Automatic NSFW-Marking"
-enableAutoSensitiveDescription: "Allows automatic detection and marking of NSFW media
+enableAutoSensitive: "Automatic Sensitive-Marking"
+enableAutoSensitiveDescription: "Allows automatic detection and marking of Sensitive media
   through Machine Learning where possible. Even if this option is disabled, it may
   be enabled server-wide."
 activeEmailValidationDescription: "Enables stricter validation of email addresses,
   which includes checking for disposable addresses and by whether it can actually
   be communicated with. When unchecked, only the format of the email is validated."
-navbar: "Navigation bar"
+navbar: "Menu"
 shuffle: "Shuffle"
 account: "Account"
 move: "Move"
@@ -1065,7 +1065,7 @@ updateAvailable: "There might be an update available!"
 swipeOnMobile: "Allow swiping between pages"
 swipeOnDesktop: "Allow mobile-style swiping on desktop"
 logoImageUrl: "Logo image URL"
-showAdminUpdates: "Indicate a new Firefish version is avaliable (admin only)"
+showAdminUpdates: "Indicate a new Catodon version is avaliable (admin only)"
 replayTutorial: "Replay tutorial"
 migration: "Migration"
 moveTo: "Move current account to new account"
@@ -1112,14 +1112,14 @@ preventAiLearning: "Prevent AI bot scraping"
 preventAiLearningDescription: "Request third-party AI language models not to study
   content you upload, such as posts and images."
 noGraze: "Please disable the \"Graze for Mastodon\" browser extension, as it interferes
-  with Firefish."
+  with Catodon."
 silencedWarning: "This page is showing because these users are from servers your admin
   silenced, so they may potentially be spam."
 isBot: "This account is automated"
 isLocked: "This account has follow approvals"
 isModerator: "Moderator"
 isAdmin: "Administrator"
-isPatron: "Firefish Patron"
+isPatron: "Catodon Patron"
 reactionPickerSkinTone: "Preferred emoji skin tone"
 enableServerMachineStats: "Enable server hardware statistics"
 enableIdenticonGeneration: "Enable Identicon generation"
@@ -1157,12 +1157,12 @@ iconSet: "Icon set"
 
 _sensitiveMediaDetection:
   description: "Reduces the effort of server moderation through automatically recognizing
-    NSFW media via Machine Learning. This will slightly increase the load on the server."
+    Sensitive media via Machine Learning. This will slightly increase the load on the server."
   sensitivity: "Detection sensitivity"
   sensitivityDescription: "Reducing the sensitivity will lead to fewer misdetections
     (false positives) whereas increasing it will lead to fewer missed detections (false
     negatives)."
-  setSensitiveFlagAutomatically: "Mark as NSFW"
+  setSensitiveFlagAutomatically: "Mark as Sensitive Content"
   setSensitiveFlagAutomaticallyDescription: "The results of the internal detection
     will be retained even if this option is turned off."
   analyzeVideos: "Enable analysis of videos"
