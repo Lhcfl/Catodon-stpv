@@ -125,7 +125,7 @@ export default defineComponent({
 			box-shadow: 0 1px rgba(#000, 0.07);
 
 			> i {
-				margin-right: 6px;
+				margin-inline-end: 6px;
 			}
 
 			&:empty {
@@ -137,7 +137,7 @@ export default defineComponent({
 			position: absolute;
 			z-index: 2;
 			top: 0;
-			right: 0;
+			inset-inline-end: 0;
 
 			> button {
 				padding: 0;

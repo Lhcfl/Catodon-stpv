@@ -185,7 +185,7 @@ defineExpose<WidgetComponentExpose>({
 
 	> .logs {
 		border-top: solid 0.5px var(--divider);
-		text-align: left;
+		text-align: initial;
 		padding: 16px;
 
 		&:empty {

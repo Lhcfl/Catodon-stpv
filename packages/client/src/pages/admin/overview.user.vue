@@ -12,31 +12,16 @@
 				><span class="acct _monospace">@{{ acct(user) }}</span></span
 			>
 		</div>
-		<MkMiniChart v-if="chart" class="chart" :src="chart.inc" />
 	</MkA>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-
 import type * as firefish from "firefish-js";
-import MkMiniChart from "@/components/MkMiniChart.vue";
-import * as os from "@/os";
 import { acct } from "@/filters/user";
 
-const props = defineProps<{
+defineProps<{
 	user: firefish.entities.User;
 }>();
-
-const chart = ref(null);
-
-os.apiGet("charts/user/notes", {
-	userId: props.user.id,
-	limit: 16,
-	span: "day",
-}).then((res) => {
-	chart.value = res;
-});
 </script>
 
 <style lang="scss" module>
@@ -51,7 +36,7 @@ os.apiGet("charts/user/notes", {
 		display: block;
 		width: ($bodyTitleHieght + $bodyInfoHieght);
 		height: ($bodyTitleHieght + $bodyInfoHieght);
-		margin-right: 12px;
+		margin-inline-end: 12px;
 	}
 
 	> :global(.body) {
@@ -59,7 +44,7 @@ os.apiGet("charts/user/notes", {
 		overflow: hidden;
 		font-size: 0.9em;
 		color: var(--fg);
-		padding-right: 8px;
+		padding-inline-end: 8px;
 
 		> :global(.name) {
 			display: block;
@@ -80,10 +65,6 @@ os.apiGet("charts/user/notes", {
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
-	}
-
-	> :global(.chart) {
-		height: 30px;
 	}
 }
 </style>

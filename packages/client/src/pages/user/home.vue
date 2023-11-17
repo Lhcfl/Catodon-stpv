@@ -173,7 +173,7 @@
 									v-tooltip.noDelay="i18n.ts.isModerator"
 									style="
 										color: var(--badge);
-										margin-left: 0.5rem;
+										margin-inline-start: 0.5rem;
 									"
 									><i :class="icon('ph-gavel')"></i
 								></span>
@@ -345,11 +345,6 @@
 					>
 					<template v-if="narrow">
 						<XPhotos :key="user.id" :user="user" />
-						<!-- <XActivity
-							:key="user.id"
-							:user="user"
-							style="margin-top: var(--margin)"
-						/> -->
 					</template>
 				</div>
 				<div>
@@ -358,11 +353,6 @@
 			</div>
 			<div v-if="!narrow" class="sub">
 				<XPhotos :key="user.id" :user="user" />
-				<XActivity
-					:key="user.id"
-					:user="user"
-					style="margin-top: var(--margin)"
-				/>
 			</div>
 		</div>
 	</MkSpacer>
@@ -397,7 +387,6 @@ import { host } from "@/config";
 import icon from "@/scripts/icon";
 
 const XPhotos = defineAsyncComponent(() => import("./index.photos.vue"));
-const XActivity = defineAsyncComponent(() => import("./index.activity.vue"));
 
 const emit = defineEmits(["refresh"]);
 const props = withDefaults(
@@ -526,7 +515,7 @@ onUnmounted(() => {
 					> .fade {
 						position: absolute;
 						bottom: 0;
-						left: 0;
+						inset-inline-start: 0;
 						width: 100%;
 						height: 78px;
 						background: linear-gradient(
@@ -538,7 +527,7 @@ onUnmounted(() => {
 					> .followed {
 						position: absolute;
 						top: 10px;
-						left: 120px;
+						inset-inline-start: 120px;
 						padding: 4px 8px;
 						color: #fff;
 						background: rgba(0, 0, 0, 0.7);
@@ -549,7 +538,7 @@ onUnmounted(() => {
 					> .title {
 						position: absolute;
 						bottom: 0;
-						left: 0;
+						inset-inline-start: 0;
 						width: 100%;
 						padding: 0 0 8px 154px;
 						box-sizing: border-box;
@@ -568,7 +557,7 @@ onUnmounted(() => {
 							> .followed {
 								position: relative;
 								top: -4px;
-								left: 4px;
+								inset-inline-start: 4px;
 								padding: 4px 8px;
 								color: #fff;
 								background: rgba(0, 0, 0, 0.6);
@@ -580,7 +569,7 @@ onUnmounted(() => {
 						> .bottom {
 							> * {
 								display: inline-block;
-								margin-right: 16px;
+								margin-inline-end: 16px;
 								line-height: 20px;
 								opacity: 0.8;
 
@@ -603,7 +592,7 @@ onUnmounted(() => {
 					> .fade {
 						position: absolute;
 						bottom: 0;
-						left: 0;
+						inset-inline-start: 0;
 						width: 100%;
 						height: 78px;
 						background: linear-gradient(
@@ -615,7 +604,7 @@ onUnmounted(() => {
 					> .actions {
 						position: absolute;
 						top: 6px;
-						right: 12px;
+						inset-inline-end: 12px;
 						padding: 8px;
 						border-radius: 24px;
 						display: flex;
@@ -626,7 +615,7 @@ onUnmounted(() => {
 					> .title {
 						position: absolute;
 						bottom: 0;
-						left: 0;
+						inset-inline-start: 0;
 						width: 100%;
 						padding: 0 0 8px 154px;
 						box-sizing: border-box;
@@ -644,7 +633,7 @@ onUnmounted(() => {
 						> .bottom {
 							> * {
 								display: inline-block;
-								margin-right: 16px;
+								margin-inline-end: 16px;
 								line-height: 20px;
 								opacity: 0.8;
 
@@ -677,7 +666,7 @@ onUnmounted(() => {
 						> .followed {
 							position: relative;
 							top: -4px;
-							left: 4px;
+							inset-inline-start: 4px;
 							padding: 4px 8px;
 							color: #fff;
 							background: rgba(0, 0, 0, 0.6);
@@ -689,7 +678,7 @@ onUnmounted(() => {
 					> .followedWindow {
 						position: relative;
 						top: -25px;
-						left: 80px;
+						inset-inline-start: 80px;
 						padding: 4px 8px;
 						color: #fff;
 						background: rgba(0, 0, 0, 0.6);
@@ -700,7 +689,7 @@ onUnmounted(() => {
 					> .bottom {
 						> * {
 							display: inline-block;
-							margin-right: 8px;
+							margin-inline-end: 8px;
 							opacity: 0.8;
 						}
 					}
@@ -710,7 +699,7 @@ onUnmounted(() => {
 					display: block;
 					position: absolute;
 					top: 170px;
-					left: 16px;
+					inset-inline-start: 16px;
 					z-index: 2;
 					width: 120px;
 					height: 120px;
@@ -827,15 +816,15 @@ onUnmounted(() => {
 					padding-bottom: 0;
 					> .bottom {
 						> .username {
-							margin-right: 0;
+							margin-inline-end: 0;
 						}
 					}
 				}
 
 				> .avatar {
 					top: 90px;
-					left: 0;
-					right: 0;
+					inset-inline-start: 0;
+					inset-inline-end: 0;
 					width: 92px;
 					height: 92px;
 					margin: auto;
@@ -892,7 +881,7 @@ onUnmounted(() => {
 		> .sub {
 			max-width: 350px;
 			min-width: 350px;
-			margin-left: var(--margin);
+			margin-inline-start: var(--margin);
 		}
 	}
 }

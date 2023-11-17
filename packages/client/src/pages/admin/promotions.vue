@@ -42,7 +42,7 @@
 							class="button"
 							inline
 							primary
-							style="margin-right: 12px"
+							style="margin-inline-end: 12px"
 							@click="save(ad)"
 							><i :class="icon('ph-floppy-disk-back')"></i>
 							{{ i18n.ts.save }}</MkButton

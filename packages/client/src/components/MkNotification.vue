@@ -114,15 +114,12 @@
 				:to="notePage(notification.note)"
 				:title="getNoteSummary(notification.note)"
 			>
-				<span>{{ i18n.ts._notification.reacted }}: </span>
-				<i class="ph-quotes ph-fill ph-lg"></i>
 				<Mfm
 					:text="getNoteSummary(notification.note)"
 					:plain="true"
 					:nowrap="!full"
 					:custom-emojis="notification.note.emojis"
 				/>
-				<i class="ph-quotes ph-fill"></i>
 			</MkA>
 			<MkA
 				v-if="notification.type === 'renote'"
@@ -130,15 +127,12 @@
 				:to="notePage(notification.note)"
 				:title="getNoteSummary(notification.note.renote)"
 			>
-				<span>{{ i18n.ts._notification.renoted }}: </span>
-				<i class="ph-quotes ph-fill ph-lg"></i>
 				<Mfm
 					:text="getNoteSummary(notification.note.renote)"
 					:plain="true"
 					:nowrap="!full"
 					:custom-emojis="notification.note.renote.emojis"
 				/>
-				<i class="ph-quotes ph-fill"></i>
 			</MkA>
 			<MkA
 				v-if="notification.type === 'reply'"
@@ -185,15 +179,12 @@
 				:to="notePage(notification.note)"
 				:title="getNoteSummary(notification.note)"
 			>
-				<span>{{ i18n.ts._notification.voted }}: </span>
-				<i class="ph-quotes ph-fill ph-lg"></i>
 				<Mfm
 					:text="getNoteSummary(notification.note)"
 					:plain="true"
 					:nowrap="!full"
 					:custom-emojis="notification.note.emojis"
 				/>
-				<i class="ph-quotes ph-fill"></i>
 			</MkA>
 			<MkA
 				v-if="notification.type === 'pollEnded'"
@@ -201,14 +192,12 @@
 				:to="notePage(notification.note)"
 				:title="getNoteSummary(notification.note)"
 			>
-				<i class="ph-quotes ph-fill"></i>
 				<Mfm
 					:text="getNoteSummary(notification.note)"
 					:plain="true"
 					:nowrap="!full"
 					:custom-emojis="notification.note.emojis"
 				/>
-				<i class="ph-quotes ph-fill"></i>
 			</MkA>
 			<span
 				v-if="notification.type === 'follow'"
@@ -407,7 +396,7 @@ useTooltip(reactionRef, (showing) => {
 		flex-shrink: 0;
 		width: 42px;
 		height: 42px;
-		margin-right: 8px;
+		margin-inline-end: 8px;
 
 		> .icon {
 			display: block;
@@ -420,7 +409,7 @@ useTooltip(reactionRef, (showing) => {
 			position: absolute;
 			z-index: 1;
 			bottom: -2px;
-			right: -2px;
+			inset-inline-end: -2px;
 			width: 20px;
 			height: 20px;
 			box-sizing: border-box;
@@ -504,7 +493,7 @@ useTooltip(reactionRef, (showing) => {
 			}
 
 			> .time {
-				margin-left: auto;
+				margin-inline-start: auto;
 				font-size: 0.9em;
 			}
 		}
@@ -517,9 +506,12 @@ useTooltip(reactionRef, (showing) => {
 			overflow: hidden;
 			text-overflow: ellipsis;
 
-			> span:first-child {
-				opacity: 0.7;
-			}
+			//	> span:first-child {
+			//		opacity: 0.7;
+			//		&::after {
+			//			content: ": ";
+			//		}
+			//	}
 
 			> i {
 				vertical-align: super;
@@ -528,11 +520,11 @@ useTooltip(reactionRef, (showing) => {
 			}
 
 			> i:first-child {
-				margin-right: 4px;
+				margin-inline-end: 4px;
 			}
 
 			> i:last-child {
-				margin-left: 4px;
+				margin-inline-start: 4px;
 			}
 		}
 	}

@@ -36,7 +36,9 @@
 						<div v-else>{{ i18n.ts.system }}</div>
 					</div>
 					<div>
-						<span style="margin-right: 1em">{{ file.type }}</span>
+						<span style="margin-inline-end: 1em">{{
+							file.type
+						}}</span>
 						<span>{{ bytes(file.size) }}</span>
 					</div>
 					<div>
@@ -82,7 +84,7 @@ const props = defineProps<{
 			display: flex;
 			width: 100%;
 			box-sizing: border-box;
-			text-align: left;
+			text-align: initial;
 			align-items: center;
 
 			&:hover {
@@ -95,7 +97,7 @@ const props = defineProps<{
 			}
 
 			> .body {
-				margin-left: 0.3em;
+				margin-inline-start: 0.3em;
 				padding: 8px;
 				flex: 1;
 
@@ -125,7 +127,7 @@ const props = defineProps<{
 				position: absolute;
 				z-index: 10;
 				top: 8px;
-				left: 8px;
+				inset-inline-start: 8px;
 				padding: 2px 4px;
 				background: #ff0000bf;
 				color: #fff;

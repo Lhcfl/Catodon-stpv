@@ -1,15 +1,9 @@
-import define from "@/server/api/define.js";
-import { getJsonSchema } from "@/services/chart/core.js";
-import { perUserFollowingChart } from "@/services/chart/index.js";
+import define from "../../../define.js";
 
 export const meta = {
 	tags: ["charts", "users", "following"],
 	requireCredentialPrivateMode: true,
-
-	res: getJsonSchema(perUserFollowingChart.schema),
-
 	allowGet: true,
-	cacheSec: 60 * 60,
 } as const;
 
 export const paramDef = {
@@ -24,10 +18,31 @@ export const paramDef = {
 } as const;
 
 export default define(meta, paramDef, async (ps) => {
-	return await perUserFollowingChart.getChart(
-		ps.span,
-		ps.limit,
-		ps.offset ? new Date(ps.offset) : null,
-		ps.userId,
-	);
+	const zeros = new Array<number>(ps.limit ?? 30).fill(0);
+	return {
+		local: {
+			followings: {
+				total: zeros,
+				inc: zeros,
+				dec: zeros,
+			},
+			followers: {
+				total: zeros,
+				inc: zeros,
+				dec: zeros,
+			},
+		},
+		remote: {
+			followings: {
+				total: zeros,
+				inc: zeros,
+				dec: zeros,
+			},
+			followers: {
+				total: zeros,
+				inc: zeros,
+				dec: zeros,
+			},
+		},
+	};
 });

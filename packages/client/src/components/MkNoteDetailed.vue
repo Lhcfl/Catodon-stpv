@@ -115,7 +115,6 @@
 			v-if="tab === 'renotes' && renotes"
 			:key="item.user.id"
 			:user="item.user"
-			:with-chart="false"
 		/>
 		<!-- </MkPagination> -->
 		<MkLoading v-else-if="tab === 'renotes' && note.renoteCount > 0" />
@@ -499,8 +498,8 @@ onUnmounted(() => {
 			position: absolute;
 			z-index: 10;
 			top: 0;
-			left: 0;
-			right: 0;
+			inset-inline-start: 0;
+			inset-inline-end: 0;
 			bottom: 0;
 			margin: auto;
 			width: calc(100% - 8px);
@@ -538,7 +537,7 @@ onUnmounted(() => {
 
 	> :deep(.chips) {
 		padding-block: 6px 12px;
-		padding-left: 32px;
+		padding-inline-start: 32px;
 		&:last-child {
 			margin-bottom: 12px;
 		}
@@ -650,7 +649,7 @@ onUnmounted(() => {
 			padding: 12px 0 0 0;
 			font-size: 1.05rem;
 			> .header > .body {
-				padding-left: 10px;
+				padding-inline-start: 10px;
 			}
 		}
 		> .clips,
@@ -659,7 +658,7 @@ onUnmounted(() => {
 			padding-inline: 16px !important;
 		}
 		> :deep(.underline) {
-			padding-left: 16px !important;
+			padding-inline-start: 16px !important;
 		}
 	}
 

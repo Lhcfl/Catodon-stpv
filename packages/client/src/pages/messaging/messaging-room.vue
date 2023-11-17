@@ -398,7 +398,7 @@ XMessage:last-of-type {
 			}
 
 			> i {
-				margin-right: 4px;
+				margin-inline-end: 4px;
 			}
 		}
 
@@ -434,7 +434,7 @@ XMessage:last-of-type {
 
 				> i {
 					display: inline-block;
-					margin-right: 8px;
+					margin-inline-end: 8px;
 				}
 			}
 		}

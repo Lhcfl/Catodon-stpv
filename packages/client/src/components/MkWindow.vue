@@ -530,7 +530,7 @@ defineExpose({
 .ebkgocck {
 	position: fixed;
 	top: 0;
-	left: 0;
+	inset-inline-start: 0;
 
 	> .body {
 		overflow: clip;
@@ -578,7 +578,7 @@ defineExpose({
 			}
 
 			> .left {
-				margin-right: 16px;
+				margin-inline-end: 16px;
 			}
 
 			> .right {
@@ -615,7 +615,7 @@ defineExpose({
 
 		&.top {
 			top: -($size);
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: $size;
 			cursor: ns-resize;
@@ -623,7 +623,7 @@ defineExpose({
 
 		&.right {
 			top: 0;
-			right: -($size);
+			inset-inline-end: -($size);
 			width: $size;
 			height: 100%;
 			cursor: ew-resize;
@@ -631,7 +631,7 @@ defineExpose({
 
 		&.bottom {
 			bottom: -($size);
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: $size;
 			cursor: ns-resize;
@@ -639,7 +639,7 @@ defineExpose({
 
 		&.left {
 			top: 0;
-			left: -($size);
+			inset-inline-start: -($size);
 			width: $size;
 			height: 100%;
 			cursor: ew-resize;
@@ -647,7 +647,7 @@ defineExpose({
 
 		&.top-left {
 			top: -($size);
-			left: -($size);
+			inset-inline-start: -($size);
 			width: $size * 2;
 			height: $size * 2;
 			cursor: nwse-resize;
@@ -655,7 +655,7 @@ defineExpose({
 
 		&.top-right {
 			top: -($size);
-			right: -($size);
+			inset-inline-end: -($size);
 			width: $size * 2;
 			height: $size * 2;
 			cursor: nesw-resize;
@@ -663,7 +663,7 @@ defineExpose({
 
 		&.bottom-right {
 			bottom: -($size);
-			right: -($size);
+			inset-inline-end: -($size);
 			width: $size * 2;
 			height: $size * 2;
 			cursor: nwse-resize;
@@ -671,7 +671,7 @@ defineExpose({
 
 		&.bottom-left {
 			bottom: -($size);
-			left: -($size);
+			inset-inline-start: -($size);
 			width: $size * 2;
 			height: $size * 2;
 			cursor: nesw-resize;

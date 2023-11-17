@@ -38,7 +38,7 @@ function toggle(x) {
 .novjtctn {
 	position: relative;
 	display: inline-block;
-	text-align: left;
+	text-align: initial;
 	cursor: pointer;
 	padding: 8px 10px;
 	min-width: 60px;
@@ -112,9 +112,9 @@ function toggle(x) {
 			display: block;
 			position: absolute;
 			top: 3px;
-			right: 3px;
+			inset-inline-end: 3px;
 			bottom: 3px;
-			left: 3px;
+			inset-inline-start: 3px;
 			border-radius: 100%;
 			opacity: 0;
 			transform: scale(0);
@@ -123,7 +123,7 @@ function toggle(x) {
 	}
 
 	> .label {
-		margin-left: 28px;
+		margin-inline-start: 28px;
 		display: block;
 		line-height: 20px;
 		cursor: pointer;

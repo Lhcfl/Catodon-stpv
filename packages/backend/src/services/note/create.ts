@@ -39,12 +39,7 @@ import type { App } from "@/models/entities/app.js";
 import { Not, In } from "typeorm";
 import type { User, ILocalUser, IRemoteUser } from "@/models/entities/user.js";
 import { genId } from "@/misc/gen-id.js";
-import {
-	notesChart,
-	perUserNotesChart,
-	activeUsersChart,
-	instanceChart,
-} from "@/services/chart/index.js";
+import { activeUsersChart } from "@/services/chart/index.js";
 import type { IPoll } from "@/models/entities/poll.js";
 import { Poll } from "@/models/entities/poll.js";
 import { createNotification } from "@/services/create-notification.js";
@@ -348,15 +343,10 @@ export default async (
 
 		res(note);
 
-		// 統計を更新
-		notesChart.update(note, true, user.isBot);
-		perUserNotesChart.update(user, note, true, user.isBot);
-
 		// Register host
 		if (Users.isRemoteUser(user)) {
 			registerOrFetchInstanceDoc(user.host).then((i) => {
 				Instances.increment({ id: i.id }, "notesCount", 1);
-				instanceChart.updateNote(i.host, note, true);
 			});
 		}
 
@@ -819,38 +809,8 @@ async function insertNote(
 	}
 }
 
-export async function index(note: Note, reindexing: boolean): Promise<void> {
-	if (!note.text || note.visibility !== "public") return;
-
-	if (config.elasticsearch && es) {
-		es.index({
-			index: config.elasticsearch.index || "misskey_note",
-			id: note.id.toString(),
-			body: {
-				text: normalizeForSearch(note.text),
-				userId: note.userId,
-				userHost: note.userHost,
-			},
-		});
-	}
-
-	if (sonic) {
-		await sonic.ingest.push(
-			sonic.collection,
-			sonic.bucket,
-			JSON.stringify({
-				id: note.id,
-				userId: note.userId,
-				userHost: note.userHost,
-				channelId: note.channelId,
-			}),
-			note.text,
-		);
-	}
-
-	if (meilisearch && !reindexing) {
-		await meilisearch.ingestNote(note);
-	}
+export async function index(_note: Note, _reindexing: boolean): Promise<void> {
+	return;
 }
 
 async function notifyToWatchersOfRenotee(

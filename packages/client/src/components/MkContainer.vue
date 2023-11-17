@@ -217,7 +217,7 @@ export default defineComponent({
 	> header {
 		position: sticky;
 		top: var(--stickyTop, 0px);
-		left: 0;
+		inset-inline-start: 0;
 		color: var(--panelHeaderFg);
 		background: var(--panelHeaderBg);
 		border-bottom: solid 0.5px var(--panelHeaderDivider);
@@ -229,7 +229,7 @@ export default defineComponent({
 			padding: 12px 16px;
 
 			> ::v-deep(i) {
-				margin-right: 6px;
+				margin-inline-end: 6px;
 				transform: translateY(0.1em);
 			}
 
@@ -242,7 +242,7 @@ export default defineComponent({
 			position: absolute;
 			z-index: 2;
 			top: 0;
-			right: 0;
+			inset-inline-end: 0;
 			height: 100%;
 
 			> ::v-deep(button) {
@@ -265,7 +265,7 @@ export default defineComponent({
 				position: absolute;
 				z-index: 10;
 				bottom: 0;
-				left: 0;
+				inset-inline-start: 0;
 				width: 100%;
 				height: 64px;
 				background: linear-gradient(0deg, var(--panel), var(--X15));

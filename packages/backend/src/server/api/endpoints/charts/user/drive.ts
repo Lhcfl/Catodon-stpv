@@ -1,15 +1,9 @@
-import { getJsonSchema } from "@/services/chart/core.js";
-import { perUserDriveChart } from "@/services/chart/index.js";
-import define from "@/server/api/define.js";
+import define from "../../../define.js";
 
 export const meta = {
 	tags: ["charts", "drive", "users"],
 	requireCredentialPrivateMode: true,
-
-	res: getJsonSchema(perUserDriveChart.schema),
-
 	allowGet: true,
-	cacheSec: 60 * 60,
 } as const;
 
 export const paramDef = {
@@ -24,10 +18,13 @@ export const paramDef = {
 } as const;
 
 export default define(meta, paramDef, async (ps) => {
-	return await perUserDriveChart.getChart(
-		ps.span,
-		ps.limit,
-		ps.offset ? new Date(ps.offset) : null,
-		ps.userId,
-	);
+	const zeros = new Array<number>(ps.limit ?? 30).fill(0);
+	return {
+		totalCount: zeros,
+		totalSize: zeros,
+		incCount: zeros,
+		incSize: zeros,
+		decCount: zeros,
+		decSize: zeros,
+	};
 });

@@ -10,11 +10,6 @@ import type { User, ILocalUser, IRemoteUser } from "@/models/entities/user.js";
 import type { Note, IMentionedRemoteUsers } from "@/models/entities/note.js";
 import { Notes, Users, Instances } from "@/models/index.js";
 import {
-	notesChart,
-	perUserNotesChart,
-	instanceChart,
-} from "@/services/chart/index.js";
-import {
 	deliverToFollowers,
 	deliverToUser,
 } from "@/remote/activitypub/deliver-manager.js";
@@ -104,14 +99,9 @@ export default async function (
 		}
 		//#endregion
 
-		// 統計を更新
-		notesChart.update(note, false);
-		perUserNotesChart.update(user, note, false);
-
 		if (Users.isRemoteUser(user)) {
 			registerOrFetchInstanceDoc(user.host).then((i) => {
 				Instances.decrement({ id: i.id }, "notesCount", 1);
-				instanceChart.updateNote(i.host, note, false);
 			});
 		}
 	}

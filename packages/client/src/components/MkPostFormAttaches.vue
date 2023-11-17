@@ -172,7 +172,7 @@ function showFileMenu(file, ev: MouseEvent) {
 			position: relative;
 			width: 64px;
 			height: 64px;
-			margin-right: 4px;
+			margin-inline-end: 4px;
 			border-radius: 4px;
 			cursor: move;
 
@@ -193,7 +193,7 @@ function showFileMenu(file, ev: MouseEvent) {
 				width: 64px;
 				height: 64px;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				z-index: 2;
 				background: var(--header);
 				color: var(--fg);
@@ -209,7 +209,7 @@ function showFileMenu(file, ev: MouseEvent) {
 		display: block;
 		position: absolute;
 		top: 8px;
-		right: 8px;
+		inset-inline-end: 8px;
 		margin: 0;
 		padding: 0;
 	}

@@ -21,7 +21,7 @@
 				v-else-if="column.tl === 'global'"
 				:class="icon('ph-planet')"
 			></i>
-			<span style="margin-left: 8px">{{ column.name }}</span>
+			<span style="margin-inline-start: 8px">{{ column.name }}</span>
 		</template>
 
 		<div v-if="disabled" class="iwaalbte">

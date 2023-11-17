@@ -41,11 +41,11 @@ db:
   port: 5432
   #ssl: false
   # Database name
-  db: firefish
+  db: catodon
 
   # Auth
-  user: example-firefish-user
-  pass: example-firefish-pass
+  user: example-catodon-user
+  pass: example-catodon-pass
 
   # Whether disable Caching queries
   #disableCache: true
@@ -85,28 +85,6 @@ redis:
   #prefix: example-prefix
   #db: 1
 
-# Please configure either MeiliSearch *or* Sonic.
-# If both MeiliSearch and Sonic configurations are present, MeiliSearch will take precedence.
-
-#   ┌───────────────────────────┐
-#───┘ MeiliSearch configuration └─────────────────────────────────────
-#meilisearch:
-#  host: meilisearch
-#  port: 7700
-#  ssl: false
-#  apiKey:
-
-#   ┌─────────────────────┐
-#───┘ Sonic configuration └─────────────────────────────────────
-
-#sonic:
-#  host: localhost
-#  port: 1491
-#  auth: SecretPassword
-#  collection: notes
-#  bucket: default
-
-
 #   ┌───────────────┐
 #───┘ ID generation └───────────────────────────────────────────
 
@@ -120,7 +98,6 @@ redis:
 #   # Set this to a unique string across workers (e.g., machine's hostname)
 #   # if your workers are running in multiple hosts.
 #   fingerprint: my-fingerprint
-
 
 #   ┌─────────────────────┐
 #───┘ Other configuration └─────────────────────────────────────

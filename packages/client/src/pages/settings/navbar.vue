@@ -1,7 +1,7 @@
 <template>
 	<div class="_formRoot">
 		<FormSlot>
-			<VueDraggable v-model="items" animation="150" delay="50">
+			<VueDraggable v-model="items" :animation="150" :delay="50">
 				<div
 					v-for="(element, index) in items"
 					:key="index"
@@ -161,7 +161,7 @@ definePageMetadata({
 	> .itemText {
 		position: relative;
 		font-size: 0.9em;
-		margin-left: 1rem;
+		margin-inline-start: 1rem;
 	}
 
 	> .itemRemove {

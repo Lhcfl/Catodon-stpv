@@ -163,16 +163,6 @@ export default abstract class Chart<T extends Schema> {
 		date: number;
 	}>;
 
-	/**
-	 * 1日に一回程度実行されれば良いような計算処理を入れる(主にCASCADE削除などアプリケーション側で感知できない変動によるズレの修正用)
-	 */
-	protected abstract tickMajor(group: string | null): Promise<Partial<KVs<T>>>;
-
-	/**
-	 * 少なくとも最小スパン内に1回は実行されて欲しい計算処理を入れる
-	 */
-	protected abstract tickMinor(group: string | null): Promise<Partial<KVs<T>>>;
-
 	private static convertSchemaToColumnDefinitions(
 		schema: Schema,
 	): Record<string, { type: string; array?: boolean; default?: any }> {
@@ -678,58 +668,6 @@ export default abstract class Chart<T extends Schema> {
 		logger.info(
 			`Saved ${startCount} (${groupCount} unique) ${this.name} items in ${duration}ms (${this.buffer.length} remaining)`,
 		);
-	}
-
-	public async tick(
-		major: boolean,
-		group: string | null = null,
-	): Promise<void> {
-		const data = major
-			? await this.tickMajor(group)
-			: await this.tickMinor(group);
-
-		const columns = {} as Record<keyof Columns<T>, number>;
-		for (const [k, v] of Object.entries(data) as [
-			keyof typeof data,
-			number,
-		][]) {
-			const name = (columnPrefix +
-				(k as string).replaceAll(".", columnDot)) as keyof Columns<T>;
-			columns[name] = v;
-		}
-
-		if (Object.keys(columns).length === 0) {
-			return;
-		}
-
-		const update = async (
-			logHour: RawRecord<T>,
-			logDay: RawRecord<T>,
-		): Promise<void> => {
-			await Promise.all([
-				this.repositoryForHour
-					.createQueryBuilder()
-					.update()
-					.set(columns)
-					.where("id = :id", { id: logHour.id })
-					.execute(),
-				this.repositoryForDay
-					.createQueryBuilder()
-					.update()
-					.set(columns)
-					.where("id = :id", { id: logDay.id })
-					.execute(),
-			]);
-		};
-
-		return Promise.all([
-			this.claimCurrentLog(group, "hour"),
-			this.claimCurrentLog(group, "day"),
-		]).then(([logHour, logDay]) => update(logHour, logDay));
-	}
-
-	public resync(group: string | null = null): Promise<void> {
-		return this.tick(true, group);
 	}
 
 	public async clean(): Promise<void> {

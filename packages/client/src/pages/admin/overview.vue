@@ -9,10 +9,6 @@
 			<MkFolder class="item">
 				<template #header>Active users</template>
 				<XActiveUsers />
-			</MkFolder>
-
-			<MkFolder class="item">
-				<template #header>Heatmap</template>
 				<XHeatmap />
 			</MkFolder>
 
@@ -29,11 +25,6 @@
 			<MkFolder class="item">
 				<template #header>Instances</template>
 				<XInstances />
-			</MkFolder>
-
-			<MkFolder class="item">
-				<template #header>Fediverse Requests</template>
-				<XApRequests />
 			</MkFolder>
 
 			<MkFolder class="item">
@@ -71,7 +62,6 @@ import {
 import XFederation from "./overview.federation.vue";
 import XInstances from "./overview.instances.vue";
 import XQueue from "./overview.queue.vue";
-import XApRequests from "./overview.ap-requests.vue";
 import XUsers from "./overview.users.vue";
 import XActiveUsers from "./overview.active-users.vue";
 import XStats from "./overview.stats.vue";

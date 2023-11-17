@@ -253,7 +253,7 @@ defineExpose<WidgetComponentExpose>({
 
 			> .icon {
 				color: var(--warn);
-				margin-left: auto;
+				margin-inline-start: auto;
 				animation: warnBlink 1s infinite;
 			}
 		}

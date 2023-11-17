@@ -1,52 +1,9 @@
 <template>
 	<div :class="$style.root">
 		<MkFolder class="item">
-			<template #header>Chart</template>
+			<template #header>Active Users</template>
 			<div :class="$style.chart">
 				<div class="selects">
-					<MkSelect v-model="chartSrc" style="margin: 0; flex: 1">
-						<optgroup :label="i18n.ts.federation">
-							<option value="federation">
-								{{ i18n.ts._charts.federation }}
-							</option>
-							<option value="ap-request">
-								{{ i18n.ts._charts.apRequest }}
-							</option>
-						</optgroup>
-						<optgroup :label="i18n.ts.users">
-							<option value="users">
-								{{ i18n.ts._charts.usersIncDec }}
-							</option>
-							<option value="users-total">
-								{{ i18n.ts._charts.usersTotal }}
-							</option>
-							<option value="active-users">
-								{{ i18n.ts._charts.activeUsers }}
-							</option>
-						</optgroup>
-						<optgroup :label="i18n.ts.notes">
-							<option value="notes">
-								{{ i18n.ts._charts.notesIncDec }}
-							</option>
-							<option value="local-notes">
-								{{ i18n.ts._charts.localNotesIncDec }}
-							</option>
-							<option value="remote-notes">
-								{{ i18n.ts._charts.remoteNotesIncDec }}
-							</option>
-							<option value="notes-total">
-								{{ i18n.ts._charts.notesTotal }}
-							</option>
-						</optgroup>
-						<optgroup :label="i18n.ts.drive">
-							<option value="drive-files">
-								{{ i18n.ts._charts.filesIncDec }}
-							</option>
-							<option value="drive">
-								{{ i18n.ts._charts.storageUsageIncDec }}
-							</option>
-						</optgroup>
-					</MkSelect>
 					<MkSelect v-model="chartSpan" style="margin: 0 0 0 10px">
 						<option value="hour">{{ i18n.ts.perHour }}</option>
 						<option value="day">{{ i18n.ts.perDay }}</option>
@@ -54,32 +11,15 @@
 				</div>
 				<div class="chart _panel">
 					<MkChart
-						:src="chartSrc"
+						src="active-users"
 						:span="chartSpan"
 						:limit="chartLimit"
 						:detailed="true"
 					></MkChart>
 				</div>
 			</div>
-		</MkFolder>
-
-		<MkFolder class="item">
-			<template #header>Active users heatmap</template>
-			<MkSelect v-model="heatmapSrc" style="margin: 0 0 12px 0">
-				<option value="active-users">Active users</option>
-				<option value="notes">Posts</option>
-				<option value="ap-requests-inbox-received">
-					Fediverse Requests: inboxReceived
-				</option>
-				<option value="ap-requests-deliver-succeeded">
-					Fediverse Requests: deliverSucceeded
-				</option>
-				<option value="ap-requests-deliver-failed">
-					Fediverse Requests: deliverFailed
-				</option>
-			</MkSelect>
 			<div class="_panel" :class="$style.heatmap">
-				<MkHeatmap :src="heatmapSrc" />
+				<MkHeatmap src="active-users" />
 			</div>
 		</MkFolder>
 
@@ -117,8 +57,6 @@ initChart();
 
 const chartLimit = 500;
 const chartSpan = ref<"hour" | "day">("hour");
-const chartSrc = ref("active-users");
-const heatmapSrc = ref("active-users");
 const subDoughnutEl = shallowRef<HTMLCanvasElement>();
 const pubDoughnutEl = shallowRef<HTMLCanvasElement>();
 
@@ -284,7 +222,7 @@ onMounted(() => {
 				> .title {
 					position: absolute;
 					top: 24px;
-					left: 24px;
+					inset-inline-start: 24px;
 				}
 			}
 

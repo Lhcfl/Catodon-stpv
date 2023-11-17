@@ -334,7 +334,7 @@ function onDrop(ev) {
 			position: absolute;
 			z-index: 1000;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 100%;
 			background: var(--focus);
@@ -348,7 +348,7 @@ function onDrop(ev) {
 			position: absolute;
 			z-index: 1000;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 100%;
 			background: var(--focus);
@@ -443,7 +443,7 @@ function onDrop(ev) {
 
 		> .toggleActive,
 		> .action {
-			margin-left: -16px;
+			margin-inline-start: -16px;
 		}
 
 		> .action {
@@ -455,8 +455,8 @@ function onDrop(ev) {
 		}
 
 		> .menu {
-			margin-left: auto;
-			margin-right: -16px;
+			margin-inline-start: auto;
+			margin-inline-end: -16px;
 		}
 	}
 

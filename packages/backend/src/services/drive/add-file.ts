@@ -17,11 +17,6 @@ import {
 } from "@/models/index.js";
 import { DriveFile } from "@/models/entities/drive-file.js";
 import type { IRemoteUser, User } from "@/models/entities/user.js";
-import {
-	driveChart,
-	perUserDriveChart,
-	instanceChart,
-} from "@/services/chart/index.js";
 import { genId } from "@/misc/gen-id.js";
 import { isDuplicateKeyValueError } from "@/misc/is-duplicate-key-value-error.js";
 import { FILE_TYPE_BROWSERSAFE } from "@/const.js";
@@ -695,13 +690,6 @@ export async function addFile({
 			publishMainStream(user.id, "driveFileCreated", packedFile);
 			publishDriveStream(user.id, "fileCreated", packedFile);
 		});
-	}
-
-	// 統計を更新
-	driveChart.update(file, true);
-	perUserDriveChart.update(file, true);
-	if (file.userHost !== null) {
-		instanceChart.updateDrive(file, true);
 	}
 
 	return file;

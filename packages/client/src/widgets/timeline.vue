@@ -31,7 +31,7 @@
 					v-else-if="widgetProps.src === 'antenna'"
 					:class="icon('ph-television')"
 				></i>
-				<span style="margin-left: 8px">{{
+				<span style="margin-inline-start: 8px">{{
 					widgetProps.src === "list"
 						? widgetProps.list.name
 						: widgetProps.src === "antenna"
@@ -46,7 +46,7 @@
 								: 'ph-caret-down ph-lg',
 						)
 					"
-					style="margin-left: 8px"
+					style="margin-inline-start: 8px"
 				></i>
 			</button>
 		</template>

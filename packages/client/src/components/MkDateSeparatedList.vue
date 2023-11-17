@@ -176,18 +176,18 @@ export default defineComponent({
 
 			> span {
 				&:first-child {
-					margin-right: 8px;
+					margin-inline-end: 8px;
 
 					> .icon {
-						margin-right: 8px;
+						margin-inline-end: 8px;
 					}
 				}
 
 				&:last-child {
-					margin-left: 8px;
+					margin-inline-start: 8px;
 
 					> .icon {
-						margin-left: 8px;
+						margin-inline-start: 8px;
 					}
 				}
 			}

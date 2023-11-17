@@ -78,8 +78,8 @@ export default define(meta, paramDef, async (ps, me) => {
 		const nameQuery = Users.createQueryBuilder("user")
 			.where(
 				new Brackets((qb) => {
-					qb.where("user.name ILIKE :query", {
-						query: `%${sqlLikeEscape(ps.query)}%`,
+					qb.where("user.name &@~ :query", {
+						query: `${sqlLikeEscape(ps.query)}`,
 					});
 
 					// Also search username if it qualifies as username
@@ -115,8 +115,8 @@ export default define(meta, paramDef, async (ps, me) => {
 		if (users.length < ps.limit) {
 			const profQuery = UserProfiles.createQueryBuilder("prof")
 				.select("prof.userId")
-				.where("prof.description ILIKE :query", {
-					query: `%${sqlLikeEscape(ps.query)}%`,
+				.where("prof.description &@~ :query", {
+					query: `${sqlLikeEscape(ps.query)}`,
 				});
 
 			if (ps.origin === "local") {

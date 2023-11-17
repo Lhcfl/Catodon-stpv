@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  web:
+    image: catodon
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./files:/catodon/files
+      - ./.config:/catodon/.config:ro
+
+  redis:
+    restart: unless-stopped
+    image: docker.io/redis:7.0-alpine
+    volumes:
+      - ./redis:/data
+
+  db:
+    restart: unless-stopped
+    image: docker.io/groonga/pgroonga:latest-alpine-15
+    env_file:
+      - .config/docker.env
+    volumes:
+      - ./db:/var/lib/postgresql/data

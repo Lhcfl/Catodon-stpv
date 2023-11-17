@@ -23,7 +23,7 @@ block og
 block meta
 	unless privateMode
 		if profile.noCrawle
-			meta(name='robots' content='noindex')
+			meta(name='robots' content='noindex,nofollow,noarchive,nocache,noimageindex')
 		if profile.preventAiLearning
 			meta(name='robots' content='noai')
 			meta(name='robots' content='noimageai')

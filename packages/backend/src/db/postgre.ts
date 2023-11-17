@@ -194,7 +194,7 @@ export const db = new DataSource({
 	password: config.db.pass,
 	database: config.db.db,
 	extra: {
-		statement_timeout: 1000 * 10,
+		statement_timeout: 1000 * 30,
 		...config.db.extra,
 	},
 	synchronize: process.env.NODE_ENV === "test",
@@ -221,24 +221,20 @@ export const db = new DataSource({
 	migrations: ["../../migration/*.js"],
 });
 
-export async function initDb(force = false) {
+export async function initDb() {
 	await nativeInitDatabase(
 		`postgres://${config.db.user}:${encodeURIComponent(config.db.pass)}@${
 			config.db.host
 		}:${config.db.port}/${config.db.db}`,
 	);
-	if (force) {
-		if (db.isInitialized) {
-			await db.destroy();
-		}
+
+	if (!db.isInitialized) {
 		await db.initialize();
-		return;
 	}
 
-	if (db.isInitialized) {
-		// nop
-	} else {
-		await db.initialize();
+	const pgroonga = await db.query<{ exists: boolean }[]>(`SELECT EXISTS (SELECT extname FROM pg_catalog.pg_extension WHERE extname = 'pgroonga')`)
+	if (pgroonga.length > 0 && !pgroonga[0].exists) {
+		throw new Error("PGroonga is not installed")
 	}
 }
 

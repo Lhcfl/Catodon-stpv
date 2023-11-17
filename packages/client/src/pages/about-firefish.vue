@@ -170,7 +170,7 @@
 								:key="sponsor"
 								style="
 									margin-bottom: 0.5rem;
-									margin-right: 0.5rem;
+									margin-inline-end: 0.5rem;
 									font-size: 1.7rem;
 								"
 							>
@@ -192,7 +192,7 @@
 								:key="patron"
 								style="
 									margin-bottom: 0.5rem;
-									margin-right: 0.5rem;
+									margin-inline-end: 0.5rem;
 								"
 							>
 								<Mfm :text="`${patron}`" />
@@ -324,7 +324,7 @@ definePageMetadata({
 		> .emoji {
 			position: absolute;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			visibility: hidden;
 
 			> .emoji {

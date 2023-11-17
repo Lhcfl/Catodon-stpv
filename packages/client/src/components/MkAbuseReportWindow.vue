@@ -9,7 +9,7 @@
 		<template #header>
 			<i
 				:class="icon('ph-warning-circle')"
-				style="margin-right: 0.5em"
+				style="margin-inline-end: 0.5em"
 			></i>
 			<I18n :src="i18n.ts.reportAbuseOf" tag="span">
 				<template #name>

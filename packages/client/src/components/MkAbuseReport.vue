@@ -100,9 +100,9 @@ function resolve() {
 	> .target {
 		width: 35%;
 		box-sizing: border-box;
-		text-align: left;
+		text-align: initial;
 		padding: 24px;
-		border-right: solid 1px var(--divider);
+		border-inline-end: solid 1px var(--divider);
 
 		> .info {
 			display: flex;
@@ -129,7 +129,7 @@ function resolve() {
 			}
 
 			> .names {
-				margin-left: 0.3em;
+				margin-inline-start: 0.3em;
 				padding: 0 8px;
 				flex: 1;
 

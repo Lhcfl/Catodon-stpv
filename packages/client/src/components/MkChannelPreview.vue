@@ -12,7 +12,7 @@
 					<I18n
 						:src="i18n.ts._channel.usersCount"
 						tag="span"
-						style="margin-left: 4px"
+						style="margin-inline-start: 4px"
 					>
 						<template #n>
 							<b>{{ channel.usersCount }}</b>
@@ -24,7 +24,7 @@
 					<I18n
 						:src="i18n.ts._channel.notesCount"
 						tag="span"
-						style="margin-left: 4px"
+						style="margin-inline-start: 4px"
 					>
 						<template #n>
 							<b>{{ channel.notesCount }}</b>
@@ -88,7 +88,7 @@ const bannerStyle = computed(() => {
 		> .fade {
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 64px;
 			background: linear-gradient(0deg, var(--panel), var(--X15));
@@ -97,7 +97,7 @@ const bannerStyle = computed(() => {
 		> .name {
 			position: absolute;
 			top: 16px;
-			left: 16px;
+			inset-inline-start: 16px;
 			padding: 12px 16px;
 			-webkit-backdrop-filter: var(--blur, blur(8px));
 			backdrop-filter: var(--blur, blur(8px));
@@ -111,7 +111,7 @@ const bannerStyle = computed(() => {
 			position: absolute;
 			z-index: 1;
 			bottom: 16px;
-			right: 16px;
+			inset-inline-end: 16px;
 			padding: 8px 12px;
 			font-size: 80%;
 			-webkit-backdrop-filter: var(--blur, blur(8px));

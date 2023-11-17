@@ -156,7 +156,7 @@ function del(): void {
 				position: absolute;
 				z-index: 1;
 				top: -4px;
-				right: -4px;
+				inset-inline-end: -4px;
 				margin: 0;
 				padding: 0;
 				cursor: pointer;
@@ -250,17 +250,17 @@ function del(): void {
 			}
 
 			> i {
-				margin-left: 4px;
+				margin-inline-start: 4px;
 			}
 		}
 	}
 
 	&:not(.isMe) {
-		padding-left: var(--margin);
+		padding-inline-start: var(--margin);
 
 		> .content {
-			padding-left: 16px;
-			padding-right: 32px;
+			padding-inline-start: 16px;
+			padding-inline-end: 32px;
 
 			> .balloon {
 				$color: var(--X4);
@@ -271,11 +271,11 @@ function del(): void {
 				}
 
 				&:not(.noText):before {
-					left: -14px;
+					inset-inline-start: -14px;
 					border-top: solid 8px transparent;
-					border-right: solid 8px $color;
+					border-inline-end: solid 8px $color;
 					border-bottom: solid 8px transparent;
-					border-left: solid 8px transparent;
+					border-inline-start: solid 8px transparent;
 				}
 
 				> .content {
@@ -286,24 +286,26 @@ function del(): void {
 			}
 
 			> footer {
-				text-align: left;
+				text-align: initial;
 			}
 		}
 	}
 
 	&.isMe {
 		flex-direction: row-reverse;
-		padding-right: var(--margin);
-		right: var(--margin); // 削除時にposition: absoluteになったときに使う
+		padding-inline-end: var(--margin);
+		inset-inline-end: var(
+			--margin
+		); // 削除時にposition: absoluteになったときに使う
 
 		> .content {
-			padding-right: 16px;
-			padding-left: 32px;
+			padding-inline-end: 16px;
+			padding-inline-start: 32px;
 			text-align: right;
 
 			> .balloon {
 				background: $me-balloon-color;
-				text-align: left;
+				text-align: initial;
 
 				::selection {
 					color: var(--accent);
@@ -315,12 +317,12 @@ function del(): void {
 				}
 
 				&:not(.noText):before {
-					right: -14px;
-					left: auto;
+					inset-inline-end: -14px;
+					inset-inline-start: auto;
 					border-top: solid 8px transparent;
-					border-right: solid 8px transparent;
+					border-inline-end: solid 8px transparent;
 					border-bottom: solid 8px transparent;
-					border-left: solid 8px $me-balloon-color;
+					border-inline-start: solid 8px $me-balloon-color;
 				}
 
 				> .content {

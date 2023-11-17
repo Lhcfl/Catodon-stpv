@@ -1,5 +1,10 @@
 <template>
-	<div v-tooltip="text" class="fzgwjkgc" :class="user.onlineStatus"></div>
+	<div
+		v-if="user.onlineStatus !== 'unknown'"
+		v-tooltip="text"
+		class="fzgwjkgc"
+		:class="user.onlineStatus"
+	></div>
 </template>
 
 <script lang="ts" setup>
@@ -20,8 +25,6 @@ const text = computed(() => {
 			return i18n.ts.active;
 		case "offline":
 			return i18n.ts.offline;
-		case "unknown":
-			return i18n.ts.unknown;
 	}
 });
 </script>
@@ -41,10 +44,6 @@ const text = computed(() => {
 
 	&.offline {
 		background: #eb6f92;
-	}
-
-	&.unknown {
-		background: #6e6a86;
 	}
 }
 </style>

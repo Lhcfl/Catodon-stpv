@@ -35,7 +35,7 @@
 		/>
 	</p>
 	<div class="wrmlmaau">
-		<div
+		<bdi
 			class="content"
 			:class="{
 				collapsed,
@@ -154,7 +154,7 @@
 				v-model="showContent"
 				:note="note"
 			/>
-		</div>
+		</bdi>
 		<MkButton
 			v-if="hasMfm && defaultStore.state.animatedMfm"
 			mini
@@ -270,7 +270,7 @@ function focusFooter(ev) {
 	display: inline-block;
 	border-radius: 6px;
 	padding: 0.2em 0.2em;
-	margin-right: 0.2em;
+	margin-inline-end: 0.2em;
 	color: var(--accent);
 	transition: background 0.2s;
 	&:hover,
@@ -286,7 +286,7 @@ function focusFooter(ev) {
 	margin-bottom: 10px;
 	overflow-wrap: break-word;
 	> .text {
-		margin-right: 8px;
+		margin-inline-end: 8px;
 	}
 }
 
@@ -296,7 +296,7 @@ function focusFooter(ev) {
 		> .body {
 			transition: filter 0.1s;
 			> .rp {
-				margin-left: 4px;
+				margin-inline-start: 4px;
 				font-style: oblique;
 				color: var(--renote);
 			}
@@ -304,7 +304,7 @@ function focusFooter(ev) {
 				display: inline-block;
 				border-radius: 6px;
 				padding: 0.2em 0.2em;
-				margin-right: 0.2em;
+				margin-inline-end: 0.2em;
 				color: var(--accent);
 				transition: background 0.2s;
 				&:hover,
@@ -393,8 +393,8 @@ function focusFooter(ev) {
 	}
 	> :deep(button) {
 		margin-top: 10px;
-		margin-left: 0;
-		margin-right: 0.4rem;
+		margin-inline-start: 0;
+		margin-inline-end: 0.4rem;
 	}
 	> .fade {
 		position: absolute;

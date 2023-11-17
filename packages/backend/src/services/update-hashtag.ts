@@ -1,6 +1,5 @@
 import type { User } from "@/models/entities/user.js";
 import { Hashtags, Users } from "@/models/index.js";
-import { hashtagChart } from "@/services/chart/index.js";
 import { genId } from "@/misc/gen-id.js";
 import type { Hashtag } from "@/models/entities/hashtag.js";
 import { normalizeForSearch } from "@/misc/normalize-for-search.js";
@@ -150,9 +149,5 @@ export async function updateHashtag(
 				attachedRemoteUsersCount: 0,
 			} as Hashtag);
 		}
-	}
-
-	if (!isUserAttached) {
-		hashtagChart.update(tag, user);
 	}
 }

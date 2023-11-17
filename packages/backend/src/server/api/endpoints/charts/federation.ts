@@ -1,15 +1,9 @@
-import { getJsonSchema } from "@/services/chart/core.js";
-import { federationChart } from "@/services/chart/index.js";
-import define from "@/server/api/define.js";
+import define from "../../define.js";
 
 export const meta = {
 	tags: ["charts"],
 	requireCredentialPrivateMode: true,
-
-	res: getJsonSchema(federationChart.schema),
-
 	allowGet: true,
-	cacheSec: 60 * 60,
 } as const;
 
 export const paramDef = {
@@ -23,9 +17,15 @@ export const paramDef = {
 } as const;
 
 export default define(meta, paramDef, async (ps) => {
-	return await federationChart.getChart(
-		ps.span,
-		ps.limit,
-		ps.offset ? new Date(ps.offset) : null,
-	);
+	const zeros = Array<number>(ps.limit ?? 30).fill(0);
+	return {
+		deliveredInstances: zeros,
+		inboxInstances: zeros,
+		stalled: zeros,
+		sub: zeros,
+		pub: zeros,
+		pubsub: zeros,
+		subActive: zeros,
+		pubActive: zeros,
+	};
 });

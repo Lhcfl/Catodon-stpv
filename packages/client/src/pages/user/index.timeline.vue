@@ -1,9 +1,9 @@
 <template>
 	<MkStickyContainer>
 		<template #header>
-			<MkTab v-model="include" :class="$style.tab">
-				<option :value="null">{{ i18n.ts.notes }}</option>
-				<option value="replies">{{ i18n.ts.notesAndReplies }}</option>
+			<MkTab v-model="tab" :class="$style.tab">
+				<option :value="null">{{ i18n.ts.notesAndReplies }}</option>
+				<option value="notes">{{ i18n.ts.notes }}</option>
 				<option value="files">{{ i18n.ts.withFiles }}</option>
 			</MkTab>
 		</template>
@@ -22,15 +22,15 @@ const props = defineProps<{
 	user: firefish.entities.UserDetailed;
 }>();
 
-const include = ref<string | null>(null);
+const tab = ref<string | null>(null);
 
 const pagination = {
 	endpoint: "users/notes" as const,
 	limit: 10,
 	params: computed(() => ({
 		userId: props.user.id,
-		includeReplies: include.value === "replies",
-		withFiles: include.value === "files",
+		includeReplies: tab.value !== "notes",
+		withFiles: tab.value === "files",
 	})),
 };
 </script>

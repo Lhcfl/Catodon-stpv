@@ -167,7 +167,7 @@ const vote = async (id) => {
 			> .backdrop {
 				position: absolute;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				height: 100%;
 				background: var(--accent);
 				background: linear-gradient(
@@ -186,12 +186,12 @@ const vote = async (id) => {
 				border-radius: 3px;
 
 				> i {
-					margin-right: 4px;
+					margin-inline-end: 4px;
 					color: var(--accent);
 				}
 
 				> .votes {
-					margin-left: 4px;
+					margin-inline-start: 4px;
 					opacity: 0.7;
 				}
 			}

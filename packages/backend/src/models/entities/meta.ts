@@ -42,7 +42,7 @@ export class Meta {
 	public maintainerEmail: string | null;
 
 	@Column("boolean", {
-		default: false,
+		default: true,
 	})
 	public disableRegistration: boolean;
 
@@ -497,12 +497,12 @@ export class Meta {
 	public experimentalFeatures: Record<string, unknown>;
 
 	@Column("boolean", {
-		default: false,
+		default: true,
 	})
 	public enableServerMachineStats: boolean;
 
 	@Column("boolean", {
-		default: true,
+		default: false,
 	})
 	public enableIdenticonGeneration: boolean;
 

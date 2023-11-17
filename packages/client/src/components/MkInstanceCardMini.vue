@@ -19,7 +19,6 @@
 				{{ instance.softwareVersion }}</span
 			>
 		</div>
-		<MkMiniChart v-if="chartValues" class="chart" :src="chartValues" />
 	</div>
 </template>
 
@@ -27,25 +26,12 @@
 import { ref } from "vue";
 
 import type * as firefish from "firefish-js";
-import MkMiniChart from "@/components/MkMiniChart.vue";
 import * as os from "@/os";
 import { getProxiedImageUrlNullable } from "@/scripts/media-proxy";
 
 const props = defineProps<{
 	instance: firefish.entities.Instance;
 }>();
-
-const chartValues = ref<number[] | null>(null);
-
-os.apiGet("charts/instance", {
-	host: props.instance.host,
-	limit: 16 + 1,
-	span: "day",
-}).then((res) => {
-	// 今日のぶんの値はまだ途中の値であり、それも含めると大抵の場合前日よりも下降しているようなグラフになってしまうため今日は弾く
-	res.requests.received.splice(0, 1);
-	chartValues.value = res.requests.received;
-});
 
 function getInstanceIcon(instance): string {
 	return (
@@ -73,7 +59,7 @@ function getInstanceIcon(instance): string {
 		height: ($bodyTitleHieght + $bodyInfoHieght);
 		object-fit: cover;
 		border-radius: 4px;
-		margin-right: 10px;
+		margin-inline-end: 10px;
 	}
 
 	> :global(.body) {
@@ -81,7 +67,7 @@ function getInstanceIcon(instance): string {
 		overflow: hidden;
 		font-size: 0.9em;
 		color: var(--fg);
-		padding-right: 8px;
+		padding-inline-end: 8px;
 
 		> :global(.host) {
 			display: block;
@@ -102,10 +88,6 @@ function getInstanceIcon(instance): string {
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
-	}
-
-	> :global(.chart) {
-		height: 30px;
 	}
 
 	&:global(.yellow) {

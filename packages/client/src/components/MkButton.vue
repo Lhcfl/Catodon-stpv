@@ -128,8 +128,8 @@ function onMousedown(evt: MouseEvent): void {
 	overflow: clip;
 	box-sizing: border-box;
 	transition: background 0.1s ease;
-	margin-right: 0.2rem;
-	margin-left: 0.2rem;
+	margin-inline-end: 0.2rem;
+	margin-inline-start: 0.2rem;
 
 	&:not(:disabled):hover {
 		background: var(--buttonHoverBg);
@@ -227,7 +227,7 @@ function onMousedown(evt: MouseEvent): void {
 		position: absolute;
 		z-index: 0;
 		top: 0;
-		left: 0;
+		inset-inline-start: 0;
 		width: 100%;
 		height: 100%;
 		border-radius: 6px;

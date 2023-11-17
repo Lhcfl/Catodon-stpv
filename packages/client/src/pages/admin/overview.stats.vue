@@ -14,13 +14,8 @@
 						<div class="value">
 							<MkNumber
 								:value="stats.originalUsersCount"
-								style="margin-right: 0.5em"
+								style="margin-inline-end: 0.5em"
 							/>
-							<MkNumberDiff
-								v-tooltip="i18n.ts.dayOverDayChanges"
-								class="diff"
-								:value="usersComparedToThePrevDay"
-							></MkNumberDiff>
 						</div>
 						<div class="label">{{ i18n.ts.users }}</div>
 					</div>
@@ -33,13 +28,8 @@
 						<div class="value">
 							<MkNumber
 								:value="stats.originalNotesCount"
-								style="margin-right: 0.5em"
+								style="margin-inline-end: 0.5em"
 							/>
-							<MkNumberDiff
-								v-tooltip="i18n.ts.dayOverDayChanges"
-								class="diff"
-								:value="notesComparedToThePrevDay"
-							></MkNumberDiff>
 						</div>
 						<div class="label">{{ i18n.ts.notes }}</div>
 					</div>
@@ -52,7 +42,7 @@
 						<div class="value">
 							<MkNumber
 								:value="stats.instances"
-								style="margin-right: 0.5em"
+								style="margin-inline-end: 0.5em"
 							/>
 						</div>
 						<div class="label">{{ i18n.ts.instances }}</div>
@@ -66,7 +56,7 @@
 						<div class="value">
 							<MkNumber
 								:value="onlineUsersCount"
-								style="margin-right: 0.5em"
+								style="margin-inline-end: 0.5em"
 							/>
 						</div>
 						<div class="label">{{ i18n.ts.online }}</div>
@@ -80,7 +70,7 @@
 						<div class="value">
 							<MkNumber
 								:value="emojiCount"
-								style="margin-right: 0.5em"
+								style="margin-inline-end: 0.5em"
 							/>
 						</div>
 						<div class="label">{{ i18n.ts.emojis }}</div>
@@ -96,7 +86,6 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import * as os from "@/os";
-import MkNumberDiff from "@/components/MkNumberDiff.vue";
 import MkNumber from "@/components/MkNumber.vue";
 import { i18n } from "@/i18n";
 import { defaultStore } from "@/store";
@@ -152,7 +141,7 @@ onMounted(async () => {
 				place-items: center;
 				height: 100%;
 				aspect-ratio: 1;
-				margin-right: 12px;
+				margin-inline-end: 12px;
 				background: var(--accentedBg);
 				color: var(--accent);
 				border-radius: 10px;

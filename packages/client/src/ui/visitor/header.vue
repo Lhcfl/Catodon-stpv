@@ -171,7 +171,7 @@ export default defineComponent({
 	$height: 60px;
 	position: sticky;
 	top: 0;
-	left: 0;
+	inset-inline-start: 0;
 	z-index: 1000;
 	line-height: $height;
 	-webkit-backdrop-filter: var(--blur, blur(32px));
@@ -194,7 +194,7 @@ export default defineComponent({
 				border-bottom: solid $line transparent;
 
 				> .icon {
-					margin-right: 0.5em;
+					margin-inline-end: 0.5em;
 				}
 
 				&.page {
@@ -212,7 +212,7 @@ export default defineComponent({
 					position: relative;
 
 					> .icon + .text {
-						margin-left: 8px;
+						margin-inline-start: 8px;
 					}
 
 					> .avatar {
@@ -221,7 +221,7 @@ export default defineComponent({
 						width: $size;
 						height: $size;
 						vertical-align: middle;
-						margin-right: 8px;
+						margin-inline-end: 8px;
 						pointer-events: none;
 					}
 
@@ -243,15 +243,15 @@ export default defineComponent({
 			}
 
 			> .right {
-				margin-left: auto;
+				margin-inline-start: auto;
 
 				> .search {
 					background: var(--bg);
 					border-radius: 999px;
 					width: 230px;
 					line-height: $height - 20px;
-					margin-right: 16px;
-					text-align: left;
+					margin-inline-end: 16px;
+					text-align: initial;
 
 					> * {
 						opacity: 0.7;
@@ -294,7 +294,7 @@ export default defineComponent({
 			text-align: center;
 
 			> .icon + .text {
-				margin-left: 8px;
+				margin-inline-start: 8px;
 			}
 
 			> .avatar {
@@ -303,7 +303,7 @@ export default defineComponent({
 				width: $size;
 				height: $size;
 				vertical-align: middle;
-				margin-right: 8px;
+				margin-inline-end: 8px;
 				pointer-events: none;
 			}
 		}

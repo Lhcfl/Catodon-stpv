@@ -17,40 +17,6 @@
 					<div class="subTitle">Top 10</div>
 				</div>
 			</div>
-			<div v-if="!fetching" class="items">
-				<div class="item _panel sub">
-					<div class="icon">
-						<i :class="icon('ph-download ph-xl', false)"></i>
-					</div>
-					<div class="body">
-						<div class="value">
-							{{ number(federationSubActive) }}
-							<MkNumberDiff
-								v-tooltip="i18n.ts.dayOverDayChanges"
-								class="diff"
-								:value="federationSubActiveDiff"
-							></MkNumberDiff>
-						</div>
-						<div class="label">Sub</div>
-					</div>
-				</div>
-				<div class="item _panel pub">
-					<div class="icon">
-						<i :class="icon('ph-upload ph-xl', false)"></i>
-					</div>
-					<div class="body">
-						<div class="value">
-							{{ number(federationPubActive) }}
-							<MkNumberDiff
-								v-tooltip="i18n.ts.dayOverDayChanges"
-								class="diff"
-								:value="federationPubActiveDiff"
-							></MkNumberDiff>
-						</div>
-						<div class="label">Pub</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </template>
@@ -59,11 +25,7 @@
 import { onMounted, ref } from "vue";
 import XPie from "./overview.pie.vue";
 import * as os from "@/os";
-import number from "@/filters/number";
-import MkNumberDiff from "@/components/MkNumberDiff.vue";
-import { i18n } from "@/i18n";
 import { useChartTooltip } from "@/scripts/use-chart-tooltip";
-import icon from "@/scripts/icon";
 
 const topSubInstancesForPie = ref<any>(null);
 const topPubInstancesForPie = ref<any>(null);
@@ -140,7 +102,7 @@ onMounted(async () => {
 				> .title {
 					position: absolute;
 					top: 20px;
-					left: 20px;
+					inset-inline-start: 20px;
 					font-size: 90%;
 				}
 
@@ -151,7 +113,7 @@ onMounted(async () => {
 				> .subTitle {
 					position: absolute;
 					bottom: 20px;
-					right: 20px;
+					inset-inline-end: 20px;
 					font-size: 85%;
 				}
 			}
@@ -172,7 +134,7 @@ onMounted(async () => {
 					place-items: center;
 					height: 100%;
 					aspect-ratio: 1;
-					margin-right: 12px;
+					margin-inline-end: 12px;
 					background: var(--accentedBg);
 					color: var(--accent);
 					border-radius: 10px;

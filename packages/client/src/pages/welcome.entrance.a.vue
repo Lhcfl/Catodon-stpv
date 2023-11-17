@@ -51,7 +51,7 @@
 							rounded
 							gradate
 							data-cy-signup
-							style="margin-right: 12px"
+							style="margin-inline-end: 12px"
 							@click="signup()"
 							>{{ i18n.ts.signup }}</MkButton
 						>
@@ -65,7 +65,7 @@
 						<MkButton
 							inline
 							rounded
-							style="margin-left: 12px; margin-top: 12px"
+							style="margin-inline-start: 12px; margin-top: 12px"
 							onclick="window.location.href='/explore'"
 							>Explore</MkButton
 						>
@@ -208,7 +208,7 @@ function showMenu(ev) {
 		> .bg {
 			position: absolute;
 			top: 0;
-			right: 0;
+			inset-inline-end: 0;
 			width: 80%; // 100%からshapeの幅を引いている
 			height: 100%;
 		}
@@ -217,7 +217,7 @@ function showMenu(ev) {
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			right: 64px;
+			inset-inline-end: 64px;
 			margin: auto;
 			width: 500px;
 			height: calc(100% - 128px);
@@ -245,7 +245,7 @@ function showMenu(ev) {
 		> .shape1 {
 			position: absolute;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 100%;
 			background: var(--accent);
@@ -254,7 +254,7 @@ function showMenu(ev) {
 		> .shape2 {
 			position: absolute;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 100%;
 			background: var(--accent);
@@ -265,7 +265,7 @@ function showMenu(ev) {
 		> .misskey {
 			position: absolute;
 			top: 42px;
-			left: 42px;
+			inset-inline-start: 42px;
 			width: 140px;
 
 			@media (max-width: 450px) {
@@ -276,11 +276,11 @@ function showMenu(ev) {
 		> .emojis {
 			position: absolute;
 			bottom: 32px;
-			left: 115px;
+			inset-inline-start: 115px;
 			transform: scale(1.5);
 
 			> * {
-				margin-right: 8px;
+				margin-inline-end: 8px;
 			}
 
 			@media (max-width: 1200px) {
@@ -309,7 +309,7 @@ function showMenu(ev) {
 			> .menu {
 				position: absolute;
 				top: 16px;
-				right: 16px;
+				inset-inline-end: 16px;
 				width: 32px;
 				height: 32px;
 				border-radius: 8px;
@@ -352,8 +352,8 @@ function showMenu(ev) {
 		> .federation {
 			position: absolute;
 			bottom: 16px;
-			left: 0;
-			right: 0;
+			inset-inline-start: 0;
+			inset-inline-end: 0;
 			margin: auto;
 			background: var(--acrylicPanel);
 			-webkit-backdrop-filter: var(--blur, blur(15px));
@@ -361,7 +361,7 @@ function showMenu(ev) {
 			border-radius: 999px;
 			overflow: clip;
 			width: 35%;
-			left: 50%;
+			inset-inline-start: 50%;
 			padding: 8px 0;
 
 			@media (max-width: 900px) {
@@ -386,7 +386,7 @@ function showMenu(ev) {
 		display: inline-block;
 		width: 20px;
 		height: 20px;
-		margin-right: 5px;
+		margin-inline-end: 5px;
 		border-radius: 999px;
 	}
 }

@@ -67,7 +67,7 @@ const zIndex = os.claimZIndex("high");
 <style lang="scss" scoped>
 .mk-uploader {
 	position: fixed;
-	right: 16px;
+	inset-inline-end: 16px;
 	width: 260px;
 	top: 32px;
 	padding: 16px 20px;
@@ -125,7 +125,7 @@ const zIndex = os.claimZIndex("high");
 	flex-shrink: 1;
 }
 .mk-uploader > ol > li > .top > .name > i {
-	margin-right: 4px;
+	margin-inline-end: 4px;
 }
 .mk-uploader > ol > li > .top > .status {
 	display: block;

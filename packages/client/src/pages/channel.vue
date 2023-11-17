@@ -43,7 +43,7 @@
 								><I18n
 									:src="i18n.ts._channel.usersCount"
 									tag="span"
-									style="margin-left: 4px"
+									style="margin-inline-start: 4px"
 									><template #n
 										><b>{{
 											channel.usersCount
@@ -56,7 +56,7 @@
 								><I18n
 									:src="i18n.ts._channel.notesCount"
 									tag="span"
-									style="margin-left: 4px"
+									style="margin-inline-start: 4px"
 									><template #n
 										><b>{{
 											channel.notesCount
@@ -165,14 +165,14 @@ definePageMetadata(
 		position: absolute;
 		z-index: 1;
 		top: 16px;
-		left: 16px;
+		inset-inline-start: 16px;
 	}
 
 	> .toggle {
 		position: absolute;
 		z-index: 2;
 		top: 8px;
-		right: 8px;
+		inset-inline-end: 8px;
 		font-size: 1.2em;
 		width: 48px;
 		height: 48px;
@@ -194,7 +194,7 @@ definePageMetadata(
 		> .fade {
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			inset-inline-start: 0;
 			width: 100%;
 			height: 64px;
 			background: linear-gradient(0deg, var(--panel), var(--X15));
@@ -204,7 +204,7 @@ definePageMetadata(
 			position: absolute;
 			z-index: 1;
 			bottom: 16px;
-			right: 16px;
+			inset-inline-end: 16px;
 			padding: 8px 12px;
 			font-size: 80%;
 			background: rgba(0, 0, 0, 0.7);
@@ -221,7 +221,7 @@ definePageMetadata(
 		position: absolute;
 		z-index: 1;
 		top: 0;
-		left: 0;
+		inset-inline-start: 0;
 		width: 100%;
 		height: 100%;
 		-webkit-backdrop-filter: var(--blur, blur(16px));
@@ -236,7 +236,7 @@ definePageMetadata(
 
 		> .toggle {
 			top: 0;
-			right: 0;
+			inset-inline-end: 0;
 			height: 100%;
 			background: transparent;
 		}

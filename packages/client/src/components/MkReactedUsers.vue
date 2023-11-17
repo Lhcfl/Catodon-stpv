@@ -18,17 +18,12 @@
 					:custom-emojis="note.emojis"
 					style="max-width: 100%"
 				/>
-				<span style="margin-left: 4px">{{
+				<span style="margin-inline-start: 4px">{{
 					note.reactions[reaction]
 				}}</span>
 			</button>
 		</div>
-		<MkUserCardMini
-			v-for="user in users"
-			:key="user.id"
-			:user="user"
-			:with-chart="false"
-		/>
+		<MkUserCardMini v-for="user in users" :key="user.id" :user="user" />
 	</div>
 	<div v-else>
 		<MkLoading />

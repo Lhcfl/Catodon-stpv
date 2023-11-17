@@ -110,7 +110,7 @@
 					<MkButton
 						:disabled="fields.length >= 16"
 						inline
-						style="margin-right: 8px"
+						style="margin-inline-end: 8px"
 						@click="addField"
 						><i :class="icon('ph-plus')"></i>
 						{{ i18n.ts.add }}</MkButton
@@ -323,7 +323,7 @@ definePageMetadata({
 	> .bannerEdit {
 		position: absolute;
 		top: 16px;
-		right: 16px;
+		inset-inline-end: 16px;
 	}
 }
 </style>

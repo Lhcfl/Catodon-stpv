@@ -35,10 +35,6 @@ export default function (app: App) {
 		defineAsyncComponent(() => import("./clock.vue")),
 	);
 	app.component(
-		"MkwActivity",
-		defineAsyncComponent(() => import("./activity.vue")),
-	);
-	app.component(
 		"MkwPhotos",
 		defineAsyncComponent(() => import("./photos.vue")),
 	);
@@ -106,7 +102,6 @@ export const widgets = [
 	"rssTicker",
 	"trends",
 	"clock",
-	"activity",
 	"photos",
 	"digitalClock",
 	"unixClock",

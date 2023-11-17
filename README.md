@@ -39,7 +39,7 @@
   - Backfill user information
   - Advanced search
   - Many more user and admin settings
-  - Many bug fixes and performance improvements 
+  - Many bug fixes and performance improvements
   - Link verification
   - So much more!
 
@@ -103,6 +103,7 @@ If you have access to a server that supports one of the sources below, I recomme
   - 🦦 Caddy
   - 🪶 Apache
 - ⚡ [libvips](https://www.libvips.org/)
+- [PGroonga](https://pgroonga.github.io/)
 
 ### 😗 Optional dependencies
 

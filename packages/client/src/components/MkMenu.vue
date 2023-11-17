@@ -359,7 +359,7 @@ onBeforeUnmount(() => {
 		white-space: nowrap;
 		font-size: 0.9em;
 		line-height: 20px;
-		text-align: left;
+		text-align: initial;
 		outline: none;
 
 		&:before {
@@ -367,8 +367,8 @@ onBeforeUnmount(() => {
 			display: block;
 			position: absolute;
 			top: 0;
-			left: 0;
-			right: 0;
+			inset-inline-start: 0;
+			inset-inline-end: 0;
 			margin: auto;
 			width: calc(100% - 16px);
 			margin-bottom: 0.2rem;
@@ -472,7 +472,7 @@ onBeforeUnmount(() => {
 			cursor: default;
 
 			> .caret {
-				margin-left: auto;
+				margin-inline-start: auto;
 			}
 
 			&.childShowing {
@@ -486,12 +486,12 @@ onBeforeUnmount(() => {
 		}
 
 		> i {
-			margin-right: 5px;
+			margin-inline-end: 5px;
 			width: 20px;
 		}
 
 		> .avatar {
-			margin-right: 5px;
+			margin-inline-end: 5px;
 			width: 20px;
 			height: 20px;
 		}
@@ -499,7 +499,7 @@ onBeforeUnmount(() => {
 		> .indicator {
 			position: absolute;
 			top: 5px;
-			left: 13px;
+			inset-inline-start: 13px;
 			color: var(--indicator);
 			font-size: 12px;
 		}
@@ -531,7 +531,7 @@ onBeforeUnmount(() => {
 			}
 
 			> i {
-				margin-right: 14px;
+				margin-inline-end: 14px;
 				width: 24px;
 			}
 		}

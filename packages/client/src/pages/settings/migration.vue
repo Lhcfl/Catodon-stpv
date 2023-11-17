@@ -37,7 +37,7 @@
 				class="button"
 				:disabled="accountAlias.length >= 10"
 				inline
-				style="margin-right: 8px"
+				style="margin-inline-end: 8px"
 				@click="add"
 				><i :class="icon('ph-plus')"></i> {{ i18n.ts.add }}</FormButton
 			>

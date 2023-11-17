@@ -71,7 +71,7 @@ export default function load() {
 			...config.clusterLimits,
 		};
 
-		if (config.clusterLimits.web! < 1 || config.clusterLimits.queue! < 1) {
+		if ((config.clusterLimits?.web && config.clusterLimits.web < 1) || (config.clusterLimits?.queue && config.clusterLimits.queue < 1)) {
 			throw new Error("Invalid cluster limits");
 		}
 	}

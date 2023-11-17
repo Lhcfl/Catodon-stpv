@@ -107,7 +107,7 @@ definePageMetadata({
 		float: left;
 		min-width: 25px;
 		padding: 13px;
-		margin-right: 10px;
+		margin-inline-end: 10px;
 		border: solid 1px var(--divider);
 		border-radius: 6px;
 
@@ -137,7 +137,7 @@ definePageMetadata({
 	.notify-icon {
 		position: relative;
 		top: -1em;
-		left: -0.5em;
+		inset-inline-start: -0.5em;
 
 		&.ph-circle ph-fill {
 			color: var(--indicator);

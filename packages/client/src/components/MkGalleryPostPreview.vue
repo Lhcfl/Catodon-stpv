@@ -82,7 +82,7 @@ const props = defineProps<{
 			display: flex;
 
 			> .avatar {
-				margin-left: auto;
+				margin-inline-start: auto;
 				width: 32px;
 				height: 32px;
 			}
@@ -104,7 +104,7 @@ const props = defineProps<{
 				position: absolute;
 				z-index: -1;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				width: 100%;
 				height: 100%;
 				background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);

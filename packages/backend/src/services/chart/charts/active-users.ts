@@ -16,14 +16,6 @@ export default class ActiveUsersChart extends Chart<typeof schema> {
 		super(name, schema);
 	}
 
-	protected async tickMajor(): Promise<Partial<KVs<typeof schema>>> {
-		return {};
-	}
-
-	protected async tickMinor(): Promise<Partial<KVs<typeof schema>>> {
-		return {};
-	}
-
 	public read(user: {
 		id: User["id"];
 		host: null;

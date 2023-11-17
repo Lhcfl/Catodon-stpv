@@ -79,7 +79,7 @@ defineProps<{
 				overflow-wrap: break-word;
 
 				> .text {
-					margin-right: 8px;
+					margin-inline-end: 8px;
 				}
 			}
 

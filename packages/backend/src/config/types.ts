@@ -37,27 +37,6 @@ export type Source = {
 		user?: string;
 		tls?: { [z: string]: string };
 	};
-	elasticsearch: {
-		host: string;
-		port: number;
-		ssl?: boolean;
-		user?: string;
-		pass?: string;
-		index?: string;
-	};
-	sonic: {
-		host: string;
-		port: number;
-		auth?: string;
-		collection?: string;
-		bucket?: string;
-	};
-	meilisearch: {
-		host: string;
-		port: number;
-		apiKey?: string;
-		ssl: boolean;
-	};
 
 	proxy?: string;
 	proxySmtp?: string;
@@ -147,7 +126,7 @@ export type Source = {
 };
 
 /**
- * Misskeyが自動的に(ユーザーが設定した情報から推論して)設定する情報
+ * Derived from user's configuration
  */
 export type Mixin = {
 	version: string;

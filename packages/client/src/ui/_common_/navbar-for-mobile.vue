@@ -185,7 +185,7 @@ function more() {
 			> .banner {
 				position: absolute;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				width: 100%;
 				height: 100%;
 				background-size: cover;
@@ -232,7 +232,7 @@ function more() {
 				height: 40px;
 				color: var(--fgOnAccent);
 				font-weight: bold;
-				text-align: left;
+				text-align: initial;
 
 				&:before {
 					content: "";
@@ -242,8 +242,8 @@ function more() {
 					margin: auto;
 					position: absolute;
 					top: 0;
-					left: 0;
-					right: 0;
+					inset-inline-start: 0;
+					inset-inline-end: 0;
 					bottom: 0;
 					border-radius: 999px;
 					background: linear-gradient(
@@ -262,8 +262,8 @@ function more() {
 
 				> .icon {
 					position: relative;
-					margin-left: 30px;
-					margin-right: 8px;
+					margin-inline-start: 30px;
+					margin-inline-end: 8px;
 					width: 32px;
 				}
 
@@ -291,12 +291,12 @@ function more() {
 				position: relative;
 				display: flex;
 				align-items: center;
-				padding-left: 30px;
+				padding-inline-start: 30px;
 				text-overflow: ellipsis;
 				overflow: hidden;
 				white-space: nowrap;
 				width: 100%;
-				text-align: left;
+				text-align: initial;
 				box-sizing: border-box;
 				margin-top: 16px;
 
@@ -305,7 +305,7 @@ function more() {
 					width: 32px;
 					aspect-ratio: 1;
 					transform: translateX(-100%);
-					left: 50%;
+					inset-inline-start: 50%;
 				}
 			}
 		}
@@ -321,26 +321,26 @@ function more() {
 			> .item {
 				position: relative;
 				display: block;
-				padding-left: 24px;
+				padding-inline-start: 24px;
 				line-height: 2.85rem;
 				text-overflow: ellipsis;
 				overflow: hidden;
 				white-space: nowrap;
 				width: 100%;
-				text-align: left;
+				text-align: initial;
 				box-sizing: border-box;
 				color: var(--navFg);
 
 				> .icon {
 					position: relative;
 					width: 32px;
-					margin-right: 8px;
+					margin-inline-end: 8px;
 				}
 
 				> .indicator {
 					position: absolute;
 					top: 0;
-					left: 20px;
+					inset-inline-start: 20px;
 					color: var(--navIndicator);
 					font-size: 8px;
 				}
@@ -373,8 +373,8 @@ function more() {
 						margin: auto;
 						position: absolute;
 						top: 0;
-						left: 0;
-						right: 0;
+						inset-inline-start: 0;
+						inset-inline-end: 0;
 						bottom: 0;
 						border-radius: 999px;
 						background: var(--accentedBg);

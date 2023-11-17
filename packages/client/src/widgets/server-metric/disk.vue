@@ -35,7 +35,7 @@ const available = computed(() => props.meta.fs.total - props.meta.fs.used);
 	> .pie {
 		height: 82px;
 		flex-shrink: 0;
-		margin-right: 16px;
+		margin-inline-end: 16px;
 	}
 
 	> div {
@@ -50,7 +50,7 @@ const available = computed(() => props.meta.fs.total - props.meta.fs.used);
 				margin-bottom: 4px;
 
 				> i {
-					margin-right: 4px;
+					margin-inline-end: 4px;
 				}
 			}
 		}

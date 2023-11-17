@@ -1,15 +1,9 @@
-import { getJsonSchema } from "@/services/chart/core.js";
-import { hashtagChart } from "@/services/chart/index.js";
-import define from "@/server/api/define.js";
+import define from "../../define.js";
 
 export const meta = {
 	tags: ["charts", "hashtags"],
 	requireCredentialPrivateMode: true,
-
-	res: getJsonSchema(hashtagChart.schema),
-
 	allowGet: true,
-	cacheSec: 60 * 60,
 } as const;
 
 export const paramDef = {
@@ -24,10 +18,13 @@ export const paramDef = {
 } as const;
 
 export default define(meta, paramDef, async (ps) => {
-	return await hashtagChart.getChart(
-		ps.span,
-		ps.limit,
-		ps.offset ? new Date(ps.offset) : null,
-		ps.tag,
-	);
+	const zeros = new Array<number>(ps.limit ?? 30).fill(0);
+	return {
+		local: {
+			users: zeros,
+		},
+		remote: {
+			users: zeros,
+		},
+	};
 });

@@ -302,7 +302,7 @@ function onContextmenu(ev: MouseEvent) {
 	> .checkbox {
 		position: absolute;
 		bottom: 8px;
-		right: 8px;
+		inset-inline-end: 8px;
 		width: 16px;
 		height: 16px;
 		background: #fff;
@@ -319,9 +319,9 @@ function onContextmenu(ev: MouseEvent) {
 			pointer-events: none;
 			position: absolute;
 			top: -4px;
-			right: -4px;
+			inset-inline-end: -4px;
 			bottom: -4px;
-			left: -4px;
+			inset-inline-start: -4px;
 			border: 2px dashed var(--focus);
 			border-radius: 4px;
 		}
@@ -333,9 +333,9 @@ function onContextmenu(ev: MouseEvent) {
 		color: var(--desktopDriveFolderFg);
 
 		> i {
-			margin-right: 4px;
-			margin-left: 2px;
-			text-align: left;
+			margin-inline-end: 4px;
+			margin-inline-start: 2px;
+			text-align: initial;
 		}
 	}
 

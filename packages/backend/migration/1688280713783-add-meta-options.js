@@ -3,10 +3,10 @@ export class AddMetaOptions1688280713783 {
 
 	async up(queryRunner) {
 		await queryRunner.query(
-			`ALTER TABLE "meta" ADD "enableServerMachineStats" boolean NOT NULL DEFAULT false`,
+			`ALTER TABLE "meta" ADD "enableServerMachineStats" boolean NOT NULL DEFAULT true`,
 		);
 		await queryRunner.query(
-			`ALTER TABLE "meta" ADD "enableIdenticonGeneration" boolean NOT NULL DEFAULT true`,
+			`ALTER TABLE "meta" ADD "enableIdenticonGeneration" boolean NOT NULL DEFAULT false`,
 		);
 	}
 

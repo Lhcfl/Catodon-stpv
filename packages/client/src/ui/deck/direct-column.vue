@@ -7,7 +7,7 @@
 		<template #header
 			><i
 				:class="icon('ph-envelope-simple-open')"
-				style="margin-right: 8px"
+				style="margin-inline-end: 8px"
 			></i
 			>{{ column.name }}</template
 		>

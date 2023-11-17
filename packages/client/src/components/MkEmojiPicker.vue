@@ -634,7 +634,7 @@ defineExpose({
 			> header {
 				/*position: sticky;
 				top: 0;
-				left: 0;*/
+				inset-inline-start: 0;*/
 				height: 32px;
 				line-height: 32px;
 				z-index: 2;
@@ -647,7 +647,7 @@ defineExpose({
 			> header {
 				position: sticky;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				height: 32px;
 				line-height: 32px;
 				z-index: 1;

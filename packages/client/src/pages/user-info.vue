@@ -307,44 +307,6 @@
 						</FormInput>
 					</FormSection>
 				</div>
-				<div v-else-if="tab === 'chart'" class="_formRoot">
-					<div class="cmhjzshm">
-						<div class="selects">
-							<MkSelect
-								v-model="chartSrc"
-								style="margin: 0 10px 0 0; flex: 1"
-							>
-								<option value="per-user-notes">
-									{{ i18n.ts.notes }}
-								</option>
-							</MkSelect>
-						</div>
-						<div class="charts">
-							<div class="label">
-								{{ i18n.t("recentNHours", { n: 90 }) }}
-							</div>
-							<MkChart
-								class="chart"
-								:src="chartSrc"
-								span="hour"
-								:limit="90"
-								:args="{ user, withoutAll: true }"
-								:detailed="true"
-							></MkChart>
-							<div class="label">
-								{{ i18n.t("recentNDays", { n: 90 }) }}
-							</div>
-							<MkChart
-								class="chart"
-								:src="chartSrc"
-								span="day"
-								:limit="90"
-								:args="{ user, withoutAll: true }"
-								:detailed="true"
-							></MkChart>
-						</div>
-					</div>
-				</div>
 				<div v-else-if="tab === 'raw'" class="_formRoot">
 					<MkObjectView v-if="info && $i.isAdmin" tall :value="info">
 					</MkObjectView>
@@ -358,8 +320,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from "vue";
-import type * as firefish from "firefish-js";
-import MkChart from "@/components/MkChart.vue";
+import type * as misskey from "firefish-js";
 import MkObjectView from "@/components/MkObjectView.vue";
 import FormTextarea from "@/components/form/textarea.vue";
 import FormSwitch from "@/components/form/switch.vue";
@@ -387,8 +348,7 @@ const props = defineProps<{
 }>();
 
 const tab = ref("overview");
-const chartSrc = ref("per-user-notes");
-const user = ref<null | firefish.entities.UserDetailed>();
+const user = ref<null | misskey.entities.UserDetailed>();
 const init = ref<ReturnType<typeof createFetcher>>();
 const info = ref();
 const ips = ref(null);
@@ -648,11 +608,6 @@ const headerTabs = computed(() =>
 			  }
 			: null,
 		{
-			key: "chart",
-			title: i18n.ts.charts,
-			icon: `${icon("ph-chart-bar")}`,
-		},
-		{
 			key: "raw",
 			title: "Raw",
 			icon: `${icon("ph-code")}`,
@@ -677,7 +632,7 @@ definePageMetadata(
 		display: block;
 		width: 64px;
 		height: 64px;
-		margin-right: 16px;
+		margin-inline-end: 16px;
 	}
 
 	> .body {
@@ -745,13 +700,6 @@ definePageMetadata(
 		display: flex;
 		margin: 0 0 16px 0;
 	}
-
-	> .charts {
-		> .label {
-			margin-bottom: 12px;
-			font-weight: bold;
-		}
-	}
 }
 </style>
 
@@ -764,7 +712,7 @@ definePageMetadata(
 	}
 
 	> :global(.ip) {
-		margin-left: auto;
+		margin-inline-start: auto;
 	}
 }
 </style>

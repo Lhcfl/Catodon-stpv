@@ -483,7 +483,7 @@ function noteClick(e) {
 	outline: none;
 	&.children {
 		padding: 10px 0 0 var(--indent);
-		padding-left: var(--indent) !important;
+		padding-inline-start: var(--indent) !important;
 		font-size: 1em;
 		cursor: auto;
 
@@ -496,7 +496,7 @@ function noteClick(e) {
 		display: flex;
 
 		> .avatar-container {
-			margin-right: 8px;
+			margin-inline-end: 8px;
 			z-index: 2;
 			> .avatar {
 				flex-shrink: 0;
@@ -561,7 +561,7 @@ function noteClick(e) {
 						transition: background 0.2s;
 					}
 					&:first-of-type {
-						margin-left: -0.5em;
+						margin-inline-start: -0.5em;
 						&::before {
 							border-radius: 100px 0 0 100px;
 						}
@@ -603,19 +603,19 @@ function noteClick(e) {
 	&.reply,
 	&.reply-to {
 		> .main > .body {
-			margin-right: -24px;
-			padding-right: 24px;
+			margin-inline-end: -24px;
+			padding-inline-end: 24px;
 			margin-top: -12px;
 			padding-top: 12px;
-			margin-left: calc(0px - var(--avatarSize) - 32px);
-			padding-left: calc(var(--avatarSize) + 32px);
+			margin-inline-start: calc(0px - var(--avatarSize) - 32px);
+			padding-inline-start: calc(var(--avatarSize) + 32px);
 			border-radius: var(--radius);
 		}
 	}
 	&.reply-to {
 		> .main > .body {
-			margin-left: calc(0px - var(--avatarSize) - 38px);
-			padding-left: calc(var(--avatarSize) + 38px);
+			margin-inline-start: calc(0px - var(--avatarSize) - 38px);
+			padding-inline-start: calc(var(--avatarSize) + 38px);
 			margin-top: -16px;
 			padding-top: 16px;
 		}
@@ -623,7 +623,7 @@ function noteClick(e) {
 	&.reply {
 		--avatarSize: 38px;
 		.avatar-container {
-			margin-right: 8px !important;
+			margin-inline-end: 8px !important;
 		}
 	}
 	> .reply,
@@ -647,7 +647,7 @@ function noteClick(e) {
 			flex-grow: 0 !important;
 			margin-top: -10px !important;
 			margin-bottom: 10px !important;
-			margin-right: 10px !important;
+			margin-inline-end: 10px !important;
 			&::before {
 				border-left-style: dashed !important;
 				border-bottom-left-radius: 100px !important;
@@ -702,7 +702,7 @@ function noteClick(e) {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				margin-right: 14px;
+				margin-inline-end: 14px;
 				width: var(--avatarSize);
 				> .avatar {
 					width: var(--avatarSize);
@@ -723,8 +723,8 @@ function noteClick(e) {
 			&::before {
 				content: "";
 				position: absolute;
-				border-left: 2px solid currentColor;
-				margin-left: calc((var(--avatarSize) / 2) - 1px);
+				border-inline-start: 2px solid currentColor;
+				margin-inline-start: calc((var(--avatarSize) / 2) - 1px);
 				width: calc(var(--indent) / 2);
 				inset-block: 0;
 				min-height: 8px;
@@ -749,7 +749,7 @@ function noteClick(e) {
 		> .line {
 			position: absolute;
 			top: 0;
-			left: 0;
+			inset-inline-start: 0;
 			bottom: 0;
 		}
 	}
@@ -759,15 +759,15 @@ function noteClick(e) {
 		> .line {
 			position: absolute;
 			z-index: 2;
-			left: 0;
+			inset-inline-start: 0;
 			top: 0;
 			opacity: 0.25;
 			&::after {
 				content: "";
 				position: absolute;
-				border-left: 2px solid currentColor;
+				border-inline-start: 2px solid currentColor;
 				border-bottom: 2px solid currentColor;
-				margin-left: calc((var(--avatarSize) / 2) - 1px);
+				margin-inline-start: calc((var(--avatarSize) / 2) - 1px);
 				width: calc(var(--indent) / 2);
 				height: calc((var(--avatarSize) / 2));
 				border-bottom-left-radius: calc(var(--indent) / 2);
@@ -790,7 +790,7 @@ function noteClick(e) {
 		// 	border-top: 1px solid var(--X13);
 		// 	position: absolute;
 		// 	bottom: 0;
-		// 	margin-left: calc(var(--avatarSize) + 12px);
+		// 	margin-inline-start: calc(var(--avatarSize) + 12px);
 		// 	inset-inline: 0;
 		// }
 	}
@@ -818,7 +818,7 @@ function noteClick(e) {
 				--indent: 35px;
 			}
 			> .children:not(.single) {
-				padding-left: 28px !important;
+				padding-inline-start: 28px !important;
 			}
 		}
 		&.reply-to {
@@ -829,7 +829,7 @@ function noteClick(e) {
 			margin-bottom: 0 !important;
 		}
 		> .main > .avatar-container {
-			margin-right: 10px;
+			margin-inline-end: 10px;
 		}
 		&:first-child > .main > .body {
 			margin-top: -20px;

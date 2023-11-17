@@ -1,6 +1,6 @@
 ## Install dev and compilation dependencies, build files
 FROM node:20 as build
-WORKDIR /firefish
+WORKDIR /catodon
 
 # Install compilation dependencies
 RUN apt-get update && apt-get install -y libvips42 python3 git wget curl build-essential
@@ -18,7 +18,7 @@ COPY packages/backend/native-utils/migration/Cargo.toml packages/backend/native-
 COPY packages/backend/native-utils/migration/src/lib.rs packages/backend/native-utils/migration/src/
 
 # Install cargo dependencies
-RUN cargo fetch --locked --manifest-path /firefish/packages/backend/native-utils/Cargo.toml
+RUN cargo fetch --locked --manifest-path /catodon/packages/backend/native-utils/Cargo.toml
 
 # Copy only the dependency-related files first, to cache efficiently
 COPY package.json pnpm*.yaml ./
@@ -49,30 +49,30 @@ RUN pnpm i --prod --frozen-lockfile
 
 ## Runtime container
 FROM node:20
-WORKDIR /firefish
+WORKDIR /catodon
 
 # Install runtime dependencies
 RUN apt-get update && apt-get install -y libvips-dev zip unzip tini ffmpeg
 
 COPY . ./
 
-COPY --from=build /firefish/packages/megalodon /firefish/packages/megalodon
+COPY --from=build /catodon/packages/megalodon /catodon/packages/megalodon
 
 # Copy node modules
-COPY --from=build /firefish/node_modules /firefish/node_modules
-COPY --from=build /firefish/packages/backend/node_modules /firefish/packages/backend/node_modules
-COPY --from=build /firefish/packages/sw/node_modules /firefish/packages/sw/node_modules
-COPY --from=build /firefish/packages/client/node_modules /firefish/packages/client/node_modules
-COPY --from=build /firefish/packages/firefish-js/node_modules /firefish/packages/firefish-js/node_modules
+COPY --from=build /catodon/node_modules /catodon/node_modules
+COPY --from=build /catodon/packages/backend/node_modules /catodon/packages/backend/node_modules
+COPY --from=build /catodon/packages/sw/node_modules /catodon/packages/sw/node_modules
+COPY --from=build /catodon/packages/client/node_modules /catodon/packages/client/node_modules
+COPY --from=build /catodon/packages/firefish-js/node_modules /catodon/packages/firefish-js/node_modules
 
 # Copy the finished compiled files
-COPY --from=build /firefish/built /firefish/built
-COPY --from=build /firefish/packages/backend/built /firefish/packages/backend/built
-COPY --from=build /firefish/packages/backend/assets/instance.css /firefish/packages/backend/assets/instance.css
-COPY --from=build /firefish/packages/backend/native-utils/built /firefish/packages/backend/native-utils/built
+COPY --from=build /catodon/built /catodon/built
+COPY --from=build /catodon/packages/backend/built /catodon/packages/backend/built
+COPY --from=build /catodon/packages/backend/assets/instance.css /catodon/packages/backend/assets/instance.css
+COPY --from=build /catodon/packages/backend/native-utils/built /catodon/packages/backend/native-utils/built
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 ENV NODE_ENV=production
-VOLUME "/firefish/files"
+VOLUME "/catodon/files"
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "pnpm", "run", "migrateandstart" ]

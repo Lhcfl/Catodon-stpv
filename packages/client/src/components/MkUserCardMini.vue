@@ -19,43 +19,22 @@
 				><span class="acct _monospace">@{{ acct(user) }}</span></span
 			>
 		</div>
-		<MkMiniChart v-if="chartValues" class="chart" :src="chartValues" />
 	</MkA>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-
-import type * as firefish from "firefish-js";
-import MkMiniChart from "@/components/MkMiniChart.vue";
-import * as os from "@/os";
+import type * as misskey from "firefish-js";
 import { acct, userPage } from "@/filters/user";
 
 const props = withDefaults(
 	defineProps<{
-		user: firefish.entities.User;
-		withChart?: boolean;
+		user: misskey.entities.User;
 		showAboutPage?: boolean;
 	}>(),
 	{
-		withChart: true,
 		showAboutPage: false,
 	},
 );
-
-const chartValues = ref<number[] | null>(null);
-
-if (props.withChart) {
-	os.apiGet("charts/user/notes", {
-		userId: props.user.id,
-		limit: 16 + 1,
-		span: "day",
-	}).then((res) => {
-		// 今日のぶんの値はまだ途中の値であり、それも含めると大抵の場合前日よりも下降しているようなグラフになってしまうため今日は弾く
-		res.inc.splice(0, 1);
-		chartValues.value = res.inc;
-	});
-}
 </script>
 
 <style lang="scss" module>
@@ -74,7 +53,7 @@ if (props.withChart) {
 		display: block;
 		width: ($bodyTitleHieght + $bodyInfoHieght);
 		height: ($bodyTitleHieght + $bodyInfoHieght);
-		margin-right: 12px;
+		margin-inline-end: 12px;
 	}
 
 	> :global(.body) {
@@ -82,7 +61,7 @@ if (props.withChart) {
 		overflow: hidden;
 		font-size: 0.9em;
 		color: var(--fg);
-		padding-right: 8px;
+		padding-inline-end: 8px;
 
 		> :global(.name) {
 			display: block;
@@ -107,7 +86,7 @@ if (props.withChart) {
 		// > :global(.moderation) {
 		// 	display: flex;
 		// 	gap: 1rem;
-		// 	margin-right: 1rem;
+		// 	margin-inline-end: 1rem;
 		// }
 	}
 

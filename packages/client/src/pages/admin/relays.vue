@@ -118,7 +118,7 @@ definePageMetadata({
 
 		> .icon {
 			width: 1em;
-			margin-right: 0.75em;
+			margin-inline-end: 0.75em;
 
 			&.accepted {
 				color: var(--success);

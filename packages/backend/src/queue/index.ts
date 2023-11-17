@@ -529,24 +529,6 @@ export default function () {
 	processBackground(backgroundQueue);
 
 	systemQueue.add(
-		"tickCharts",
-		{},
-		{
-			repeat: { cron: "55 * * * *" },
-			removeOnComplete: true,
-		},
-	);
-
-	systemQueue.add(
-		"resyncCharts",
-		{},
-		{
-			repeat: { cron: "0 0 * * *" },
-			removeOnComplete: true,
-		},
-	);
-
-	systemQueue.add(
 		"cleanCharts",
 		{},
 		{

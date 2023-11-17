@@ -312,7 +312,7 @@ const previewableCount = props.mediaList.filter((media) =>
 
 	position: absolute;
 	bottom: 30px;
-	left: 50%;
+	inset-inline-start: 50%;
 	transform: translateX(-50%);
 
 	width: 75%;

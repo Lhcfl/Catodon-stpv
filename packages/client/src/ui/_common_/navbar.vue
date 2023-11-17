@@ -260,7 +260,7 @@ function more(ev: MouseEvent) {
 			background: var(--navBg);
 		}
 		#firefish_app > .wallpaper:not(.centered) & {
-			border-right: 1px solid var(--divider);
+			border-inline-end: 1px solid var(--divider);
 		}
 		contain: strict;
 		display: flex;
@@ -269,8 +269,8 @@ function more(ev: MouseEvent) {
 
 	&:not(.iconOnly) {
 		> .body {
-			margin-left: -200px;
-			padding-left: 200px;
+			margin-inline-start: -200px;
+			padding-inline-start: 200px;
 			box-sizing: content-box;
 			width: $nav-width;
 
@@ -281,7 +281,7 @@ function more(ev: MouseEvent) {
 				> .banner {
 					position: absolute;
 					top: 0;
-					left: 0;
+					inset-inline-start: 0;
 					width: 100%;
 					height: 100%;
 					background-size: cover;
@@ -354,7 +354,7 @@ function more(ev: MouseEvent) {
 					}
 
 					> .text {
-						margin-left: 1rem;
+						margin-inline-start: 1rem;
 					}
 				}
 
@@ -412,7 +412,7 @@ function more(ev: MouseEvent) {
 					> .icon {
 						position: relative;
 						width: 32px;
-						margin-right: 8px;
+						margin-inline-end: 8px;
 					}
 
 					> .indicator {
@@ -601,7 +601,7 @@ function more(ev: MouseEvent) {
 					> .indicator {
 						position: absolute;
 						top: 6px;
-						left: 24px;
+						inset-inline-start: 24px;
 						color: var(--navIndicator);
 						font-size: 8px;
 						animation: blink 1s infinite;

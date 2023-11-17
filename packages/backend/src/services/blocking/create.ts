@@ -15,7 +15,6 @@ import {
 	UserListJoinings,
 	UserLists,
 } from "@/models/index.js";
-import { perUserFollowingChart } from "@/services/chart/index.js";
 import { genId } from "@/misc/gen-id.js";
 import { getActiveWebhooks } from "@/misc/webhook-cache.js";
 import { webhookDeliver } from "@/queue/index.js";
@@ -119,7 +118,6 @@ async function unFollow(follower: User, followee: User) {
 		Followings.delete(following.id),
 		Users.decrement({ id: follower.id }, "followingCount", 1),
 		Users.decrement({ id: followee.id }, "followersCount", 1),
-		perUserFollowingChart.update(follower, followee, false),
 	]);
 
 	// Publish unfollow event

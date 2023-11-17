@@ -440,20 +440,21 @@ async function deleteProfile() {
 
 			&.center {
 				> .column:first-of-type {
-					margin-left: auto;
+					margin-inline-start: auto;
 				}
 
 				> .column:last-of-type {
-					margin-right: auto;
+					margin-inline-end: auto;
 				}
 			}
 
 			> .column {
 				flex-shrink: 0;
-				border-right: solid var(--deckDividerThickness) var(--bg);
+				border-inline-end: solid var(--deckDividerThickness) var(--bg);
 
 				&:first-of-type {
-					border-left: solid var(--deckDividerThickness) var(--bg);
+					border-inline-start: solid var(--deckDividerThickness)
+						var(--bg);
 				}
 
 				&.folder {
@@ -480,8 +481,8 @@ async function deleteProfile() {
 
 			> .sideMenu {
 				flex-shrink: 0;
-				margin-right: 0;
-				margin-left: auto;
+				margin-inline-end: 0;
+				margin-inline-start: auto;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -528,7 +529,7 @@ async function deleteProfile() {
 		position: fixed;
 		z-index: 1000;
 		bottom: 0;
-		left: 0;
+		inset-inline-start: 0;
 		padding: 16px;
 		display: flex;
 		width: 100%;
@@ -545,14 +546,14 @@ async function deleteProfile() {
 			color: var(--fg);
 
 			&:not(:last-child) {
-				margin-right: 12px;
+				margin-inline-end: 12px;
 			}
 
 			@media (max-width: 400px) {
 				height: 60px;
 
 				&:not(:last-child) {
-					margin-right: 8px;
+					margin-inline-end: 8px;
 				}
 			}
 
@@ -563,7 +564,7 @@ async function deleteProfile() {
 			> .indicator {
 				position: absolute;
 				top: 0;
-				left: 0;
+				inset-inline-start: 0;
 				color: var(--indicator);
 				font-size: 16px;
 			}
@@ -573,11 +574,11 @@ async function deleteProfile() {
 			}
 
 			&:first-child {
-				margin-left: 0;
+				margin-inline-start: 0;
 			}
 
 			&:last-child {
-				margin-right: 0;
+				margin-inline-end: 0;
 			}
 
 			> * {
@@ -601,7 +602,7 @@ async function deleteProfile() {
 	> .menu {
 		position: fixed;
 		top: 0;
-		left: 0;
+		inset-inline-start: 0;
 		z-index: 1001;
 		// ほんとは単に 100vh と書きたいところだが... https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 		height: calc(var(--vh, 1vh) * 100);

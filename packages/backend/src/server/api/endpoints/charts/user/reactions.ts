@@ -1,15 +1,9 @@
-import { getJsonSchema } from "@/services/chart/core.js";
-import { perUserReactionsChart } from "@/services/chart/index.js";
-import define from "@/server/api/define.js";
+import define from "../../../define.js";
 
 export const meta = {
 	tags: ["charts", "users", "reactions"],
 	requireCredentialPrivateMode: true,
-
-	res: getJsonSchema(perUserReactionsChart.schema),
-
 	allowGet: true,
-	cacheSec: 60 * 60,
 } as const;
 
 export const paramDef = {
@@ -24,10 +18,13 @@ export const paramDef = {
 } as const;
 
 export default define(meta, paramDef, async (ps) => {
-	return await perUserReactionsChart.getChart(
-		ps.span,
-		ps.limit,
-		ps.offset ? new Date(ps.offset) : null,
-		ps.userId,
-	);
+	const zeros = new Array<number>(ps.limit ?? 30).fill(0);
+	return {
+		local: {
+			count: zeros,
+		},
+		remote: {
+			count: zeros,
+		},
+	};
 });

@@ -195,7 +195,7 @@ watch(
 		color: #f00;
 
 		> i {
-			margin-right: 4px;
+			margin-inline-end: 4px;
 		}
 	}
 
