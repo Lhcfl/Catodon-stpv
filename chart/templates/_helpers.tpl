@@ -211,7 +211,7 @@ id: 'aid'
 #───┘ Other configuration └─────────────────────────────────────
 
 # Max note length, should be < 8000.
-#maxNoteLength: 3000
+#maxNoteLength: 8000
 
 # Maximum lenght of an image caption or file comment (default 1500, max 8192)
 #maxCaptionLength: 1500

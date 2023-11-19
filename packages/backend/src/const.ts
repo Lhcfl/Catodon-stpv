@@ -5,7 +5,7 @@ import {
 } from "@/misc/hard-limits.js";
 
 export const MAX_NOTE_TEXT_LENGTH = Math.min(
-	config.maxNoteLength ?? 3000,
+	config.maxNoteLength ?? 8000,
 	DB_MAX_NOTE_TEXT_LENGTH,
 );
 export const MAX_CAPTION_TEXT_LENGTH = Math.min(
