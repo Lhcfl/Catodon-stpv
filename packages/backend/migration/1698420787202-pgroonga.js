@@ -2,7 +2,6 @@ export class Pgroonga1698420787202 {
 	name = "Pgroonga1698420787202";
 
 	async up(queryRunner) {
-		// TODO: Add a note to README.md that `CREATE EXTENSION pgroonga;` is mandatory before running `pnpm migrate`.
 		await queryRunner.query(
 			`CREATE INDEX "IDX_f27f5d88941e57442be75ba9c8" ON "note" USING "pgroonga" ("text")`,
 		);
