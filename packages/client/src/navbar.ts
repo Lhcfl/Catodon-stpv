@@ -90,11 +90,6 @@ export const navbarItemDef = reactive({
 		icon: `${icon("ph-television")}`,
 		to: "/channels",
 	},
-	groups: {
-		title: "groups",
-		icon: `${icon("ph-users-three")}`,
-		to: "/my/groups",
-	},
 	ui: {
 		title: "switchUi",
 		icon: `${icon("ph-layout")}`,
