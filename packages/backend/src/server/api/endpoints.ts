@@ -291,7 +291,6 @@ import * as ep___pinnedUsers from "./endpoints/pinned-users.js";
 import * as ep___customMOTD from "./endpoints/custom-motd.js";
 import * as ep___customSplashIcons from "./endpoints/custom-splash-icons.js";
 import * as ep___latestVersion from "./endpoints/latest-version.js";
-import * as ep___patrons from "./endpoints/patrons.js";
 import * as ep___release from "./endpoints/release.js";
 import * as ep___promo_read from "./endpoints/promo/read.js";
 import * as ep___requestResetPassword from "./endpoints/request-reset-password.js";
@@ -647,7 +646,6 @@ const eps = [
 	["custom-motd", ep___customMOTD],
 	["custom-splash-icons", ep___customSplashIcons],
 	["latest-version", ep___latestVersion],
-	["patrons", ep___patrons],
 	["release", ep___release],
 	["promo/read", ep___promo_read],
 	["request-reset-password", ep___requestResetPassword],

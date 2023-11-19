@@ -53,18 +53,6 @@
 									i18n.ts.maintainerEmail
 								}}</template>
 							</FormInput>
-
-							<FormInput
-								v-model="donationLink"
-								class="_formBlock"
-							>
-								<template #prefix
-									><i :class="icon('ph-hand-heart')"></i
-								></template>
-								<template #label>{{
-									i18n.ts.donationLink
-								}}</template>
-							</FormInput>
 						</FormSplit>
 
 						<FormTextarea v-model="pinnedUsers" class="_formBlock">
@@ -448,7 +436,6 @@ const description = ref<string | null>(null);
 const tosUrl = ref<string | null>(null);
 const maintainerName = ref<string | null>(null);
 const maintainerEmail = ref<string | null>(null);
-const donationLink = ref<string | null>(null);
 const iconUrl = ref<string | null>(null);
 const bannerUrl = ref<string | null>(null);
 const logoImageUrl = ref<string | null>(null);
@@ -495,7 +482,6 @@ async function init() {
 	defaultDarkTheme.value = meta.defaultDarkTheme;
 	maintainerName.value = meta.maintainerName;
 	maintainerEmail.value = meta.maintainerEmail;
-	donationLink.value = meta.donationLink;
 	enableLocalTimeline.value = !meta.disableLocalTimeline;
 	enableGlobalTimeline.value = !meta.disableGlobalTimeline;
 	enableRecommendedTimeline.value = !meta.disableRecommendedTimeline;
@@ -546,7 +532,6 @@ function save() {
 			defaultDarkTheme.value === "" ? null : defaultDarkTheme.value,
 		maintainerName: maintainerName.value,
 		maintainerEmail: maintainerEmail.value,
-		donationLink: donationLink.value,
 		disableLocalTimeline: !enableLocalTimeline.value,
 		disableGlobalTimeline: !enableGlobalTimeline.value,
 		disableRecommendedTimeline: !enableRecommendedTimeline.value,

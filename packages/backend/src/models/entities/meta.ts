@@ -505,10 +505,4 @@ export class Meta {
 		default: false,
 	})
 	public enableIdenticonGeneration: boolean;
-
-	@Column("varchar", {
-		length: 256,
-		nullable: true,
-	})
-	public donationLink: string | null;
 }

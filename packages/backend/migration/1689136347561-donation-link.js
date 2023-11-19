@@ -9,7 +9,7 @@ export class DonationLink1689136347561 {
 
 	async down(queryRunner) {
 		await queryRunner.query(
-			`ALTER TABLE "meta" DROP COLUMN "DonationLink1689136347561"`,
+			`ALTER TABLE "meta" DROP COLUMN "donationLink"`,
 		);
 	}
 }

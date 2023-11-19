@@ -445,11 +445,6 @@ export const meta = {
 				optional: false,
 				nullable: false,
 			},
-			donationLink: {
-				type: "string",
-				optional: true,
-				nullable: true,
-			},
 		},
 	},
 } as const;
@@ -554,6 +549,5 @@ export default define(meta, paramDef, async (ps, me) => {
 		experimentalFeatures: instance.experimentalFeatures,
 		enableServerMachineStats: instance.enableServerMachineStats,
 		enableIdenticonGeneration: instance.enableIdenticonGeneration,
-		donationLink: instance.donationLink,
 	};
 });

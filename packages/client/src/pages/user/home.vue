@@ -101,18 +101,6 @@
 										v-tooltip.noDelay="i18n.ts.isBot"
 										><i :class="icon('ph-robot')"></i
 									></span>
-									<span
-										v-if="
-											patrons?.includes(
-												`@${user.username}@${
-													user.host || host
-												}`,
-											)
-										"
-										v-tooltip.noDelay="i18n.ts.isPatron"
-										style="color: var(--badge)"
-										><i :class="icon('ph-hand-coins')"></i
-									></span>
 								</div>
 							</div>
 						</div>
@@ -186,18 +174,6 @@
 									v-if="user.isBot"
 									v-tooltip.noDelay="i18n.ts.isBot"
 									><i :class="icon('ph-robot')"></i
-								></span>
-								<span
-									v-if="
-										patrons?.includes(
-											`@${user.username}@${
-												user.host || host
-											}`,
-										)
-									"
-									v-tooltip.noDelay="i18n.ts.isPatron"
-									style="color: var(--badge)"
-									><i :class="icon('ph-hand-coins')"></i
 								></span>
 							</div>
 						</div>
@@ -400,7 +376,6 @@ const parallaxAnimationId = ref<null | number>(null);
 const narrow = ref<null | boolean>(null);
 const rootEl = ref<null | HTMLElement>(null);
 const bannerEl = ref<null | HTMLElement>(null);
-const patrons = ref([]);
 
 const age = computed(() => {
 	return calcAge(props.user.birthday);
@@ -445,9 +420,6 @@ const timeForThem = computed(() => {
 
 	return "";
 });
-
-const patronsResp = await os.api("patrons");
-patrons.value = patronsResp.patrons;
 
 function parallaxLoop() {
 	parallaxAnimationId.value = window.requestAnimationFrame(parallaxLoop);
