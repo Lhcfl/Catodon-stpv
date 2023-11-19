@@ -359,11 +359,6 @@ export const meta = {
 				nullable: false,
 				default: "⭐",
 			},
-			donationLink: {
-				type: "string",
-				optional: "true",
-				nullable: true,
-			},
 			enableServerMachineStats: {
 				type: "boolean",
 				optional: "true",
@@ -468,7 +463,6 @@ export default define(meta, paramDef, async (ps, me) => {
 		translatorAvailable:
 			instance.deeplAuthKey != null || instance.libreTranslateApiUrl != null,
 		defaultReaction: instance.defaultReaction,
-		donationLink: instance.donationLink,
 		enableServerMachineStats: instance.enableServerMachineStats,
 		enableIdenticonGeneration: instance.enableIdenticonGeneration,
 

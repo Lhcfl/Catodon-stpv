@@ -89,21 +89,6 @@
 								external
 								>{{ i18n.ts.tos }}</FormLink
 							>
-							<FormLink
-								v-if="$instance.donationLink"
-								:to="$instance.donationLink"
-								external
-							>
-								<template #icon
-									><i :class="icon('ph-money')"></i
-								></template>
-								{{
-									i18n.t("_aboutFirefish.donateHost", {
-										host: $instance.name || host,
-									})
-								}}
-								<template #suffix>Donate</template>
-							</FormLink>
 						</FormSection>
 
 						<FormSuspense :p="initStats">

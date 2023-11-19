@@ -169,7 +169,6 @@ export const paramDef = {
 		},
 		enableServerMachineStats: { type: "boolean" },
 		enableIdenticonGeneration: { type: "boolean" },
-		donationLink: { type: "string", nullable: true },
 	},
 	required: [],
 } as const;
@@ -540,13 +539,6 @@ export default define(meta, paramDef, async (ps, me) => {
 
 	if (ps.enableIdenticonGeneration !== undefined) {
 		set.enableIdenticonGeneration = ps.enableIdenticonGeneration;
-	}
-
-	if (ps.donationLink !== undefined) {
-		set.donationLink = ps.donationLink;
-		if (set.donationLink && !/^https?:\/\//i.test(set.donationLink)) {
-			set.donationLink = `https://${set.donationLink}`;
-		}
 	}
 
 	await db.transaction(async (transactionalEntityManager) => {
