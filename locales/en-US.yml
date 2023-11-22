@@ -1485,7 +1485,7 @@ _sfx:
   antenna: "Custom feeds"
   channel: "Forum notifications"
 _ago:
-  future: "Sending..."
+  future: "Syncing..."
   justNow: "Just now"
   secondsAgo: "{n} second(s) ago"
   minutesAgo: "{n} minute(s) ago"
