@@ -114,6 +114,15 @@
 					<i :class="icon('ph-gear icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.settings }}</span>
 				</MkA>
+				<button
+					v-click-anime
+					v-tooltip.noDelay.right="i18n.ts.help"
+					class="item _button"
+					@click="openHelpMenu"
+				>
+					<i :class="icon('ph-info icon ph-fw')"></i
+					><span class="text">{{ i18n.ts.help }}</span>
+				</button>
 			</nav>
 			<div class="bottom">
 				<button
@@ -125,21 +134,17 @@
 					<i :class="icon('icon ph-pencil ph-fw ph-lg')"></i
 					><span class="text">{{ i18n.ts.note }}</span>
 				</button>
-				<button
-					v-tooltip.noDelay.right="i18n.ts.help"
-					class="item _button help"
-					@click="openHelpMenu"
-				>
-					<i
-						:class="icon('help icon ph-info ph-xl ph-fw', false)"
-					></i>
-				</button>
-				<!-- <button v-click-anime v-tooltip.noDelay.right="$instance.name ?? i18n.ts.instance" class="item _button instance" @click="openInstanceMenu">
-				<img :src="$instance.iconUrl || $instance.faviconUrl || '/favicon.ico'" alt="" class="icon"/>
-			</button> -->
-				<!-- <button v-click-anime v-tooltip.noDelay.right="`${i18n.ts.account}: @${$i.username}`" class="item _button account" @click="openAccountMenu">
-				<MkAvatar :user="$i" class="account"/><MkAcct class="text" :user="$i"/>
-			</button> -->
+				<div class="item instance">
+					<img
+						:src="
+							$instance.faviconUrl ||
+							$instance.iconUrl ||
+							'/favicon.ico'
+						"
+						alt=""
+						class="icon"
+					/>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -366,9 +371,9 @@ function more(ev: MouseEvent) {
 
 					> .icon {
 						display: inline-block;
-						width: 32px !important;
+						width: 48px !important;
 						aspect-ratio: 1;
-						margin-top: 1rem;
+						margin-top: 2rem;
 					}
 				}
 
@@ -564,6 +569,7 @@ function more(ev: MouseEvent) {
 
 					> .icon {
 						display: inline-block;
+						margin-top: 1rem;
 						width: 32px !important;
 						aspect-ratio: 1;
 					}

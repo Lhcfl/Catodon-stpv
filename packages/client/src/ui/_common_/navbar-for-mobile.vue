@@ -101,6 +101,15 @@
 					<i :class="icon('ph-gear-six icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.settings }}</span>
 				</MkA>
+				<button
+					v-click-anime
+					v-tooltip.noDelay.right="i18n.ts.help"
+					class="item _button"
+					@click="openHelpMenu"
+				>
+					<i :class="icon('ph-info icon ph-fw')"></i
+					><span class="text">{{ i18n.ts.help }}</span>
+				</button>
 			</div>
 			<div class="bottom">
 				<button
@@ -111,15 +120,17 @@
 					<i :class="icon('ph-pencil icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.note }}</span>
 				</button>
-				<button
-					v-tooltip.noDelay.right="i18n.ts.help"
-					class="item _button help"
-					@click="openHelpMenu"
-				>
-					<i
-						:class="icon('ph-info help icon ph-xl ph-fw', false)"
-					></i>
-				</button>
+				<div class="item instance">
+					<img
+						:src="
+							$instance.faviconUrl ||
+							$instance.iconUrl ||
+							'/favicon.ico'
+						"
+						alt=""
+						class="icon"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
