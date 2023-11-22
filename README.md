@@ -141,7 +141,6 @@ cd firefish/
 # nvm install 19 && nvm use 19
 corepack enable
 corepack prepare pnpm@latest --activate
-# To build without TensorFlow, append --no-optional
 pnpm i # --no-optional
 ```
 
