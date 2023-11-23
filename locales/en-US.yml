@@ -875,8 +875,8 @@ switch: "Switch"
 noMaintainerInformationWarning: "Maintainer information is not configured."
 noBotProtectionWarning: "Bot protection is not configured."
 configure: "Configure"
-postToGallery: "Create new album"
-gallery: "Photo Albums"
+postToGallery: "Create new Gallery post"
+gallery: "Gallery posts"
 recentPosts: "Recent blog posts"
 popularPosts: "Popular blog posts"
 shareWithNote: "Share with post"
@@ -1202,8 +1202,8 @@ _forgotPassword:
   contactAdmin: "This server does not support using email addresses, please contact
     the server administrator to reset your password instead."
 _gallery:
-  my: "My Photo Albums"
-  liked: "Liked Albums"
+  my: "My Gallery posts"
+  liked: "Liked posts"
   like: "Like"
   unlike: "Remove like"
 _email:
@@ -1599,10 +1599,10 @@ _permissions:
   "write:user-groups": "Edit or delete your user groups"
   "read:channels": "View your forums"
   "write:channels": "Edit your forums"
-  "read:gallery": "View your photo albums"
-  "write:gallery": "Edit your photo albums"
-  "read:gallery-likes": "View your list of liked photo albums"
-  "write:gallery-likes": "Edit your list of liked photo albums"
+  "read:gallery": "View your Gallery posts"
+  "write:gallery": "Edit your Gallery posts"
+  "read:gallery-likes": "View your list of liked Gallery posts"
+  "write:gallery-likes": "Edit your list of liked Gallery posts"
 _auth:
   shareAccess: "Would you like to authorize \"{name}\" to access this account?"
   shareAccessAsk: "Are you sure you want to authorize this application to access your
