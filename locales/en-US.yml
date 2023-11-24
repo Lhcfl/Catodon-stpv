@@ -412,7 +412,7 @@ antennasDesc: "Custom Feeds display new posts matching the criteria you set!\n T
   be accessed from the timelines page."
 manageAntennas: "Manage Custom Feeds"
 name: "Name"
-antennaSource: "Custom Feed source"
+antennaSource: "Posts to display"
 antennaKeywords: "Keywords to listen to"
 antennaExcludeKeywords: "Keywords to exclude"
 antennaKeywordsDescription: "Separate with spaces for an AND condition or with line
