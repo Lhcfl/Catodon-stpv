@@ -3,7 +3,7 @@
 	<img src="./title.svg" alt="Firefish logo" style="border-radius:50%" width="400"/>
 </a>
 
-**🌎 **[Firefish](https://joinfirefish.org/)** is an open source, decentralized social media platform that's free forever! 🚀**
+**🌎 **[Catodon](https://codeberg.org/catodon/catodon)** is the ultimate open source platform to build your federated community on!**
 
 [![no github badge](https://nogithub.codeberg.page/badge.svg)](https://nogithub.codeberg.page/)
 <!-- [![status badge](https://ci.codeberg.org/api/badges/firefish/firefish/status.svg)](https://ci.codeberg.org/firefish/firefish) -->
@@ -19,29 +19,13 @@
 
 <img src="./animated.svg" align="right" height="320px"/>
 
-# ✨ About Firefish
+# ✨ About Catodon
 
-- Firefish is based off of Misskey, a powerful microblogging server on ActivityPub with features such as emoji reactions, a customizable web UI, rich chatting, and much more!
-- Firefish adds many quality of life changes and bug fixes for users and server admins alike.
-- Notable differences:
-  - Improved UI/UX (especially on mobile)
-  - Post editing
-  - Content importing
-  - Improved notifications
-  - Improved server security
-  - Improved accessibility
-  - Improved threads
-  - Recommended Servers timeline
-  - OCR image captioning
-  - New and improved Groups
-  - Better intro tutorial
-  - Compatibility with Mastodon clients/apps
-  - Backfill user information
-  - Advanced search
-  - Many more user and admin settings
-  - Many bug fixes and performance improvements
-  - Link verification
-  - So much more!
+- Catodon is the result of the work of hundreds of open source contributors, as it is based on Firefish - which was based on Misskey! It is an amazing tool to build your online community on, as it offers both the advantages of Forums, where you can organize your discussions by topic, and also satisfies your users' social media needs with microblogging features - and all that connected to the Fediverse, which means that everyone on your server will be able to interact with users from other Catodon servers, as well as the millions of users on Mastodon, Pixelfed and the rest of the platforms that use the ActivityPub protocol! With Catodon you have your own social network, with your own rules, but already with millions of users to follow and interact with!
+- Catodon is a fully featured platform with emoji reactions, quotes, custom feeds, chat, forums, blog posts and many more! All in an easy to understand terminology, with simple menus where your users will feel familiar in no time.
+- In Catodon, new users aren't greeted with a blank Home timeline. Local posts from your community server are also shown in your users' Home feed, so that when new users join they instantly have content to interact with. This gives a more welcoming onboarding experience, and promotes the sense of community. It also makes new users more noticeable. After they have built their follows list, users can choose to display only posts from accounts they follow in their Home timeline.
+- Your server logo is always visible under the menu, making each server more unique. The PWA (App) is also displayed with your server logo by default.
+- No donation popups for your users.
 
 </div>
 
@@ -58,12 +42,11 @@
 
 ### All links
 
-- 🌐 Homepage: <https://joinfirefish.org>
+- 🌐 Homepage: <https://codeberg.org/catodon/catodon>
 - 💸 Donations:
   - OpenCollective: <https://opencollective.com/Firefish>
   - Liberapay: <https://liberapay.com/ThatOneCalculator>
-  - Donate publicly to get your name on the Patron list!
-- 🚢 Flagship server: <https://firefish.social>
+- 🚢 Our own Catodon community: <https://catodon.social>
 - 💁 Matrix support room: <https://matrix.to/#/#firefish:matrix.fedibird.com>
 - 📣 Official account: <a href="https://fedi.software/@firefish" rel="me">@firefish</a>
 - 📜 Server list: <https://joinfirefish.org/join>
@@ -72,15 +55,9 @@
 
 # 🌠 Getting started
 
-Want to just join a Firefish server? View the list here, pick one, and join:
+Want to start your own Catodon community? Keep reading!
 
-### https://joinfirefish.org/join
-
----
-
-Want to make your own? Keep reading!
-
-This guide will work for both **starting from scratch** and **migrating from Misskey**.
+This guide will work for both **starting from scratch** and **migrating from Firefish**.
 
 ## 🔰 Easy installers
 
