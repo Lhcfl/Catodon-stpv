@@ -45,12 +45,6 @@
 				animatedMfm: !disableMfm,
 			}"
 		>
-			<XShowMoreButton
-				v-if="isLong && collapsed"
-				ref="showMoreButton"
-				v-model="collapsed"
-				@keydown="focusFooter"
-			></XShowMoreButton>
 			<Mfm
 				v-if="note.cw && !showContent"
 				class="hiddenNote"
@@ -154,7 +148,7 @@
 				></div>
 			</div>
 			<XShowMoreButton
-				v-if="isLong && !collapsed"
+				v-if="isLong"
 				v-model="collapsed"
 			></XShowMoreButton>
 			<XCwButton

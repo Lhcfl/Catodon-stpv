@@ -1,8 +1,8 @@
 <template>
 	<button
 		ref="el"
-		class="_button"
-		:class="['showMoreButton', { showLess: !modelValue }]"
+		class="_button showMoreButton"
+		:class="[{ showLess: !modelValue }]"
 		@click.stop="toggle"
 	>
 		<span>{{ modelValue ? i18n.ts.showMore : i18n.ts.showLess }}</span>
@@ -38,12 +38,8 @@ defineExpose({
 .showMoreButton {
 	display: block;
 	width: 100%;
-	padding: 20px 0;
-	margin-bottom: -10px;
-	z-index: 5;
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	margin-bottom: 20px;
+	position: static;
 	> span {
 		display: inline-block;
 		background: var(--panel);
@@ -62,6 +58,7 @@ defineExpose({
 	&.showLess {
 		width: 100%;
 		position: sticky;
+		margin-top: 10px;
 		bottom: calc(var(--stickyBottom) - 1em);
 	}
 }
