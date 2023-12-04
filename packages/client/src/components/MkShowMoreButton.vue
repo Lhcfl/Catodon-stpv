@@ -2,15 +2,15 @@
 	<button
 		ref="el"
 		class="_button"
-		:class="{ fade: modelValue, showLess: !modelValue }"
+		:class="['showMoreButton', { showLess: !modelValue }]"
 		@click.stop="toggle"
 	>
 		<span>{{ modelValue ? i18n.ts.showMore : i18n.ts.showLess }}</span>
 	</button>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
 import { i18n } from "@/i18n";
+import { ref } from "vue";
 
 const props = defineProps<{
 	modelValue: boolean;
@@ -35,43 +35,34 @@ defineExpose({
 });
 </script>
 <style lang="scss" scoped>
-.fade {
+.showMoreButton {
 	display: block;
-	position: absolute;
-	bottom: 0;
-	inset-inline-start: 0;
 	width: 100%;
-	padding: 20px;
+	padding: 20px 0;
 	margin-bottom: -10px;
 	z-index: 5;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 	> span {
 		display: inline-block;
 		background: var(--panel);
-		padding: 0.4em 1em;
+		padding: 0.5em 0;
 		font-size: 0.8em;
 		border-radius: 999px;
 		box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+		width: 100%;
 	}
 	&:hover {
 		> span {
 			background: var(--panelHighlight);
 		}
 	}
-}
-.showLess {
-	width: 100%;
-	position: sticky;
-	bottom: calc(var(--stickyBottom) - 1em);
-	padding: 20px;
-	z-index: 5;
 
-	> span {
-		display: inline-block;
-		background: var(--panel);
-		padding: 6px 10px;
-		font-size: 0.8em;
-		border-radius: 999px;
-		box-shadow: 0 0 7px 7px var(--bg);
+	&.showLess {
+		width: 100%;
+		position: sticky;
+		bottom: calc(var(--stickyBottom) - 1em);
 	}
 }
 </style>
