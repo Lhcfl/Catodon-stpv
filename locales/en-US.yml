@@ -1688,7 +1688,7 @@ _poll:
 _visibility:
   public: "Public"
   publicDescription: "Your post will be visible in all public timelines"
-  home: "Public (Unlisted)"
+  home: "Public - Unlisted"
   homeDescription: "Public post, but not listed in public timelines"
   followers: "Followers only"
   followersDescription: "Make visible to your followers and mentioned users only"
