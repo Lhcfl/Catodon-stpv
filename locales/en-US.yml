@@ -372,7 +372,7 @@ today: "Today"
 dayX: "{day}"
 monthX: "{month}"
 yearX: "{year}"
-pages: "Blog Posts"
+pages: "Blog posts"
 enableLocalTimeline: "Enable local timeline"
 enableGlobalTimeline: "Enable federated timeline"
 enableRecommendedTimeline: "Enable recommended timeline"
@@ -391,8 +391,8 @@ basicInfo: "Basic info"
 pinnedUsers: "Pinned users"
 pinnedUsersDescription: "List usernames separated by line breaks to be pinned in the
   \"Discover\" tab."
-pinnedPages: "Pinned Blog Posts"
-pinnedPagesDescription: "Enter the paths of the Blog Posts you want to pin to the top page
+pinnedPages: "Pinned Blog posts"
+pinnedPagesDescription: "Enter the paths of the Blog posts you want to pin to the top page
   of this server, separated by line breaks."
 pinnedClipId: "ID of the clip to pin"
 pinnedNotes: "Pinned posts"
@@ -407,10 +407,10 @@ recaptchaSecretKey: "Secret key"
 avoidMultiCaptchaConfirm: "Using multiple Captcha systems may cause interference between
   them. Would you like to disable the other Captcha systems currently active? If you
   would like them to stay enabled, press cancel."
-antennas: "Custom Feeds"
-antennasDesc: "Custom Feeds display new posts matching the criteria you set!\n They can
+antennas: "Custom feeds"
+antennasDesc: "Custom feeds display new posts matching the criteria you set!\n They can
   be accessed from the timelines page."
-manageAntennas: "Manage Custom Feeds"
+manageAntennas: "Manage Custom feeds"
 name: "Name"
 antennaSource: "Posts to display"
 antennaKeywords: "Keywords to listen to"
