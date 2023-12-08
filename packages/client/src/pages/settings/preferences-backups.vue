@@ -80,6 +80,7 @@ const defaultStoreSaveKeys: (keyof (typeof defaultStore)["state"])[] = [
 	"statusbars",
 	"widgets",
 	"tl",
+	"showLocalPostsInTimeline",
 	"overridedDeviceKind",
 	"serverDisconnectedBehavior",
 	"nsfw",

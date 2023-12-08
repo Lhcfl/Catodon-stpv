@@ -64,6 +64,9 @@
 
 		<FormSection>
 			<template #label>{{ i18n.ts.behavior }}</template>
+			<FormSwitch v-model="showLocalPostsInHomeTimeline" class="_formBlock">{{
+				i18n.ts.showLocalPosts
+			}}</FormSwitch>
 			<FormSwitch v-model="imageNewTab" class="_formBlock">{{
 				i18n.ts.openImageInNewTab
 			}}</FormSwitch>
@@ -339,6 +342,9 @@ function demoVibrate() {
 	window.navigator.vibrate(100);
 }
 
+const showLocalPostsInHomeTimeline = computed(
+	defaultStore.makeGetterSetter("showLocalPostsInHomeTimeline"),
+);
 const overridedDeviceKind = computed(
 	defaultStore.makeGetterSetter("overridedDeviceKind"),
 );
@@ -478,6 +484,7 @@ watch(
 		squareAvatars,
 		showGapBetweenNotesInTimeline,
 		instanceTicker,
+		showLocalPostsInHomeTimeline,
 		overridedDeviceKind,
 		showAds,
 		showUpdates,

@@ -151,11 +151,19 @@ export const defaultStore = markRaw(
 		tl: {
 			where: "deviceAccount",
 			default: {
-				src: "home" as "home" | "local" | "social" | "global" | "recommended",
+				src: "social" as "home" | "local" | "social" | "global" | "recommended",
 				arg: null,
 			},
 		},
 
+		showLocalPostsInHomeTimeline: {
+			where: "device",
+			default: true,
+		},
+		isSocialTimelineAvailable: {
+			where: "device",
+			default: false,
+		},
 		overridedDeviceKind: {
 			where: "device",
 			default: null as null | "smartphone" | "tablet" | "desktop",

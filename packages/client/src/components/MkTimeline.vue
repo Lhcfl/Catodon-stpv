@@ -110,7 +110,7 @@ if (props.src === "antenna") {
 	connection2.on("follow", onChangeFollowing);
 	connection2.on("unfollow", onChangeFollowing);
 
-	tlHint = i18n.ts._tutorial.step5_3;
+	tlHint = !defaultStore.state.isSocialTimelineAvailable ? i18n.ts._tutorial.step5_3 : i18n.ts._tutorial.step5_5;
 	tlHintClosed = defaultStore.state.tlHomeHintClosed;
 } else if (props.src === "local") {
 	endpoint = "notes/local-timeline";
