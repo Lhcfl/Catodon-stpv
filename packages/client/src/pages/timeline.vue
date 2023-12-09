@@ -96,12 +96,17 @@ const keymap = {
 	t: focus,
 };
 
-const timelines = ["home"];
+let timelines = [];
 
+if (isLocalTimelineAvailable && defaultStore.state.showLocalPostsInHomeTimeline) {
+	timelines.push("social");
+} else {
+	timelines.push("home");
+}
 if (isLocalTimelineAvailable) {
 	timelines.push("local");
 }
-if (isLocalTimelineAvailable) {
+if (isLocalTimelineAvailable && defaultStore.state.isSocialTimelineAvailable) {
 	timelines.push("social");
 }
 if (isRecommendedTimelineAvailable) {
@@ -214,13 +219,26 @@ const headerActions = computed(() => [
 } */,
 ]);
 
-const headerTabs = computed(() => [
-	{
-		key: "home",
-		title: i18n.ts._timelines.home,
-		icon: `${icon("ph-house")}`,
-		iconOnly: true,
-	},
+// Swap home timeline with social"s functionality
+const headerTabs = $computed(() => [
+
+	...(isLocalTimelineAvailable && defaultStore.state.showLocalPostsInHomeTimeline
+		? [
+			{
+				key: "social",
+				title: i18n.ts._timelines.home,
+				icon: `${icon("ph-house")}`,
+				iconOnly: true,
+			},
+		]
+		: [
+			{
+				key: "home",
+				title: i18n.ts._timelines.home,
+				icon: `${icon("ph-house")}`,
+				iconOnly: true,
+			}
+		]),
 	...(isLocalTimelineAvailable
 		? [
 				{
@@ -231,7 +249,7 @@ const headerTabs = computed(() => [
 				},
 		  ]
 		: []),
-	...(isLocalTimelineAvailable
+	...(isLocalTimelineAvailable && defaultStore.state.isSocialTimelineAvailable 
 		? [
 				{
 					key: "social",
@@ -239,7 +257,7 @@ const headerTabs = computed(() => [
 					icon: `${icon("ph-handshake")}`,
 					iconOnly: true,
 				},
-		  ]
+			]
 		: []),
 	...(isRecommendedTimelineAvailable
 		? [
@@ -267,14 +285,18 @@ definePageMetadata(
 	computed(() => ({
 		title: i18n.ts.timeline,
 		icon:
-			src.value === "local"
+			src === "local"
 				? "ph-users ph-lg"
-				: src.value === "social"
+				: src === "social" && defaultStore.state.showLocalPostsInHomeTimeline
+				? "ph-house ph-lg"
+				: src === "social" && defaultStore.state.isSocialTimelineAvailable
 				? "ph-handshake ph-lg"
-				: src.value === "recommended"
+				: src === "recommended"
 				? "ph-thumbs-up ph-lg"
-				: src.value === "global"
+				: src === "global"
 				? "ph-planet ph-lg"
+				: src === "home" && defaultStore.state.showLocalPostsInHomeTimeline
+				? "ph-handshake ph-lg"
 				: "ph-house ph-lg",
 	})),
 );

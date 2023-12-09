@@ -140,7 +140,9 @@
 										</template>
 									</I18n>
 								</li>
-								<li v-if="timelines.includes('social')">
+								<!-- Code was removed due to Show Local posts to Home timeline functionality.
+										 TODO: Fix this properly. -->
+								<!-- <li v-if="timelines.includes('social')">
 									<I18n
 										:src="i18n.ts._tutorial.step5_5"
 										tag="div"
@@ -159,7 +161,7 @@
 											<i :class="icon('ph-thumbs-up')" />
 										</template>
 									</I18n>
-								</li>
+								</li> -->
 								<li v-if="timelines.includes('global')">
 									<I18n
 										:src="i18n.ts._tutorial.step5_7"

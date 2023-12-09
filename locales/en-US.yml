@@ -375,6 +375,7 @@ yearX: "{year}"
 pages: "Blog posts"
 enableLocalTimeline: "Enable local timeline"
 enableGlobalTimeline: "Enable federated timeline"
+showLocalPosts: "Show local posts in Home timeline"
 enableRecommendedTimeline: "Enable recommended timeline"
 disablingTimelinesInfo: "Adminstrators and Moderators will always have access to all
   timelines, even if they are not enabled."
@@ -1522,9 +1523,8 @@ _tutorial:
   step4_2: "For your first post, some people like to make an {introduction} post or
     a simple \"Hello world!\""
   step5_1: "Timelines, timelines everywhere!"
-  step5_2: "Your server has {timelines} different timelines enabled."
-  step5_3: "The Home {icon} timeline is where you can see posts from the accounts
-    you follow."
+  step5_2: "Your server has 3 different timelines enabled."
+  step5_3: "The Home {icon} timeline is where you can see posts from the accounts you follow and from everyone else on this server. If you prefer your Home timeline to only display posts from accounts you follow, you can easily change this in Settings!"
   step5_4: "The Local {icon} timeline is where you can see posts from everyone else
     on this server."
   step5_5: "The Social {icon} timeline is a combination of the Home and Local timelines."
