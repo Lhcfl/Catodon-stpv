@@ -25,7 +25,6 @@ import {
 	Pages,
 	Channels,
 	Clips,
-	GalleryPosts,
 } from "@/models/index.js";
 import * as Acct from "@/misc/acct.js";
 import { getNoteSummary } from "@/misc/get-note-summary.js";
@@ -588,31 +587,6 @@ router.get("/clips/:clip", async (ctx, next) => {
 			profile,
 			avatarUrl: await Users.getAvatarUrl(
 				await Users.findOneByOrFail({ id: clip.userId }),
-			),
-		});
-
-		ctx.set("Cache-Control", "public, max-age=15");
-
-		return;
-	}
-
-	await next();
-});
-
-// Gallery post
-router.get("/gallery/:post", async (ctx, next) => {
-	const post = await GalleryPosts.findOneBy({ id: ctx.params.post });
-
-	if (post) {
-		const _post = await GalleryPosts.pack(post);
-		const profile = await UserProfiles.findOneByOrFail({ userId: post.userId });
-		const meta = await fetchMeta();
-		await ctx.render("gallery-post", {
-			...metaToPugArgs(meta),
-			post: _post,
-			profile,
-			avatarUrl: await Users.getAvatarUrl(
-				await Users.findOneByOrFail({ id: post.userId }),
 			),
 		});
 

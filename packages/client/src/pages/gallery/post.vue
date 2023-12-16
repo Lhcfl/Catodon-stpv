@@ -28,71 +28,6 @@
 								<i :class="icon('ph-clock')"></i>
 								<MkTime :time="post.createdAt" mode="detail" />
 							</div>
-							<div class="actions">
-								<div class="like">
-									<MkButton
-										v-if="post.isLiked"
-										v-tooltip="i18n.ts._gallery.unlike"
-										class="button"
-										primary
-										@click="unlike()"
-										><i class="ph-heart ph-fill"></i
-										><span
-											v-if="post.likedCount > 0"
-											class="count"
-											>{{ post.likedCount }}</span
-										></MkButton
-									>
-									<MkButton
-										v-else
-										v-tooltip="i18n.ts._gallery.like"
-										class="button"
-										@click="like()"
-										><i :class="icon('ph-heart', false)"></i
-										><span
-											v-if="post.likedCount > 0"
-											class="count"
-											>{{ post.likedCount }}</span
-										></MkButton
-									>
-								</div>
-								<div class="other">
-									<button
-										v-if="$i && $i.id === post.user.id"
-										v-tooltip="i18n.ts.edit"
-										v-click-anime
-										class="_button"
-										@click="edit"
-									>
-										<i :class="icon('ph-pencil ph-fw')"></i>
-									</button>
-									<button
-										v-tooltip="i18n.ts.shareWithNote"
-										v-click-anime
-										class="_button"
-										@click="shareWithNote"
-									>
-										<i
-											:class="
-												icon('ph-rocket-launch ph-fw')
-											"
-										></i>
-									</button>
-									<button
-										v-if="shareAvailable()"
-										v-tooltip="i18n.ts.share"
-										v-click-anime
-										class="_button"
-										@click="share"
-									>
-										<i
-											:class="
-												icon('ph-share-network ph-fw')
-											"
-										></i>
-									</button>
-								</div>
-							</div>
 							<div class="user">
 								<MkAvatar :user="post.user" class="avatar" />
 								<div class="name">
@@ -148,17 +83,14 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from "vue";
-import MkButton from "@/components/MkButton.vue";
 import * as os from "@/os";
 import MkContainer from "@/components/MkContainer.vue";
 import MkPagination from "@/components/MkPagination.vue";
 import MkGalleryPostPreview from "@/components/MkGalleryPostPreview.vue";
 import MkFollowButton from "@/components/MkFollowButton.vue";
-import { url } from "@/config";
 import { useRouter } from "@/router";
 import { i18n } from "@/i18n";
 import { definePageMetadata } from "@/scripts/page-metadata";
-import { shareAvailable } from "@/scripts/share-available";
 import { defaultStore } from "@/store";
 import icon from "@/scripts/icon";
 
@@ -191,49 +123,21 @@ function fetchPost() {
 		});
 }
 
-function share() {
-	navigator.share({
-		title: post.value.title,
-		text: post.value.description,
-		url: `${url}/gallery/${post.value.id}`,
-	});
-}
-
-function shareWithNote() {
-	os.post({
-		initialText: `${post.value.title} ${url}/gallery/${post.value.id}`,
-	});
-}
-
-function like() {
-	os.api("gallery/posts/like", {
+function remove() {
+	os.api("gallery/posts/delete", {
 		postId: props.postId,
 	}).then(() => {
-		post.value.isLiked = true;
-		post.value.likedCount++;
+		history.back();
 	});
-}
-
-async function unlike() {
-	os.api("gallery/posts/unlike", {
-		postId: props.postId,
-	}).then(() => {
-		post.value.isLiked = false;
-		post.value.likedCount--;
-	});
-}
-
-function edit() {
-	router.push(`/gallery/${post.value.id}/edit`);
 }
 
 watch(() => props.postId, fetchPost, { immediate: true });
 
 const headerActions = computed(() => [
 	{
-		icon: `${icon("ph-pencil")}`,
-		text: i18n.ts.edit,
-		handler: edit,
+		icon: `${icon("ph-trash")}`,
+		text: i18n.ts.delete,
+		handler: remove,
 	},
 ]);
 

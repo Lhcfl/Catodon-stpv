@@ -9,6 +9,20 @@
 			/>
 		</template>
 		<div>
+			<MkInfo v-if="isMine && hasGallery" class="warning" :warn="true">
+				<p>
+					The Gallery feature has been deprecated. Please repost any
+					Gallery posts you would like to keep as Blog posts. Thank
+					you!
+				</p>
+				<MkButton
+					v-tooltip="'Delete All'"
+					class="button"
+					@click="deleteAll()"
+					><i :class="icon('ph-trash', false)"></i
+					><span>I've kept all the content I needed. Delete all Gallery posts!</span>
+				</MkButton>
+			</MkInfo>
 			<transition name="fade" mode="out-in">
 				<div v-if="user">
 					<XHome
@@ -39,6 +53,8 @@ import { definePageMetadata } from "@/scripts/page-metadata";
 import { i18n } from "@/i18n";
 import { $i } from "@/reactiveAccount";
 import icon from "@/scripts/icon";
+import MkInfo from "@/components/MkInfo.vue";
+import MkButton from "@/components/MkButton.vue";
 
 const XHome = defineAsyncComponent(() => import("./home.vue"));
 const XReactions = defineAsyncComponent(() => import("./reactions.vue"));
@@ -61,6 +77,8 @@ useRouter();
 const tab = ref(props.page);
 const user = ref<null | firefish.entities.UserDetailed>(null);
 const error = ref(null);
+const isMine = ref<boolean>(false);
+const hasGallery = ref<boolean>(false);
 
 function fetchUser(): void {
 	if (props.acct == null) return;
@@ -68,10 +86,26 @@ function fetchUser(): void {
 	os.api("users/show", Acct.parse(props.acct))
 		.then((u) => {
 			user.value = u;
+			isMine.value = u.id === $i.id;
+			if (isMine.value) checkGallery();
 		})
 		.catch((err) => {
 			error.value = err;
 		});
+}
+
+function deleteAll() {
+	os.api("gallery/posts/delete", {}).then(() => {
+		location.reload();
+	});
+}
+
+function checkGallery() {
+	os.api("users/gallery/posts", { limit: 1, userId: user.value.id }).then(
+		(u) => {
+			hasGallery.value = u.length > 0;
+		},
+	);
 }
 
 watch(() => props.acct, fetchUser, {
@@ -110,6 +144,10 @@ const headerTabs = computed(() =>
 								title: i18n.ts.pages,
 								icon: `${icon("ph-file-text")}`,
 							},
+					  ]
+					: []),
+				...(hasGallery.value
+					? [
 							{
 								key: "gallery",
 								title: i18n.ts.gallery,
@@ -150,5 +188,9 @@ definePageMetadata(
 .fade-enter-from,
 .fade-leave-to {
 	opacity: 0;
+}
+
+.warning {
+	margin: 24px 24px 0px 24px;
 }
 </style>

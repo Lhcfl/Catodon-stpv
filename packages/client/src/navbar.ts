@@ -74,11 +74,6 @@ export const navbarItemDef = reactive({
 		icon: `${icon("ph-file-text")}`,
 		to: "/pages",
 	},
-	gallery: {
-		title: "gallery",
-		icon: `${icon("ph-image-square")}`,
-		to: "/gallery",
-	},
 	clips: {
 		title: "clips",
 		icon: `${icon("ph-paperclip")}`,

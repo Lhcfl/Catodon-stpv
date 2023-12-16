@@ -23,18 +23,28 @@ export const paramDef = {
 	properties: {
 		postId: { type: "string", format: "misskey:id" },
 	},
-	required: ["postId"],
+	required: [],
 } as const;
 
 export default define(meta, paramDef, async (ps, user) => {
-	const post = await GalleryPosts.findOneBy({
-		id: ps.postId,
-		userId: user.id,
-	});
-
-	if (post == null) {
-		throw new ApiError(meta.errors.noSuchPost);
+	let posts: string[] = [];
+	if (ps.postId) {
+		const post = await GalleryPosts.findOneBy({
+			id: ps.postId,
+			userId: user.id,
+		});
+		if (!post) {
+			throw new ApiError(meta.errors.noSuchPost);
+		}
+		posts.push(post.id);
+	} else {
+		posts = await GalleryPosts.find({
+			select: ["id"],
+			where: {
+				userId: user.id
+			}
+		}).then((posts) => posts.map(({ id }) => id));
 	}
 
-	await GalleryPosts.delete(post.id);
+	await GalleryPosts.delete(posts);
 });

@@ -26,10 +26,6 @@
 					><i :class="icon('ph-file-text icon')"></i
 					>{{ i18n.ts.pages }}</MkA
 				>
-				<MkA to="/gallery" class="link" active-class="active"
-					><i :class="icon('ph-image-square icon')"></i
-					>{{ i18n.ts.gallery }}</MkA
-				>
 				<div v-if="info" class="page active link">
 					<div class="title">
 						<i v-if="info.icon" class="icon" :class="info.icon"></i>

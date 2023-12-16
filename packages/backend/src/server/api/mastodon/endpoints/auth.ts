@@ -15,8 +15,6 @@ const readScope = [
 	"read:page-likes",
 	"read:user-groups",
 	"read:channels",
-	"read:gallery",
-	"read:gallery-likes",
 ];
 const writeScope = [
 	"write:account",
@@ -34,8 +32,6 @@ const writeScope = [
 	"write:page-likes",
 	"write:user-groups",
 	"write:channels",
-	"write:gallery",
-	"write:gallery-likes",
 ];
 
 export function apiAuthMastodon(router: Router): void {
