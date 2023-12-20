@@ -51,18 +51,6 @@ export const navbarItemDef = reactive({
 		icon: `${icon("ph-magnifying-glass")}`,
 		action: () => search(),
 	},
-	lists: {
-		title: "lists",
-		icon: `${icon("ph-list-bullets")}`,
-		show: computed(() => $i != null),
-		to: "/my/lists",
-	},
-	antennas: {
-		title: "antennas",
-		icon: `${icon("ph-flying-saucer")}`,
-		show: computed(() => $i != null),
-		to: "/my/antennas",
-	},
 	favorites: {
 		title: "favorites",
 		icon: `${icon("ph-bookmark-simple")}`,

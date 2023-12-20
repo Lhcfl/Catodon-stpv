@@ -80,6 +80,7 @@
 					<i :class="icon('ph-door icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.controlPanel }}</span>
 				</MkA>
+				<div v-if="$i.isAdmin || $i.isModerator" class="divider"></div>
 				<button v-click-anime class="item _button" @click="more">
 					<i :class="icon('ph-dots-three-outline icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.more }}</span>
