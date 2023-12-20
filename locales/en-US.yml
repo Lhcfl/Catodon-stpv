@@ -181,7 +181,7 @@ flagShowTimelineRepliesDescription: "Shows all replies of members to posts of ot
 autoAcceptFollowed: "Automatically approve follow requests from members you're following"
 addAccount: "Add account"
 loginFailed: "Failed to sign in"
-showOnRemote: "View original page"
+showOnRemote: "Visit original page"
 general: "General"
 accountMoved: "Member has moved to a new account:"
 wallpaper: "Wallpaper"
