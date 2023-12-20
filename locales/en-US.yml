@@ -1525,12 +1525,12 @@ _tutorial:
   step5_1: "Timelines, timelines everywhere!"
   step5_2: "Your server has 3 different timelines enabled."
   step5_3: "The Home {icon} timeline is where you can see posts from the accounts you follow and from everyone else on this server. If you prefer your Home timeline to only display posts from accounts you follow, you can easily change this in Settings!"
-  step5_4: "This server {icon} timeline is where you can see public posts from everyone else
+  step5_4: "This server's {icon} timeline is where you can see public posts from everyone
     on this server."
   step5_5: "The Social {icon} timeline is a combination of the Home and Local timelines."
   step5_6: "The Recommended {icon} timeline is where you can see posts from servers
     the admins recommend."
-  step5_7: "All servers {icon} timeline is where you can see public posts from every
+  step5_7: "All servers' {icon} timeline is where you can see public posts from every
     connected server."
   step6_1: "So, what is this place?"
   step6_2: "Well, you didn't just join Catodon. You joined a portal to the Fediverse,
