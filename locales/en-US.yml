@@ -1244,8 +1244,8 @@ _registry:
   domain: "Domain"
   createKey: "Create key"
 _aboutFirefish:
-  about: "Catodon is a fork of Firefish, which is a fork of Misskey, and it has been
-    in development since 2023."
+  about: "Catodon is the open source software that this server runs on. It started as a fork of Firefish/Misskey, and it has been
+    in development since 2023. Our goal is for Catodon to be an amazing platform for federated online communities!"
   contributors: "Main contributors"
   allContributors: "All contributors"
   misskeyContributors: "Misskey contributors"
