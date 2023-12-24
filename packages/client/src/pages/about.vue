@@ -38,7 +38,6 @@
 									aria-label="none"
 									class="icon"
 									:class="instanceIconAnimation"
-									@click="easterEgg"
 								/>
 								<div class="name">
 									<b>{{ $instance.name || host }}</b>
@@ -55,10 +54,10 @@
 
 						<FormSection>
 							<MkKeyValue class="_formBlock" :copy="version">
-								<template #key>Firefish</template>
+								<template #key>Catodon</template>
 								<template #value>{{ version }}</template>
 							</MkKeyValue>
-							<FormLink to="/about-firefish">{{
+							<FormLink to="/about-catodon">{{
 								i18n.ts.aboutFirefish
 							}}</FormLink>
 						</FormSection>
@@ -243,35 +242,6 @@ definePageMetadata(
 		icon: `${icon("ph-info")}`,
 	})),
 );
-
-onMounted(() => {
-	if (defaultStore.state.woozyMode === true) {
-		iconSrc.value = "/static-assets/woozy.png";
-		instanceIcon.value.src = iconSrc.value;
-	}
-});
-
-function easterEgg() {
-	iconClicks++;
-	if (iconClicks % 3 === 0) {
-		defaultStore.state.woozyMode = !defaultStore.state.woozyMode;
-		defaultStore.set("woozyMode", defaultStore.state.woozyMode);
-		if (instanceIcon.value) {
-			instanceIconAnimation.value = "spin";
-			setTimeout(() => {
-				if (iconClicks % 6 === 0) {
-					iconSrc.value =
-						instance.iconUrl ||
-						instance.faviconUrl ||
-						"/favicon.ico";
-				} else {
-					iconSrc.value = "/static-assets/woozy.png";
-				}
-				instanceIcon.value.src = iconSrc.value;
-			}, 500);
-		}
-	}
-}
 
 watch(iconSrc, (newValue, oldValue) => {
 	if (newValue !== oldValue) {

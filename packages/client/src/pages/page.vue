@@ -123,7 +123,7 @@
 									@click="shareWithNote"
 								>
 									<i
-										:class="icon('ph-rocket-launch ph-fw')"
+										:class="icon('ph-repeat ph-fw')"
 									></i>
 								</button>
 								<button

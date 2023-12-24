@@ -5,7 +5,7 @@
 			<XTimeline class="tl" />
 			<div class="shape1"></div>
 			<div class="shape2"></div>
-			<img src="/client-assets/misskey.svg" class="misskey" />
+			<img src="/client-assets/catodon.svg" class="misskey" />
 			<div class="emojis">
 				<MkEmoji
 					v-for="reaction in defaultReactions"
@@ -178,7 +178,7 @@ function showMenu(ev) {
 				text: i18n.ts.aboutFirefish,
 				icon: `${icon("ph-info")}`,
 				action: () => {
-					os.pageWindow("/about-firefish");
+					os.pageWindow("/about-catodon");
 				},
 			},
 			instance.tosUrl

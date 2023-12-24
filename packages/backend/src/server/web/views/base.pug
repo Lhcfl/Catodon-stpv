@@ -5,40 +5,26 @@ block loadClientEntry
 
 doctype html
 
-//
-	-
-
-		██████╗ ██╗██████╗ ███████╗███████╗██╗███████╗██╗  ██╗    ○     ▄    ▄
-		██╔════╝██║██╔══██╗██╔════╝██╔════╝██║██╔════╝██║  ██║      ⚬   █▄▄  █▄▄
-		█████╗  ██║██████╔╝█████╗  █████╗  ██║███████╗███████║      ▄▄▄▄▄▄   ▄
-		██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║╚════██║██╔══██║     █      █  █▄▄
-		██║     ██║██║  ██║███████╗██║     ██║███████║██║  ██║     █ ● ●  █
-		╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ▀▄▄▄▄▄▄▀
-
-		Thank you for using Firefish!
-		If you're reading this message... how about helping out with development?
-		https://git.joinfirefish.org/firefish/firefish
-
 html
 
 	- var timestamp = Date.now();
 
 	head
 		meta(charset='utf-8')
-		meta(name='application-name' content='Firefish')
+		meta(name='application-name' content='Catodon')
 		meta(name='referrer' content='origin')
 		meta(name='darkreader-lock' content='')
 		meta(name='theme-color' content= themeColor || '#31748f')
 		meta(name='theme-color-orig' content= themeColor || '#31748f')
 		meta(property='twitter:card' content='summary')
-		meta(property='og:site_name' content= instanceName || 'Firefish')
+		meta(property='og:site_name' content= instanceName || 'Catodon')
 		meta(name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no')
 		link(rel='icon' href= icon || `/favicon.ico?${ timestamp }`)
 		link(rel='apple-touch-icon' href= icon || `/apple-touch-icon.png?${ timestamp }`)
 		link(rel='manifest' href='/manifest.json')
-		link(rel='prefetch' href=`/static-assets/badges/info.webp?${ timestamp }`)
-		link(rel='prefetch' href=`/static-assets/badges/not-found.webp?${ timestamp }`)
-		link(rel='prefetch' href=`/static-assets/badges/error.webp?${ timestamp }`)
+		link(rel='prefetch' href=`/static-assets/badges/info.png?${ timestamp }`)
+		link(rel='prefetch' href=`/static-assets/badges/not-found.png?${ timestamp }`)
+		link(rel='prefetch' href=`/static-assets/badges/error.png?${ timestamp }`)
 		link(rel='stylesheet' href=`/static-assets/instance.css?${ timestamp }`)
 		link(rel='modulepreload' href=`/assets/${clientEntry.file}`)
 
@@ -48,7 +34,7 @@ html
 
 		title
 			block title
-				= title || 'Firefish'
+				= title || 'Catodon'
 
 		block desc
 			meta(name='description' content=desc || 'An open source, decentralized social media platform that\'s free forever! 🚀')
@@ -58,7 +44,7 @@ html
 				meta(name='robots' content='noindex,nofollow,noarchive,nocache,noimageindex')
 
 		block og
-			meta(property='og:title'       content=title || 'Firefish')
+			meta(property='og:title'       content=title || 'Catodon')
 			meta(property='og:description' content=desc || 'An open source, decentralized social media platform that\'s free forever! 🚀')
 			meta(property='og:image'       content=img)
 			meta(property='og:image:alt'   content=alt || 'Pfp')
@@ -77,9 +63,9 @@ html
 		noscript: p
 			| JavaScriptを有効にしてください
 			br
-			| Please turn on your JavaScript
+			| Please enable JavaScript
 		div#splash
-			img#splashIcon(src= splashIcon || `/static-assets/splash.svg?${ timestamp }`)
+			img#splashIcon(src= splashIcon || `/static-assets/splash.png?${ timestamp }`)
 			span#splashText
 				block randomMOTD
 					= randomMOTD

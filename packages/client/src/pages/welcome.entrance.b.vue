@@ -62,7 +62,7 @@
 					</I18n>
 				</div>
 			</div>
-			<img src="/client-assets/misskey.svg" class="misskey" />
+			<img src="/client-assets/catodon.svg" class="misskey" />
 		</div>
 	</div>
 </template>
@@ -160,7 +160,7 @@ export default defineComponent({
 						text: i18n.ts.aboutFirefish,
 						icon: `${icon("ph-info")}`,
 						action: () => {
-							os.pageWindow("/about-firefish");
+							os.pageWindow("/about-catodon");
 						},
 					},
 					null,

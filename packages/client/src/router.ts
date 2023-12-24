@@ -297,8 +297,8 @@ export const routes = [
 		hash: "initialTab",
 	},
 	{
-		path: "/about-firefish",
-		component: page(() => import("./pages/about-firefish.vue")),
+		path: "/about-catodon",
+		component: page(() => import("./pages/about-catodon.vue")),
 	},
 	{
 		path: "/theme-editor",

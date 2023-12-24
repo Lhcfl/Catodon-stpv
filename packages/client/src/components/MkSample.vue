@@ -55,7 +55,7 @@ export default defineComponent({
 				this.$i ? this.$i.username : "guest"
 			}.\nAlso, here is ${config.url} and [example link](${
 				config.url
-			}). for more details, see https://joinfirefish.org.\nAs you know #misskey is open-source software.`,
+			}).`,
 		};
 	},
 
@@ -82,7 +82,7 @@ export default defineComponent({
 				},
 				baz: {
 					type: "string",
-					default: "Firefish makes you happy.",
+					default: "Catodon makes you happy.",
 					label: "This is a string property",
 				},
 			});

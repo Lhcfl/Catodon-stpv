@@ -42,7 +42,7 @@
 				<i :class="icon('ph-push-pin')"></i>{{ i18n.ts.pinnedNote }}
 			</div>
 			<div v-if="isRenote" class="renote">
-				<i :class="icon('ph-rocket-launch')"></i>
+				<i :class="icon('ph-repeat')"></i>
 				<I18n :src="i18n.ts.renotedBy" tag="span">
 					<template #user>
 						<MkA

@@ -63,7 +63,7 @@ export const meta = {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "/static-assets/badges/info.webp",
+				default: "/static-assets/badges/info.png",
 			},
 			bannerUrl: {
 				type: "string",
@@ -74,7 +74,7 @@ export const meta = {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "/static-assets/badges/error.webp",
+				default: "/static-assets/badges/error.png",
 			},
 			iconUrl: {
 				type: "string",

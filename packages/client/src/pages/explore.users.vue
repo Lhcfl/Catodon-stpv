@@ -127,7 +127,7 @@
 				<MkFolder class="_gap">
 					<template #header
 						><i
-							:class="icon('ph-rocket-launch ph-fw')"
+							:class="icon('ph-repeat ph-fw')"
 							style="margin-inline-end: 0.5em"
 						></i
 						>{{ i18n.ts.recentlyDiscoveredUsers }}</template

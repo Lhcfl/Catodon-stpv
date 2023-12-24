@@ -15,10 +15,10 @@ export default async (job: Bull.Job<WebhookDeliverJobData>) => {
 			url: job.data.to,
 			method: "POST",
 			headers: {
-				"User-Agent": "Firefish-Hooks",
-				"X-Firefish-Host": config.host,
-				"X-Firefish-Hook-Id": job.data.webhookId,
-				"X-Firefish-Hook-Secret": job.data.secret,
+				"User-Agent": "Catodon-Hooks",
+				"X-Catodon-Host": config.host,
+				"X-Catodon-Hook-Id": job.data.webhookId,
+				"X-Catodon-Hook-Secret": job.data.secret,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({

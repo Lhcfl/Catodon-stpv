@@ -11,7 +11,7 @@ export async function getInstance(
 
 	return {
 		uri: response.uri,
-		title: response.title || "Firefish",
+		title: response.title || "Catodon",
 		short_description:
 			response.description?.substring(0, 50) || "See real server website",
 		description:

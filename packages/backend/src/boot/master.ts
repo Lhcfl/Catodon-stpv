@@ -28,60 +28,13 @@ const themeColor = chalk.hex("#31748f");
 
 function greet() {
 	if (!envOption.quiet) {
-		//#region Firefish logo
-		console.log(
-			themeColor(
-				"██████╗ ██╗██████╗ ███████╗███████╗██╗███████╗██╗  ██╗    ○     ▄    ▄    ",
-			),
-		);
-		console.log(
-			themeColor(
-				"██╔════╝██║██╔══██╗██╔════╝██╔════╝██║██╔════╝██║  ██║      ⚬   █▄▄  █▄▄ ",
-			),
-		);
-		console.log(
-			themeColor(
-				"█████╗  ██║██████╔╝█████╗  █████╗  ██║███████╗███████║      ▄▄▄▄▄▄   ▄    ",
-			),
-		);
-		console.log(
-			themeColor(
-				"██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║╚════██║██╔══██║     █      █  █▄▄  ",
-			),
-		);
-		console.log(
-			themeColor(
-				"██║     ██║██║  ██║███████╗██║     ██║███████║██║  ██║     █ ● ●  █       ",
-			),
-		);
-		console.log(
-			themeColor(
-				"╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝     ▀▄▄▄▄▄▄▀       ",
-			),
-		);
-		//#endregion
-
-		console.log(
-			" Firefish is an open-source decentralized microblogging platform.",
-		);
-		console.log(
-			chalk.rgb(
-				255,
-				136,
-				0,
-			)(
-				" If you like Firefish, please consider starring or contributing to the repo. https://git.joinfirefish.org/firefish/firefish",
-			),
-		);
-
-		console.log("");
 		console.log(
 			chalkTemplate`--- ${os.hostname()} {gray (PID: ${process.pid.toString()})} ---`,
 		);
 	}
 
-	bootLogger.info("Welcome to Firefish!");
-	bootLogger.info(`Firefish v${meta.version}`, null, true);
+	bootLogger.info("Welcome to Catodon!");
+	bootLogger.info(`Catodon v${meta.version}`, null, true);
 }
 
 /**
@@ -107,7 +60,7 @@ export async function masterMain() {
 		process.exit(1);
 	}
 
-	bootLogger.succ("Firefish initialized");
+	bootLogger.succ("Catodon initialized");
 
 	if (!envOption.disableClustering) {
 		await spawnWorkers(config.clusterLimits);

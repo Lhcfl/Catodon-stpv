@@ -2,7 +2,7 @@
 	<div class="ipledcug">
 		<div class="_fullinfo">
 			<img
-				src="/static-assets/badges/not-found.webp"
+				src="/static-assets/badges/not-found.png"
 				class="_ghost"
 				alt="Not found"
 			/>

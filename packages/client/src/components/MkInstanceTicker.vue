@@ -37,7 +37,7 @@ const instance = props.instance ?? {
 			'meta[name="theme-color-orig"]',
 		) as HTMLMetaElement
 	)?.content,
-	softwareName: Instance.softwareName ?? "Firefish",
+	softwareName: Instance.softwareName ?? "Catodon",
 };
 
 const commonNames = new Map<string, string>([

@@ -41,7 +41,7 @@
 				></i>
 				<i
 					v-else-if="notification.type === 'renote'"
-					:class="icon('ph-rocket-launch', false)"
+					:class="icon('ph-repeat', false)"
 				></i>
 				<i
 					v-else-if="notification.type === 'reply'"

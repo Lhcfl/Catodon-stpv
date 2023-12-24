@@ -11,7 +11,6 @@
 						ref="containerEl"
 						v-panel
 						class="_formBlock about"
-						:class="{ playing: easterEggEngine != null }"
 					>
 						<img
 							src="/client-assets/about-icon.png"
@@ -19,12 +18,12 @@
 							class="icon"
 							draggable="false"
 						/>
-						<div class="misskey">Firefish</div>
+						<div class="misskey">Catodon</div>
 						<div class="version">v{{ version }}</div>
 					</div>
 					<div class="_formBlock" style="text-align: center">
 						{{ i18n.ts._aboutFirefish.about }}<br /><a
-							href="https://joinfirefish.org/"
+							href="https://codeberg.org/catodon/catodon"
 							target="_blank"
 							class="_link"
 							>{{ i18n.ts.learnMore }}</a
@@ -33,16 +32,16 @@
 					<FormSection>
 						<div class="_formLinks">
 							<FormLink
-								to="https://git.joinfirefish.org/firefish/firefish"
+								to="https://codeberg.org/catodon/catodon"
 								external
 							>
 								<template #icon
 									><i :class="icon('ph-code')"></i
 								></template>
 								{{ i18n.ts._aboutFirefish.source }}
-								<template #suffix>GitLab</template>
+								<template #suffix>Codeberg</template>
 							</FormLink>
-							<FormLink
+							<!-- <FormLink
 								to="https://opencollective.com/firefish"
 								external
 							>
@@ -51,8 +50,8 @@
 								></template>
 								{{ i18n.ts._aboutFirefish.donate }}
 								<template #suffix>Donate</template>
-							</FormLink>
-							<FormLink
+							</FormLink> -->
+							<!-- <FormLink
 								to="https://hosted.weblate.org/engage/firefish/"
 								external
 							>
@@ -61,7 +60,7 @@
 								></template>
 								{{ i18n.ts._aboutFirefish.translation }}
 								<template #suffix>Translate</template>
-							</FormLink>
+							</FormLink> -->
 						</div>
 					</FormSection>
 				</div>

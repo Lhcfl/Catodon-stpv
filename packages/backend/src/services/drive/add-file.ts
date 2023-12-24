@@ -40,17 +40,16 @@ function urlPathJoin(
 	pathParts?: PathPartLike[],
 ): string {
 	if (baseOrParts instanceof URL) {
+		const url = new URL(baseOrParts as URL);
 		if (pathParts) {
 			pathParts.unshift(
-				baseOrParts.pathname.endsWith("/")
-					? baseOrParts.pathname.slice(0, -1)
-					: baseOrParts.pathname,
+				url.pathname.endsWith("/") ? url.pathname.slice(0, -1) : url.pathname,
 			);
-			baseOrParts.pathname = pathParts
+			url.pathname = pathParts
 				.filter((x) => x !== null && x.toString().length > 0)
 				.join("/");
 		}
-		return baseOrParts.toString();
+		return url.toString();
 	}
 	const baseParts = baseOrParts.concat(pathParts ?? []);
 	return baseParts
@@ -357,10 +356,8 @@ async function upload(
 	type: string,
 	filename?: string,
 ) {
-	let contentType = type;
-	if (type === "image/apng") contentType = "image/png";
-	if (!FILE_TYPE_BROWSERSAFE.includes(type))
-		contentType = "application/octet-stream";
+	if (type === "image/apng") type = "image/png";
+	if (!FILE_TYPE_BROWSERSAFE.includes(type)) type = "application/octet-stream";
 
 	const meta = await fetchMeta();
 
@@ -368,7 +365,7 @@ async function upload(
 		Bucket: meta.objectStorageBucket,
 		Key: key,
 		Body: stream,
-		ContentType: contentType,
+		ContentType: type,
 		CacheControl: "max-age=31536000, immutable",
 	} as S3.PutObjectRequest;
 
@@ -420,9 +417,7 @@ async function expireOldFile(user: IRemoteUser, driveCapacity: number) {
 
 	for (const fileId of exceedFileIds) {
 		const file = await DriveFiles.findOneBy({ id: fileId });
-		if (file) {
-			deleteFile(file, true);
-		}
+		deleteFile(file, true);
 	}
 }
 
@@ -491,8 +486,28 @@ export async function addFile({
 	)
 		skipNsfwCheck = true;
 
-	const info = await getFileInfo(path);
+	const info = await getFileInfo(path, {
+		skipSensitiveDetection: skipNsfwCheck,
+		sensitiveThreshold: // 感度が高いほどしきい値は低くすることになる
+			instance.sensitiveMediaDetectionSensitivity === "veryHigh"
+				? 0.1
+				: instance.sensitiveMediaDetectionSensitivity === "high"
+				? 0.3
+				: instance.sensitiveMediaDetectionSensitivity === "low"
+				? 0.7
+				: instance.sensitiveMediaDetectionSensitivity === "veryLow"
+				? 0.9
+				: 0.5,
+		sensitiveThresholdForPorn: 0.75,
+		enableSensitiveMediaDetectionForVideos:
+			instance.enableSensitiveMediaDetectionForVideos,
+	});
 	logger.info(`${JSON.stringify(info)}`);
+
+	// 現状 false positive が多すぎて実用に耐えない
+	//if (info.porn && instance.disallowUploadWhenPredictedAsPorn) {
+	//	throw new IdentifiableError('282f77bf-5816-4f72-9264-aa14d8261a21', 'Detected as porn.');
+	//}
 
 	// detect name
 	const detectedName =
@@ -576,11 +591,11 @@ export async function addFile({
 	} = {};
 
 	if (info.width) {
-		properties.width = info.width;
-		properties.height = info.height;
+		properties["width"] = info.width;
+		properties["height"] = info.height;
 	}
 	if (info.orientation != null) {
-		properties.orientation = info.orientation;
+		properties["orientation"] = info.orientation;
 	}
 
 	const profile = user

@@ -1,6 +1,6 @@
 {
 	"name": "catodon",
-	"version": "alpha.1",
+	"version": "2023.12-alpha.1",
 	"repository": {
 		"type": "git",
 		"url": "https://codeberg.org/catodon/catodon"
@@ -9,7 +9,7 @@
 	"private": true,
 	"scripts": {
 		"rebuild": "pnpm run clean && pnpm run build",
-		"build": "./scripts/build-greet.sh && pnpm --filter firefish-js run build && pnpm --filter !firefish-js -r --parallel run build && pnpm run gulp",
+		"build": "pnpm --filter firefish-js run build && pnpm --filter !firefish-js -r --parallel run build && pnpm run gulp",
 		"start": "pnpm --filter backend run start",
 		"start:test": "pnpm --filter backend run start:test",
 		"init": "pnpm run migrate",

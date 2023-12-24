@@ -456,7 +456,7 @@ defineProps<{
 
 const preview_mention = ref("@example");
 const preview_hashtag = ref("#test");
-const preview_link = ref(`[${i18n.ts._mfm.dummy}](https://joinfirefish.org)`);
+const preview_link = ref(`[${i18n.ts._mfm.dummy}](https://codeberg.org/catodon/catodon)`);
 const preview_emoji = ref(
 	instance.emojis.length ? `:${instance.emojis[0].name}:` : ":emojiname:",
 );

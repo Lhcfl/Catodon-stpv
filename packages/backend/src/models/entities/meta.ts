@@ -143,7 +143,7 @@ export class Meta {
 	@Column("varchar", {
 		length: 512,
 		array: true,
-		default: "{/featured,/channels,/explore,/pages,/about-firefish}",
+		default: "{/featured,/channels,/explore,/pages,/about-catodon}",
 	})
 	public pinnedPages: string[];
 
@@ -162,7 +162,7 @@ export class Meta {
 	@Column("varchar", {
 		length: 512,
 		nullable: true,
-		default: "/static-assets/badges/info.webp",
+		default: "/static-assets/badges/info.png",
 	})
 	public mascotImageUrl: string | null;
 
@@ -187,7 +187,7 @@ export class Meta {
 	@Column("varchar", {
 		length: 512,
 		nullable: true,
-		default: "/static-assets/badges/error.webp",
+		default: "/static-assets/badges/error.png",
 	})
 	public errorImageUrl: string | null;
 
@@ -385,14 +385,14 @@ export class Meta {
 
 	@Column("varchar", {
 		length: 512,
-		default: "https://git.joinfirefish.org/firefish/firefish",
+		default: "https://codeberg.org/catodon/catodon",
 		nullable: false,
 	})
 	public repositoryUrl: string;
 
 	@Column("varchar", {
 		length: 512,
-		default: "https://git.joinfirefish.org/firefish/firefish/issues/new",
+		default: "https://codeberg.org/catodon/catodon/issues",
 		nullable: true,
 	})
 	public feedbackUrl: string | null;
@@ -502,7 +502,7 @@ export class Meta {
 	public enableServerMachineStats: boolean;
 
 	@Column("boolean", {
-		default: false,
+		default: true,
 	})
 	public enableIdenticonGeneration: boolean;
 }

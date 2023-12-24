@@ -18,8 +18,8 @@ export function metaToPugArgs(meta: Meta): object {
 
 	return {
 		img: meta.bannerUrl,
-		title: meta.name || "Firefish",
-		instanceName: meta.name || "Firefish",
+		title: meta.name || "Catodon",
+		instanceName: meta.name || "Catodon",
 		desc: meta.description,
 		icon: meta.iconUrl,
 		splashIcon: splashIconUrl,

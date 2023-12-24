@@ -11,7 +11,7 @@
 				<MkEmoji :normal="true" :no-style="true" emoji="🍮" />
 			</div>
 			<div class="main">
-				<img src="/client-assets/misskey.svg" class="misskey" />
+				<img src="/client-assets/catodon.svg" class="misskey" />
 				<div class="form _panel">
 					<div class="bg">
 						<div class="fade"></div>
@@ -186,7 +186,7 @@ export default defineComponent({
 						text: i18n.ts.aboutFirefish,
 						icon: `${icon("ph-info")}`,
 						action: () => {
-							os.pageWindow("/about-firefish");
+							os.pageWindow("/about-catodon");
 						},
 					},
 				],

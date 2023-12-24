@@ -7,7 +7,7 @@
 		:class="{ renoted: hasRenotedBefore }"
 		@click.stop="renote(false, $event)"
 	>
-		<i :class="icon('ph-rocket-launch')"></i>
+		<i :class="icon('ph-repeat')"></i>
 		<p v-if="count > 0 && !detailedView" class="count">{{ count }}</p>
 	</button>
 	<button
@@ -16,7 +16,7 @@
 		class="_button"
 		disabled="true"
 	>
-		<i :class="icon('ph-rocket-launch')"></i>
+		<i :class="icon('ph-repeat')"></i>
 	</button>
 </template>
 
@@ -92,7 +92,7 @@ const renote = (viaKeyboard = false, ev?: MouseEvent) => {
 	if (props.note.visibility === "public") {
 		buttonActions.push({
 			text: i18n.ts.renote,
-			icon: `${icon("ph-rocket-launch")}`,
+			icon: `${icon("ph-repeat")}`,
 			danger: false,
 			action: () => {
 				os.api("notes/create", {

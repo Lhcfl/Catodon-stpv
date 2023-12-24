@@ -232,9 +232,11 @@ export async function initDb() {
 		await db.initialize();
 	}
 
-	const pgroonga = await db.query<{ exists: boolean }[]>(`SELECT EXISTS (SELECT extname FROM pg_catalog.pg_extension WHERE extname = 'pgroonga')`)
+	const pgroonga = await db.query<{ exists: boolean }[]>(
+		`SELECT EXISTS (SELECT extname FROM pg_catalog.pg_extension WHERE extname = 'pgroonga')`,
+	);
 	if (pgroonga.length > 0 && !pgroonga[0].exists) {
-		throw new Error("PGroonga is not installed")
+		throw new Error("PGroonga is not installed");
 	}
 }
 

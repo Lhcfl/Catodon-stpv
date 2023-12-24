@@ -59,7 +59,7 @@ defineExpose({
 		width: 100%;
 		position: sticky;
 		margin-top: 10px;
-		bottom: calc(var(--stickyBottom) - 1em);
+		bottom: calc(var(--stickyBottom) + 1em);
 	}
 }
 </style>

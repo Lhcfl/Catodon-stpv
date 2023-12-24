@@ -9,13 +9,13 @@ export function genOpenapiSpec() {
 
 		info: {
 			version: "v1",
-			title: "Firefish API",
+			title: "Catodon Legacy API",
 			"x-logo": { url: "/static-assets/api-doc.png" },
 		},
 
 		externalDocs: {
 			description: "Repository",
-			url: "https://git.joinfirefish.org/firefish/firefish",
+			url: "https://codeberg.org/catodon/catodon",
 		},
 
 		servers: [

@@ -68,13 +68,13 @@ export const meta = {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "https://git.joinfirefish.org/firefish/firefish",
+				default: "https://codeberg.org/catodon/catodon",
 			},
 			feedbackUrl: {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "https://git.joinfirefish.org/firefish/firefish/issues",
+				default: "https://codeberg.org/catodon/catodon/issues",
 			},
 			defaultDarkTheme: {
 				type: "string",
@@ -155,7 +155,7 @@ export const meta = {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "/static-assets/badges/info.webp",
+				default: "/static-assets/badges/info.png",
 			},
 			bannerUrl: {
 				type: "string",
@@ -166,7 +166,7 @@ export const meta = {
 				type: "string",
 				optional: false,
 				nullable: false,
-				default: "/static-assets/badges/error.webp",
+				default: "/static-assets/badges/error.png",
 			},
 			iconUrl: {
 				type: "string",
@@ -495,7 +495,7 @@ export default define(meta, paramDef, async (ps, me) => {
 			recommendedTimeline: !instance.disableRecommendedTimeline,
 			globalTimeLine: !instance.disableGlobalTimeline,
 			emailRequiredForSignup: instance.emailRequiredForSignup,
-			searchFilters: config.meilisearch ? true : false,
+			searchFilters: true,
 			hcaptcha: instance.enableHcaptcha,
 			recaptcha: instance.enableRecaptcha,
 			objectStorage: instance.useObjectStorage,
