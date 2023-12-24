@@ -9,10 +9,7 @@ export const notePostInterruptors = [];
 
 const menuOptions = [
 	"notifications",
-	"followRequests",
 	"messaging",
-	"explore",
-	"favorites",
 	"channels",
 	"search",
 ];

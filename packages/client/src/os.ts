@@ -847,7 +847,7 @@ export async function openEmojiPicker(
 
 export function popupMenu(
 	items: MenuItem[] | Ref<MenuItem[]>,
-	src?: HTMLElement,
+	src?: HTMLElement | EventTarget,
 	options?: {
 		align?: string;
 		width?: number;

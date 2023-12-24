@@ -69,6 +69,18 @@
 						></span>
 					</component>
 				</template>
+				<button
+					v-click-anime
+					v-tooltip.noDelay.right="i18n.ts.more"
+					class="item _button"
+					@click="more"
+				>
+					<i :class="icon('ph-dots-three-outline icon ph-fw')"></i
+					><span class="text">{{ i18n.ts.more }}</span>
+					<span v-if="otherMenuItemIndicated" class="indicator"
+						><i class="icon ph-circle ph-fill"></i
+					></span>
+				</button>
 				<div class="divider"></div>
 				<MkA
 					v-if="$i.isAdmin || $i.isModerator"
@@ -80,19 +92,6 @@
 					<i :class="icon('ph-door icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.controlPanel }}</span>
 				</MkA>
-				<div v-if="$i.isAdmin || $i.isModerator" class="divider"></div>
-				<button v-click-anime class="item _button" @click="more">
-					<i :class="icon('ph-dots-three-outline icon ph-fw')"></i
-					><span class="text">{{ i18n.ts.more }}</span>
-					<span
-						v-if="otherMenuItemIndicated"
-						class="indicator"
-						:class="{
-							animateIndicator: defaultStore.state.animation,
-						}"
-						><i class="icon ph-circle ph-fill"></i
-					></span>
-				</button>
 				<MkA
 					v-click-anime
 					class="item"
@@ -132,6 +131,15 @@
 						class="icon"
 					/>
 				</div>
+				<button
+					v-tooltip.noDelay.right="i18n.ts.help"
+					class="item _button help"
+					@click="openHelpMenu"
+				>
+					<i
+						:class="icon('help icon ph-info ph-xl ph-fw', false)"
+					></i>
+				</button>
 			</div>
 		</div>
 	</div>
