@@ -168,7 +168,7 @@ export const defaultStore = markRaw(
 		},
 		seperateRenoteQuote: {
 			where: "device",
-			default: true,
+			default: false,
 		},
 		expandOnNoteClick: {
 			where: "device",
