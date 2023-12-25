@@ -277,7 +277,6 @@ function checkForSplash() {
 
 	if (
 		$i &&
-		defaultStore.state.tutorial === -1 &&
 		!["/announcements", "/announcements/"].includes(window.location.pathname)
 	) {
 		api("announcements", { withUnreads: true, limit: 10 })

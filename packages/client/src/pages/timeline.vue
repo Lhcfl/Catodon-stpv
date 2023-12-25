@@ -67,7 +67,6 @@
 import { computed, onMounted, ref } from "vue";
 import { Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import XTutorial from "@/components/MkTutorialDialog.vue";
 import XTimeline from "@/components/MkTimeline.vue";
 import XPostForm from "@/components/MkPostForm.vue";
 import * as os from "@/os";
@@ -80,10 +79,6 @@ import { deviceKind } from "@/scripts/device-kind";
 import icon from "@/scripts/icon";
 import "swiper/scss";
 import "swiper/scss/virtual";
-
-if (defaultStore.reactiveState.tutorial.value !== -1) {
-	os.popup(XTutorial, {}, {}, "closed");
-}
 
 const isLocalTimelineAvailable =
 	!instance.disableLocalTimeline ||
@@ -249,7 +244,7 @@ const headerTabs = $computed(() => [
 				},
 		  ]
 		: []),
-	...(isLocalTimelineAvailable && defaultStore.state.isSocialTimelineAvailable 
+	...(isLocalTimelineAvailable && defaultStore.state.isSocialTimelineAvailable
 		? [
 				{
 					key: "social",

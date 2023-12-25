@@ -29,10 +29,6 @@ export const defaultReactions = [
 //       あと、現行の定義の仕方なら「whereが何であるかに関わらずキー名の重複不可」という制約を付けられるメリットもあるからそのメリットを引き継ぐ方法も考えないといけない
 export const defaultStore = markRaw(
 	new Storage("base", {
-		tutorial: {
-			where: "account",
-			default: 0,
-		},
 		tlHomeHintClosed: {
 			where: "account",
 			default: false,
