@@ -601,7 +601,7 @@ ascendingOrder: "Ascending"
 descendingOrder: "Descending"
 scratchpad: "Scratchpad"
 scratchpadDescription: "The scratchpad provides an environment for AiScript experiments.
-  You can write, execute, and check the results of it interacting with Firefish in
+  You can write, execute, and check the results of it interacting with Catodon in
   it."
 output: "Output"
 script: "Script"
@@ -1056,7 +1056,7 @@ customSplashIcons: "Custom splash screen icons (urls)"
 customSplashIconsDescription: "URLs for custom splash screen icons separated by line
   breaks to be shown randomly every time a member loads/reloads the page. Please make
   sure the images are on a static URL, preferably all resized to 192x192."
-showUpdates: "Show a popup when Firefish updates"
+showUpdates: "Show a popup when Catodon updates"
 recommendedInstances: "Recommended servers"
 recommendedInstancesDescription: "Recommended servers separated by line breaks to
   appear in the recommended timeline."
@@ -1270,7 +1270,7 @@ _mfm:
   cheatSheet: "MFM Cheatsheet"
   intro: "MFM is a markup language used on Misskey, Firefish, Akkoma, and more that
     can be used in many places. Here you can view a list of all available MFM syntax."
-  dummy: "Firefish expands the world of the Fediverse"
+  dummy: "Catodon expands the world of the Fediverse"
   advanced: "Advanced MFM"
   advancedDescription: "If disabled, only allows for basic markup unless animated
     MFM is playing"
