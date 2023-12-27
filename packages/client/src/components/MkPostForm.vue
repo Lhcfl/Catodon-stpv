@@ -216,14 +216,6 @@
 				>
 					<i :class="icon('ph-plug')"></i>
 				</button>
-				<!--	v-if="showMfmCheatsheet" -->
-				<button
-					v-tooltip="i18n.ts._mfm.cheatSheet"
-					class="_button right"
-					@click="openCheatSheet"
-				>
-					<i :class="icon('ph-question')"></i>
-				</button>
 			</footer>
 			<datalist id="hashtags">
 				<option
@@ -274,7 +266,6 @@ import { getAccounts, openAccountMenu as openAccountMenu_ } from "@/account";
 import { $i } from "@/reactiveAccount";
 import { uploadFile } from "@/scripts/upload";
 import { deepClone } from "@/scripts/clone";
-import XCheatSheet from "@/components/MkCheatSheetDialog.vue";
 import preprocess from "@/scripts/preprocess";
 import { vibrate } from "@/scripts/vibrate";
 import icon from "@/scripts/icon";
@@ -297,13 +288,11 @@ const props = withDefaults(
 		instant?: boolean;
 		fixed?: boolean;
 		autofocus?: boolean;
-		showMfmCheatSheet?: boolean;
 		editId?: firefish.entities.Note["id"];
 	}>(),
 	{
 		initialVisibleUsers: () => [],
 		autofocus: true,
-		showMfmCheatSheet: true,
 	},
 );
 
@@ -955,10 +944,6 @@ function insertMention() {
 
 async function insertEmoji(ev: MouseEvent) {
 	os.openEmojiPicker(ev.currentTarget ?? ev.target, {}, textareaEl.value);
-}
-
-async function openCheatSheet(ev: MouseEvent) {
-	os.popup(XCheatSheet, {}, {}, "closed");
 }
 
 function showActions(ev) {
