@@ -101,15 +101,6 @@
 					<i :class="icon('ph-gear-six icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.settings }}</span>
 				</MkA>
-				<button
-					v-click-anime
-					v-tooltip.noDelay.right="i18n.ts.help"
-					class="item _button"
-					@click="openHelpMenu"
-				>
-					<i :class="icon('ph-info icon ph-fw')"></i
-					><span class="text">{{ i18n.ts.help }}</span>
-				</button>
 			</div>
 			<div class="bottom">
 				<button
