@@ -1,6 +1,6 @@
 {
 	"name": "catodon",
-	"version": "2023.12-alpha.3",
+	"version": "23.12-alpha.3",
 	"repository": {
 		"type": "git",
 		"url": "https://codeberg.org/catodon/catodon"
