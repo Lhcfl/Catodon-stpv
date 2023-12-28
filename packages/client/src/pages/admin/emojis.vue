@@ -428,7 +428,7 @@ const headerActions = computed(() => [
 const headerTabs = computed(() => [
 	{
 		key: "local",
-		icon: `${icon("ph-users")}`,
+		icon: `${icon("ph-map-pin")}`,
 		title: i18n.ts.local,
 	},
 	{

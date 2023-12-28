@@ -13,13 +13,13 @@
 		<i
 			v-else-if="note.visibility === 'specified'"
 			ref="specified"
-			:class="icon('ph-envelope-simple-open')"
+			:class="icon('ph-lock-laminated')"
 		></i>
 	</span>
 	<span v-if="note.localOnly" :class="$style.localOnly"
 		><i
 			v-tooltip="i18n.ts._visibility.localOnly"
-			:class="icon('ph-users')"
+			:class="icon('ph-map-pin')"
 		></i
 	></span>
 </template>

@@ -201,7 +201,7 @@ const headerActions = computed(() => [
 		handler: chooseList,
 	},
 	{
-		icon: `${icon("ph-flying-saucer")}`,
+		icon: `${icon("ph-factory")}`,
 		title: i18n.ts.antennas,
 		text: i18n.ts.antennas,
 		iconOnly: true,
@@ -239,7 +239,7 @@ const headerTabs = $computed(() => [
 				{
 					key: "local",
 					title: i18n.ts._timelines.local,
-					icon: `${icon("ph-users")}`,
+					icon: `${icon("ph-map-pin")}`,
 					iconOnly: true,
 				},
 		  ]
@@ -281,7 +281,7 @@ definePageMetadata(
 		title: i18n.ts.timeline,
 		icon:
 			src === "local"
-				? "ph-users ph-lg"
+				? "ph-map-pin ph-lg"
 				: src === "social" && defaultStore.state.showLocalPostsInHomeTimeline
 				? "ph-house ph-lg"
 				: src === "social" && defaultStore.state.isSocialTimelineAvailable

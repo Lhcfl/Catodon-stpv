@@ -69,7 +69,7 @@
 			>
 				<template #header
 					><i
-						:class="icon('ph-compass ph-fw')"
+						:class="icon('ph-flashlight ph-fw')"
 						style="margin-inline-end: 0.5em"
 					></i
 					>{{ i18n.ts.popularTags }}</template

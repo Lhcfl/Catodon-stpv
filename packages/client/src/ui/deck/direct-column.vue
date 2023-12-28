@@ -6,7 +6,7 @@
 	>
 		<template #header
 			><i
-				:class="icon('ph-envelope-simple-open')"
+				:class="icon('ph-lock-laminated')"
 				style="margin-inline-end: 8px"
 			></i
 			>{{ column.name }}</template

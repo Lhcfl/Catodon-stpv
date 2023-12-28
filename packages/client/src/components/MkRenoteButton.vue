@@ -146,7 +146,7 @@ const renote = (viaKeyboard = false, ev?: MouseEvent) => {
 	if (props.note.visibility === "specified") {
 		buttonActions.push({
 			text: `${i18n.ts.renote} (${i18n.ts.recipient})`,
-			icon: `${icon("ph-envelope-simple-open")}`,
+			icon: `${icon("ph-lock-laminated")}`,
 			danger: false,
 			action: () => {
 				os.api("notes/create", {
@@ -199,7 +199,7 @@ const renote = (viaKeyboard = false, ev?: MouseEvent) => {
 	if (canRenote.value) {
 		buttonActions.push({
 			text: `${i18n.ts.renote} (${i18n.ts.local})`,
-			icon: `${icon("ph-users")}`,
+			icon: `${icon("ph-map-pin")}`,
 			danger: false,
 			action: () => {
 				vibrate([30, 30, 60]);

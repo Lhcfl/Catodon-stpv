@@ -137,12 +137,12 @@ const headerTabs = computed(() =>
 							{
 								key: "clips",
 								title: i18n.ts.clips,
-								icon: `${icon("ph-paperclip")}`,
+								icon: `${icon("ph-bookmarks")}`,
 							},
 							{
 								key: "pages",
 								title: i18n.ts.pages,
-								icon: `${icon("ph-file-text")}`,
+								icon: `${icon("ph-article")}`,
 							},
 					  ]
 					: []),

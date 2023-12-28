@@ -72,7 +72,7 @@ const headerTabs = computed(() => [
 definePageMetadata(
 	computed(() => ({
 		title: i18n.ts.explore,
-		icon: `${icon("ph-compass")}`,
+		icon: `${icon("ph-flashlight")}`,
 	})),
 );
 

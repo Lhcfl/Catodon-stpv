@@ -37,6 +37,6 @@ os.api("antennas/show", { antennaId: props.antennaId }).then(
 
 definePageMetadata({
 	title: i18n.ts.manageAntennas,
-	icon: `${icon("ph-flying-saucer")}`,
+	icon: `${icon("ph-factory")}`,
 });
 </script>

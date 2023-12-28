@@ -132,7 +132,7 @@ definePageMetadata(
 		clip.value
 			? {
 					title: clip.value.name,
-					icon: `${icon("ph-paperclip")}`,
+					icon: `${icon("ph-bookmarks")}`,
 			  }
 			: null,
 	),

@@ -202,13 +202,13 @@ const menuDef = computed(() => [
 				active: currentPage.value?.route.name === "queue",
 			},
 			{
-				icon: `${icon("ph-cloud")}`,
+				icon: `${icon("ph-hard-drive")}`,
 				text: i18n.ts.files,
 				to: "/admin/files",
 				active: currentPage.value?.route.name === "files",
 			},
 			{
-				icon: `${icon("ph-megaphone-simple")}`,
+				icon: `${icon("ph-megaphone")}`,
 				text: i18n.ts.announcements,
 				to: "/admin/announcements",
 				active: currentPage.value?.route.name === "announcements",
@@ -416,7 +416,7 @@ const lookup = (ev) => {
 			},
 			{
 				text: i18n.ts.file,
-				icon: `${icon("ph-cloud")}`,
+				icon: `${icon("ph-hard-drive")}`,
 				action: () => {
 					lookupFile();
 				},

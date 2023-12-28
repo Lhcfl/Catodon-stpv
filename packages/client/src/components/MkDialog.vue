@@ -107,7 +107,7 @@
 						class="_buttonIcon"
 						@click.stop="openSearchFilters"
 					>
-						<i :class="iconClass('ph-funnel', false)"></i>
+						<i :class="iconClass('ph-sliders-horizontal', false)"></i>
 					</button>
 				</template>
 			</MkInput>

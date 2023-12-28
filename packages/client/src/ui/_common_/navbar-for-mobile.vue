@@ -89,7 +89,7 @@
 					active-class="active"
 					to="/admin"
 				>
-					<i :class="icon('ph-door icon ph-fw')"></i
+					<i :class="icon('ph-wrench icon ph-fw')"></i
 					><span class="text">{{ i18n.ts.controlPanel }}</span>
 				</MkA>
 				<MkA

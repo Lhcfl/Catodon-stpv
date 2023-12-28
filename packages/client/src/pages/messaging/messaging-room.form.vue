@@ -22,7 +22,7 @@
 					:aria-label="i18n.t('attachFile')"
 					@click="chooseFile"
 				>
-					<i :class="icon('ph-upload')"></i>
+					<i :class="icon('ph-paperclip')"></i>
 				</button>
 				<button
 					class="_button"

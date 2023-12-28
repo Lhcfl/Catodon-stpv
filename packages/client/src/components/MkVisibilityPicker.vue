@@ -73,7 +73,7 @@
 				@click="choose('specified')"
 			>
 				<div :class="$style.icon">
-					<i :class="icon('ph-envelope-simple-open')"></i>
+					<i :class="icon('ph-lock-laminated')"></i>
 				</div>
 				<div :class="$style.body">
 					<span :class="$style.itemTitle">{{
@@ -97,7 +97,7 @@
 				@click="localOnly = !localOnly"
 			>
 				<div :class="$style.icon">
-					<i :class="icon('ph-users')"></i>
+					<i :class="icon('ph-map-pin')"></i>
 				</div>
 				<div :class="$style.body">
 					<span :class="$style.itemTitle">{{

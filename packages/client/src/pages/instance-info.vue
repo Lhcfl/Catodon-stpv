@@ -111,7 +111,7 @@
 								>
 							</FormSuspense>
 							<MkButton @click="refreshMetadata"
-								><i :class="icon('ph-arrows-clockwise')"></i>
+								><i :class="icon('ph-arrow-clockwise')"></i>
 								Refresh metadata</MkButton
 							>
 						</FormSection>

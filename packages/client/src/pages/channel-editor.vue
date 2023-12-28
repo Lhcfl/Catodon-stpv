@@ -132,11 +132,11 @@ definePageMetadata(
 		props.channelId
 			? {
 					title: i18n.ts._channel.edit,
-					icon: `${icon("ph-television")}`,
+					icon: `${icon("ph-text-align-left")}`,
 			  }
 			: {
 					title: i18n.ts._channel.create,
-					icon: `${icon("ph-television")}`,
+					icon: `${icon("ph-text-align-left")}`,
 			  },
 	),
 );

@@ -6,7 +6,7 @@
 		@parent-focus="($event) => emit('parent-focus', $event)"
 	>
 		<template #header>
-			<i :class="icon('ph-television')"></i
+			<i :class="icon('ph-text-align-left')"></i
 			><span style="margin-inline-start: 8px">{{ column.name }}</span>
 		</template>
 

@@ -85,7 +85,7 @@ const headerTabs = computed(() => []);
 
 definePageMetadata({
 	title: i18n.ts.clip,
-	icon: `${icon("ph-paperclip")}`,
+	icon: `${icon("ph-bookmarks")}`,
 	action: {
 		icon: `${icon("ph-plus")}`,
 		handler: create,

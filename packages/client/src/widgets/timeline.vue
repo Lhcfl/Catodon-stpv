@@ -29,7 +29,7 @@
 				></i>
 				<i
 					v-else-if="widgetProps.src === 'antenna'"
-					:class="icon('ph-television')"
+					:class="icon('ph-text-align-left')"
 				></i>
 				<span style="margin-inline-start: 8px">{{
 					widgetProps.src === "list"
@@ -137,7 +137,7 @@ const choose = async (ev) => {
 	]);
 	const antennaItems = antennas.map((antenna) => ({
 		text: antenna.name,
-		icon: `${icon("ph-flying-saucer")}`,
+		icon: `${icon("ph-factory")}`,
 		action: () => {
 			widgetProps.antenna = antenna;
 			setSrc("antenna");

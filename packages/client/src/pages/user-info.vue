@@ -165,7 +165,7 @@
 							v-if="user.host != null"
 							class="_formBlock"
 							@click="updateRemoteUser"
-							><i :class="icon('ph-arrows-clockwise')"></i>
+							><i :class="icon('ph-arrow-clockwise')"></i>
 							{{ i18n.ts.updateRemoteUser }}</FormButton
 						>
 

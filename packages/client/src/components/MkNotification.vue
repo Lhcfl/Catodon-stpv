@@ -57,11 +57,11 @@
 				></i>
 				<i
 					v-else-if="notification.type === 'pollVote'"
-					:class="icon('ph-microphone-stage', false)"
+					:class="icon('ph-chart-bar-horizontal', false)"
 				></i>
 				<i
 					v-else-if="notification.type === 'pollEnded'"
-					:class="icon('ph-microphone-stage', false)"
+					:class="icon('ph-chart-bar-horizontal', false)"
 				></i>
 				<!-- notification.reaction が null になることはまずないが、ここでoptional chaining使うと一部ブラウザで刺さるので念の為 -->
 				<XReactionIcon

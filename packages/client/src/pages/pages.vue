@@ -147,7 +147,7 @@ const headerTabs = computed(() => [
 definePageMetadata(
 	computed(() => ({
 		title: i18n.ts.pages,
-		icon: `${icon("ph-file-text")}`,
+		icon: `${icon("ph-article")}`,
 	})),
 );
 

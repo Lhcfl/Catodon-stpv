@@ -150,7 +150,7 @@ definePageMetadata(
 		channel.value
 			? {
 					title: channel.value.name,
-					icon: `${icon("ph-television")}`,
+					icon: `${icon("ph-text-align-left")}`,
 			  }
 			: null,
 	),

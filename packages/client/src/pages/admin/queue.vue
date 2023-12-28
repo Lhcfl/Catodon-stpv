@@ -39,7 +39,7 @@ const headerTabs = computed(() => [
 	{
 		key: "deliver",
 		title: "Deliver",
-		icon: `${icon("ph-upload")}`,
+		icon: `${icon("ph-paperclip")}`,
 	},
 	{
 		key: "inbox",

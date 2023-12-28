@@ -148,7 +148,7 @@
 						class="channel"
 						:to="`/channels/${appearNote.channel.id}`"
 						@click.stop
-						><i :class="icon('ph-television', false)"></i>
+						><i :class="icon('ph-text-align-left', false)"></i>
 						{{ appearNote.channel.name }}</MkA
 					>
 				</div>
@@ -163,7 +163,7 @@
 						class="button _button"
 						@click.stop="reply()"
 					>
-						<i :class="icon('ph-arrow-u-up-left')"></i>
+						<i :class="icon('ph-chat-circle-dots')"></i>
 						<template
 							v-if="appearNote.repliesCount > 0 && !detailedView"
 						>

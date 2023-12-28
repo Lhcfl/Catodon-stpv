@@ -20,10 +20,10 @@
 					: `${notePage(note)}#${note.replyId}`
 			"
 			behavior="browser"
-			class="reply-icon"
+			class="reply-icon jump"
 			@click.stop
 		>
-			<i :class="icon('ph-arrow-bend-left-up')"></i>
+			<i :class="icon('ph-share-fat')"></i>
 		</MkA>
 		<Mfm
 			v-if="note.cw != '' && showContent"
@@ -94,10 +94,10 @@
 								: `${notePage(note)}#${note.replyId}`
 						"
 						behavior="browser"
-						class="reply-icon"
+						class="reply-icon jump"
 						@click.stop
 					>
-						<i :class="icon('ph-arrow-bend-left-up')"></i>
+						<i :class="icon('ph-share-fat')"></i>
 					</MkA>
 				</template>
 				<Mfm
@@ -279,6 +279,9 @@ function focusFooter(ev) {
 	&:focus {
 		background: var(--buttonHoverBg);
 	}
+}
+.jump {
+	rotate: -90deg;
 }
 .cw {
 	cursor: default;

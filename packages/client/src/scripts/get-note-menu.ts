@@ -304,7 +304,7 @@ export function getNoteMenu(props: {
 					  },
 			),
 			{
-				icon: `${icon("ph-paperclip")}`,
+				icon: `${icon("ph-bookmarks")}`,
 				text: i18n.ts.clip,
 				action: () => clip(),
 			},
@@ -400,7 +400,7 @@ export function getNoteMenu(props: {
 		...($i.isModerator || $i.isAdmin ? [
 			null,
 			{
-				icon: `${icon('ph-megaphone-simple')}`,
+				icon: `${icon('ph-megaphone')}`,
 				text: i18n.ts.promote,
 				action: promote
 			}]

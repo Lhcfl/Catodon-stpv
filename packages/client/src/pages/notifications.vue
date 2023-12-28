@@ -125,7 +125,7 @@ const headerActions = computed(() =>
 		tab.value === "all"
 			? {
 					text: i18n.ts.filter,
-					icon: `${icon("ph-funnel")}`,
+					icon: `${icon("ph-sliders-horizontal")}`,
 					highlighted: includeTypes.value != null,
 					handler: setFilter,
 			  }
@@ -161,7 +161,7 @@ const headerTabs = computed(() => [
 	{
 		key: "directNotes",
 		title: i18n.ts.directNotes,
-		icon: `${icon("ph-envelope-simple-open")}`,
+		icon: `${icon("ph-lock-laminated")}`,
 	},
 ]);
 

@@ -35,7 +35,7 @@
 
 		<MkTab v-model="tab" :style="'underline'" @update:modelValue="loadTab">
 			<option value="replies">
-				<!-- <i :class="icon('ph-arrow-u-up-left')"></i> -->
+				<!-- <i :class="icon('ph-chat-circle-dots')"></i> -->
 				{{
 					wordWithCount(
 						note.repliesCount,

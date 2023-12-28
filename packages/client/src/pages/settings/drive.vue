@@ -118,7 +118,7 @@ function saveProfile() {
 
 definePageMetadata({
 	title: i18n.ts.drive,
-	icon: `${icon("ph-cloud")}`,
+	icon: `${icon("ph-hard-drive")}`,
 });
 </script>
 

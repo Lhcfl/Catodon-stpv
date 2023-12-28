@@ -105,7 +105,7 @@ function select(
 				},
 				{
 					text: i18n.ts.fromDrive,
-					icon: `${icon("ph-cloud")}`,
+					icon: `${icon("ph-hard-drive")}`,
 					action: chooseFileFromDrive,
 				},
 				{

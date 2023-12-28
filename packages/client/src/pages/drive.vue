@@ -16,7 +16,7 @@ const folder = ref(null);
 definePageMetadata(
 	computed(() => ({
 		title: folder.value ? folder.value.name : i18n.ts.drive,
-		icon: `${icon("ph-cloud")}`,
+		icon: `${icon("ph-hard-drive")}`,
 		hideHeader: true,
 	})),
 );

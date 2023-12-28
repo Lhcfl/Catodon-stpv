@@ -8,7 +8,7 @@
 		/></template>
 		<MkSpacer :content-max="700">
 			<div class="ieepwinx">
-				<MkInfo class="_gap" :icon="'flying-saucer'" :card="true">
+				<MkInfo class="_gap" :icon="'factory'" :card="true">
 					<p>{{ i18n.ts.antennasDesc }}</p>
 					<MkButton
 						:link="true"
@@ -28,7 +28,7 @@
 									:link="true"
 									:to="`/timeline/antenna/${antenna.id}`"
 								>
-									<i :class="icon('ph-flying-saucer')"></i
+									<i :class="icon('ph-factory')"></i
 									><i
 										:class="`${
 											antenna.hasUnreadNote
@@ -97,7 +97,7 @@ onDeactivated(() => {
 
 definePageMetadata({
 	title: i18n.ts.manageAntennas,
-	icon: `${icon("ph-flying-saucer")}`,
+	icon: `${icon("ph-factory")}`,
 });
 </script>
 

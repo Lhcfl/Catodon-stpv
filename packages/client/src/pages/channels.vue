@@ -212,7 +212,7 @@ const headerTabs = computed(() => [
 definePageMetadata(
 	computed(() => ({
 		title: i18n.ts.channel,
-		icon: `${icon("ph-television")}`,
+		icon: `${icon("ph-text-align-left")}`,
 	})),
 );
 

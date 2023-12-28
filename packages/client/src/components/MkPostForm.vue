@@ -29,7 +29,7 @@
 					>{{ maxTextLength - textLength }}</span
 				>
 				<span v-if="localOnly" class="local-only"
-					><i :class="icon('ph-users')"></i
+					><i :class="icon('ph-map-pin')"></i
 				></span>
 				<button
 					ref="visibilityButton"
@@ -48,7 +48,7 @@
 						><i :class="icon('ph-lock')"></i
 					></span>
 					<span v-if="visibility === 'specified'"
-						><i :class="icon('ph-envelope-simple-open')"></i
+						><i :class="icon('ph-lock-laminated')"></i
 					></span>
 				</button>
 				<button
@@ -70,7 +70,7 @@
 						:class="
 							icon(
 								reply
-									? 'ph-arrow-u-up-left'
+									? 'ph-chat-circle-dots'
 									: renote
 									? 'ph-quotes'
 									: 'ph-paper-plane-tilt',
@@ -168,7 +168,7 @@
 					class="_button"
 					@click="chooseFileFrom"
 				>
-					<i :class="icon('ph-upload')"></i>
+					<i :class="icon('ph-paperclip')"></i>
 				</button>
 				<button
 					v-tooltip="i18n.ts.poll"
@@ -176,7 +176,7 @@
 					:class="{ active: poll }"
 					@click="togglePoll"
 				>
-					<i :class="icon('ph-microphone-stage')"></i>
+					<i :class="icon('ph-chart-bar-horizontal')"></i>
 				</button>
 				<button
 					v-tooltip="i18n.ts.useCw"

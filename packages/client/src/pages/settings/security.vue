@@ -43,7 +43,7 @@
 		<FormSection>
 			<FormSlot>
 				<MkButton danger @click="regenerateToken"
-					><i :class="icon('ph-arrows-clockwise')"></i>
+					><i :class="icon('ph-arrow-clockwise')"></i>
 					{{ i18n.ts.regenerateLoginToken }}</MkButton
 				>
 				<template #caption>{{

@@ -15,15 +15,15 @@
 					>{{ i18n.ts.timeline }}</MkA
 				> -->
 				<MkA to="/explore" class="link" active-class="active"
-					><i :class="icon('ph-compass icon')"></i
+					><i :class="icon('ph-flashlight icon')"></i
 					>{{ i18n.ts.explore }}</MkA
 				>
 				<MkA to="/channels" class="link" active-class="active"
-					><i :class="icon('ph-television icon')"></i
+					><i :class="icon('ph-text-align-left icon')"></i
 					>{{ i18n.ts.channel }}</MkA
 				>
 				<MkA to="/pages" class="link" active-class="active"
-					><i :class="icon('ph-file-text icon')"></i
+					><i :class="icon('ph-article icon')"></i
 					>{{ i18n.ts.pages }}</MkA
 				>
 				<div v-if="info" class="page active link">

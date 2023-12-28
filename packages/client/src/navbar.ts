@@ -24,7 +24,7 @@ export const navbarItemDef = reactive({
 	},
 	drive: {
 		title: "drive",
-		icon: `${icon("ph-cloud")}`,
+		icon: `${icon("ph-hard-drive")}`,
 		show: computed(() => $i != null),
 		to: "/my/drive",
 	},
@@ -37,12 +37,12 @@ export const navbarItemDef = reactive({
 	},
 	explore: {
 		title: "explore",
-		icon: `${icon("ph-compass")}`,
+		icon: `${icon("ph-flashlight")}`,
 		to: "/explore",
 	},
 	announcements: {
 		title: "announcements",
-		icon: `${icon("ph-megaphone-simple")}`,
+		icon: `${icon("ph-megaphone")}`,
 		indicated: computed(() => $i?.hasUnreadAnnouncement),
 		to: "/announcements",
 	},
@@ -59,18 +59,18 @@ export const navbarItemDef = reactive({
 	},
 	pages: {
 		title: "pages",
-		icon: `${icon("ph-file-text")}`,
+		icon: `${icon("ph-article")}`,
 		to: "/pages",
 	},
 	clips: {
 		title: "clips",
-		icon: `${icon("ph-paperclip")}`,
+		icon: `${icon("ph-bookmarks")}`,
 		show: computed(() => $i != null),
 		to: "/my/clips",
 	},
 	channels: {
 		title: "channel",
-		icon: `${icon("ph-television")}`,
+		icon: `${icon("ph-text-align-left")}`,
 		to: "/channels",
 	},
 	ui: {
@@ -110,7 +110,7 @@ export const navbarItemDef = reactive({
 	},
 	reload: {
 		title: "reload",
-		icon: `${icon("ph-arrows-clockwise")}`,
+		icon: `${icon("ph-arrow-clockwise")}`,
 		action: (ev) => {
 			location.reload();
 		},

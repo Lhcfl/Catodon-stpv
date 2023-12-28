@@ -94,7 +94,7 @@ definePageMetadata(
 		antenna.value
 			? {
 					title: antenna.value.name,
-					icon: `${icon("ph-flying-saucer")}`,
+					icon: `${icon("ph-factory")}`,
 			  }
 			: null,
 	),

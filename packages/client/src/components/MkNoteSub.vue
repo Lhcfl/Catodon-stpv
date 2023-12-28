@@ -67,7 +67,7 @@
 						class="button _button"
 						@click.stop="reply()"
 					>
-						<i :class="icon('ph-arrow-u-up-left')"></i>
+						<i :class="icon('ph-chat-circle-dots')"></i>
 						<template v-if="appearNote.repliesCount > 0">
 							<p class="count">{{ appearNote.repliesCount }}</p>
 						</template>

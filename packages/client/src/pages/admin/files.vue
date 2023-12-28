@@ -136,7 +136,7 @@ const headerActions = computed(() => [
 definePageMetadata(
 	computed(() => ({
 		title: i18n.ts.files,
-		icon: `${icon("ph-cloud")}`,
+		icon: `${icon("ph-hard-drive")}`,
 	})),
 );
 </script>

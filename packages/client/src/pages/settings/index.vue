@@ -101,7 +101,7 @@ const menuDef = computed(() => [
 				active: currentPage.value?.route.name === "reaction",
 			},
 			{
-				icon: `${icon("ph-cloud")}`,
+				icon: `${icon("ph-hard-drive")}`,
 				text: i18n.ts.drive,
 				to: "/settings/drive",
 				active: currentPage.value?.route.name === "drive",

@@ -3,7 +3,7 @@
 		<div class="banner" :style="bannerStyle">
 			<div class="fade"></div>
 			<div class="name">
-				<i :class="icon('ph-television')"></i>
+				<i :class="icon('ph-text-align-left')"></i>
 				{{ channel.name }}
 			</div>
 			<div class="status">
