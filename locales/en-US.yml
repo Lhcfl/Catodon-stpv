@@ -749,8 +749,7 @@ unclip: "Remove from collection"
 confirmToUnclipAlreadyClippedNote: "This post is already part of the \"{name}\" collection.
   Do you want to remove it from this collection instead?"
 public: "Public"
-i18nInfo: "Catodon is being translated into various languages by volunteers. You
-  can help at {link}."
+i18nInfo: "Catodon is being translated into various languages by volunteers."
 manageAccessTokens: "Manage access tokens"
 accountInfo: "Account Info"
 notesCount: "Number of posts"
