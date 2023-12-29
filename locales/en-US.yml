@@ -1,6 +1,6 @@
 _lang_: "English"
-headlineFirefish: "An open source platform for online communities in the Fediverse!"
-introFirefish: "Welcome! Catodon is an open source platform for online communities in the Fediverse!"
+headlineFirefish: "An open source platform for fedi communities!"
+introFirefish: "Welcome! Catodon is an open source platform for fedi communities!"
 monthAndDay: "{month}/{day}"
 search: "Search"
 searchPlaceholder: "Search Catodon"
