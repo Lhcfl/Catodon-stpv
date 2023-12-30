@@ -62,12 +62,6 @@ export const navbarItemDef = reactive({
 		icon: `${icon("ph-article")}`,
 		to: "/pages",
 	},
-	clips: {
-		title: "clips",
-		icon: `${icon("ph-bookmarks")}`,
-		show: computed(() => $i != null),
-		to: "/my/clips",
-	},
 	channels: {
 		title: "channel",
 		icon: `${icon("ph-text-align-left")}`,

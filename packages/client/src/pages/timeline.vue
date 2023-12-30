@@ -91,7 +91,7 @@ const keymap = {
 	t: focus,
 };
 
-let timelines = [];
+let timelines: string[] = [];
 
 if (isLocalTimelineAvailable && defaultStore.state.showLocalPostsInHomeTimeline) {
 	timelines.push("social");

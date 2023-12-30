@@ -84,12 +84,8 @@ const headerActions = computed(() => []);
 const headerTabs = computed(() => []);
 
 definePageMetadata({
-	title: i18n.ts.clip,
+	title: i18n.ts.clips,
 	icon: `${icon("ph-bookmarks")}`,
-	action: {
-		icon: `${icon("ph-plus")}`,
-		handler: create,
-	},
 });
 </script>
 
