@@ -42,7 +42,7 @@
 			<div class="qtcaoidl" v-if="tab === 'collections'">
 				<MkPagination :pagination="collectionPagination" class="list">
 					<template #empty>
-						<MkInfo :icon="'paperclip'" :card="true">
+						<MkInfo icon="bookmarks" :card="true">
 							<p>{{ i18n.ts.clipsDesc }}</p>
 						</MkInfo>
 					</template>
