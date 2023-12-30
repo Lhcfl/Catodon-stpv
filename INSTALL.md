@@ -1,24 +1,23 @@
-# Getting started
+# Installation Guide
 
 ## Dependencies
 
 Install the following runtime dependencies and [build dependencies](#build-dependencies)
 
 - [NodeJS](https://nodejs.org/en/) Latest LTS
-- [pnpm](https://pnpm.io/installation) Recommended using [Corepack](https://pnpm.io/installation#using-corepack)
+- [pnpm](https://pnpm.io/installation) (Recommended using [Corepack](https://pnpm.io/installation#using-corepack))
 - [PostgreSQL](https://www.postgresql.org/) v14+
-- [Redis](https://redis.io/) v7+
+- [Redis](https://redis.io/) v7+ (Planned to be removed: https://codeberg.org/catodon/catodon/issues/60)
 - Reverse Proxy (one of the following)
   - Nginx
   - Caddy
   - Apache
 - [libvips](https://www.libvips.org/)
 - [PGroonga](https://pgroonga.github.io/)
-- [FFmpeg](https://ffmpeg.org/)
 
 ### Build dependencies
 
-- [Rust](https://www.rust-lang.org/) v1.68.0+
+- [Rust](https://www.rust-lang.org/) v1.68.0+ (Planned to be removed: https://codeberg.org/catodon/catodon/issues/61)
 - C/C++ compiler & build tools
   - `build-essential` on Debian/Ubuntu Linux
   - `base-devel` on Arch Linux
@@ -38,7 +37,7 @@ Create the user and database of PostgreSQL for Catodon, then enable PGroonga.
 Change `<user>` and `<database>` in the following commands as you like.
 
 ```sh
-sudo -iu postgres createuser -P <user>  # Don't forget the password you enter here.
+sudo -iu postgres createuser -P <user>  # Note the password you enter here.
 sudo -iu postgres createdb -O <user> -E UTF8 <database>
 sudo -iu postgres psql -c "CREATE EXTENSION pgroonga;" <database>
 ```
