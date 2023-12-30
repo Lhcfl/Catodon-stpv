@@ -22,3 +22,11 @@
 *TBD*
 
 The installation guide is planned to be available with the first release. In the meantime, you can refer [INSTALL.md](INSTALL.md).
+
+# Contributions
+
+Thank you so much for your interest in helping Catodon. Please read our [code of conduct](CODE_OF_CONDUCT.md) before making any contributions to Catodon.
+
+People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally.
+
+Black lives matter. Trans rights are human rights. No nazi bullsh*t.
