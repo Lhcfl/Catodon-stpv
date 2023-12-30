@@ -63,7 +63,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
 [@panos](https://codeberg.org/panos) on Codeberg,
 `@panos@catodon.social` on the Fediverse,
-or `@panos:matrix.org` via Matrix.
+or `@panosd:matrix.org` via Matrix.
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
