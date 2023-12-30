@@ -5,7 +5,7 @@
 			<option v-for="x in langs" :key="x[0]" :value="x[0]">
 				{{ x[1] }}
 			</option>
-			<template #caption>
+			<!-- <template #caption>
 				<I18n :src="i18n.ts.i18nInfo" tag="span">
 					<template #link>
 						<MkLink
@@ -14,7 +14,7 @@
 						>
 					</template>
 				</I18n>
-			</template>
+			</template> -->
 		</FormSelect>
 
 		<FormSelect v-model="translateLang" class="_formBlock">
