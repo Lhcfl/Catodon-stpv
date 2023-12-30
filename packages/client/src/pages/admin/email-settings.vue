@@ -134,7 +134,7 @@ async function testEmail() {
 	os.apiWithDialog("admin/send-email", {
 		to: destination,
 		subject: "Test email",
-		text: "Yo",
+		text: "Meow",
 	});
 }
 
