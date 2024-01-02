@@ -1045,6 +1045,7 @@ onMounted(() => {
 			quoteId.value = init.renote ? init.renote.id : null;
 		}
 
+		nextTick(() => autosize.update(textareaEl.value));
 		nextTick(() => watchForDraft());
 	});
 });
