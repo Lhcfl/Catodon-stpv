@@ -332,7 +332,11 @@ function del(): void {
 
 					> .text {
 						&,
-						::v-deep(*) {
+						::v-deep(a),
+						::v-deep(span),
+						::v-deep(p),
+						::v-deep(blockquote)
+						 {
 							color: var(--fgOnAccent) !important;
 						}
 					}
