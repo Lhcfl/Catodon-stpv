@@ -349,14 +349,18 @@ function onVisibilitychange() {
 	}
 }
 
-onMounted(() => {
-	fetch();
-	definePageMetadata(
-		computed(() => ({
-			title: group.value != null ? group.value.name : user.value?.name,
-			icon: `${icon("ph-chats-teardrop-bold")}`,
-		})),
-	);
+onMounted(async () => {
+	const _meta = {
+		title: i18n.ts.messaging,
+		icon: `${icon("ph-chats-teardrop-bold")}`,
+	};
+	definePageMetadata(_meta);
+	await fetch();
+	_meta.title = `${i18n.ts.messaging} · ${
+		group.value != null 
+			? group.value.name 
+			: (user.value?.name || user.value?.username)
+	}`;
 });
 
 onBeforeUnmount(() => {
