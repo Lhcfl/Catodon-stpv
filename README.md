@@ -30,3 +30,7 @@ Thank you so much for your interest in helping Catodon. Please read our [code of
 People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally.
 
 Black lives matter. Trans rights are human rights. No nazi bullsh*t.
+
+# Find us on Matrix
+
+For direct communication and support, #catodon:matrix.org is our channel for general Catodon discussion, and #catodon-support:matrix.org is our technical support channel.
