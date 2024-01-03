@@ -49,6 +49,10 @@ export const renderActivity = (x: any): IActivity | null => {
 					fedibird: "http://fedibird.com/ns#",
 					// vcard
 					vcard: "http://www.w3.org/2006/vcard/ns#",
+					// ChatMessage
+					litepub: "http://litepub.social/ns#",
+					ChatMessage: "litepub:ChatMessage",
+					directMessage: "litepub:directMessage",
 				},
 			],
 		},
