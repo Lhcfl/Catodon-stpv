@@ -597,7 +597,7 @@ function togglePoll() {
 			choices: ["", ""],
 			multiple: false,
 			expiresAt: null,
-			expiredAfter: null,
+			expiredAfter: 3000, // 3 days by default
 		};
 	}
 }
