@@ -22,6 +22,8 @@ import renderNote from "@/remote/activitypub/renderer/note.js";
 import renderCreate from "@/remote/activitypub/renderer/create.js";
 import { renderActivity } from "@/remote/activitypub/renderer/index.js";
 import { deliver } from "@/queue/index.js";
+import { toPuny } from "@/misc/convert-host.js";
+import { Instances } from "@/models/index.js";
 
 export async function createMessage(
 	user: { id: User["id"]; host: User["host"] },
@@ -121,6 +123,7 @@ export async function createMessage(
 		Users.isLocalUser(user) &&
 		Users.isRemoteUser(recipientUser)
 	) {
+		const instance = await Instances.findOneBy({ host: toPuny(recipientUser.host) });
 		const note = {
 			id: message.id,
 			createdAt: message.createdAt,
@@ -138,8 +141,34 @@ export async function createMessage(
 			),
 		} as Note;
 
+		let renderedNote: Record<string, unknown> = await renderNote(note, false, true);
+
+		// TODO: For pleroma and its fork instances, the actor will have a boolean "capabilities": { acceptsChatMessages: boolean } property. May use that instead of checking instance.softwareName. https://kazv.moe/objects/ca5c0b88-88ce-48a7-bf88-54d45f6ce781
+		// ChatMessage document from Pleroma: https://docs.pleroma.social/backend/development/ap_extensions/#chatmessages
+		// Note: LitePub has been stalled since 2019-06-29 and is incomplete as a specification
+		if (
+			instance?.softwareName &&
+			["akkoma", "pleroma", "lemmy"].includes(instance.softwareName.toLowerCase())
+		) {
+			const tmp_note = renderedNote;
+			renderedNote = {
+				type: "ChatMessage",
+				attributedTo: tmp_note.attributedTo,
+				content: tmp_note.content,
+				id: tmp_note.id,
+				published: tmp_note.published,
+				to: tmp_note.to,
+				tag: tmp_note.tag,
+				cc: [],
+			};
+			// A recently fixed bug, empty arrays will be rejected by pleroma
+			if (Array.isArray(tmp_note.attachment) && tmp_note.attachment.length !== 0) {
+				renderedNote.attachment = tmp_note.attachment;
+			}
+		}
+
 		const activity = renderActivity(
-			renderCreate(await renderNote(note, false, true), note),
+			renderCreate(renderedNote, note),
 		);
 
 		deliver(user, activity, recipientUser.inbox);

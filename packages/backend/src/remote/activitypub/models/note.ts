@@ -129,6 +129,12 @@ export async function createNote(
 		throw new Error(`unexpected schema of note.id: ${note.id}`);
 	}
 
+  // ChatMessage only have id
+	// TODO: split into a separate validate function
+	if (note.type === "ChatMessage") {
+		note.url = note.id;
+	}
+
 	const url = getOneApHrefNullable(note.url);
 
 	if (url && !url.startsWith("https://")) {
@@ -183,7 +189,7 @@ export async function createNote(
 		}
 	}
 
-	let isTalk = note._misskey_talk && visibility === "specified";
+	let isTalk = (note.type === "ChatMessage" || note._misskey_talk) && visibility === "specified";
 
 	const apMentions = await extractApMentions(note.tag);
 	const apHashtags = await extractApHashtags(note.tag);

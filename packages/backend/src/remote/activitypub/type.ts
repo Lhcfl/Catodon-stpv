@@ -115,6 +115,7 @@ export const validPost = [
 	"Page",
 	"Video",
 	"Event",
+	"ChatMessage", // TODO: move it to vaildMessage
 ];
 
 export const isPost = (object: IObject): object is IPost =>
@@ -130,6 +131,7 @@ export interface IPost extends IObject {
 		| "Image"
 		| "Page"
 		| "Video"
+		| "ChatMessage" // TODO: move it to IChatMessage
 		| "Event";
 	source?: {
 		content: string;
