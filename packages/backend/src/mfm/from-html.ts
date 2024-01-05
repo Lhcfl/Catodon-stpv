@@ -7,20 +7,18 @@ const treeAdapter = TreeAdapter.defaultTreeAdapter;
 const urlRegex = /^https?:\/\/[\w\/:%#@$&?!()\[\]~.,=+\-]+/;
 const urlRegexFull = /^https?:\/\/[\w\/:%#@$&?!()\[\]~.,=+\-]+$/;
 
+const MAX_FLAT = 100;
+
 export function fromHtml(html: string, hashtagNames?: string[]): string {
 	// some AP servers like Pixelfed use br tags as well as newlines
-	html = html.replace(/<br\s?\/?>\r?\n/gi, "\n");
+	const dom = parse5.parseFragment(html.replace(/<br\s?\/?>\r?\n/gi, "\n"));
 
-	const dom = parse5.parseFragment(html);
+	return toMFM(dom.childNodes);
 
-	let text = "";
-
-	for (const n of dom.childNodes) {
-		analyze(n);
+	function toMFM(childNodes: TreeAdapter.ChildNode[], background = ""): string {
+		return appendChildren(childNodes, background).join("").trim();
 	}
-
-	return text.trim();
-
+	
 	function getText(node: TreeAdapter.Node): string {
 		if (treeAdapter.isTextNode(node)) return node.value;
 		if (!treeAdapter.isElementNode(node)) return "";
@@ -33,27 +31,25 @@ export function fromHtml(html: string, hashtagNames?: string[]): string {
 		return "";
 	}
 
-	function appendChildren(childNodes: TreeAdapter.ChildNode[]): void {
+	function appendChildren(childNodes: TreeAdapter.ChildNode[], background = ""): string[] {
 		if (childNodes) {
-			for (const n of childNodes) {
-				analyze(n);
-			}
+			return childNodes.map((n, index) => analyze(n, index + 1, background)).flat(MAX_FLAT);
+		} else {
+			return [""];
 		}
 	}
 
-	function analyze(node: TreeAdapter.Node) {
+	function analyze(node: TreeAdapter.Node, index = 1, background = ""): (string | string[])[] {
 		if (treeAdapter.isTextNode(node)) {
-			text += node.value;
-			return;
+			return [node.value];
 		}
 
 		// Skip comment or document type node
-		if (!treeAdapter.isElementNode(node)) return;
+		if (!treeAdapter.isElementNode(node)) return [];
 
 		switch (node.nodeName) {
 			case "br": {
-				text += "\n";
-				break;
+				return ["\n"];
 			}
 
 			case "a": {
@@ -61,89 +57,101 @@ export function fromHtml(html: string, hashtagNames?: string[]): string {
 				const rel = node.attrs.find((x) => x.name === "rel");
 				const href = node.attrs.find((x) => x.name === "href");
 
-				// ハッシュタグ
+				// hashtag
 				if (
 					hashtagNames &&
 					href &&
 					hashtagNames.map((x) => x.toLowerCase()).includes(txt.toLowerCase())
 				) {
-					text += txt;
-					// メンション
+					return [txt];
+					// mention
 				} else if (txt.startsWith("@") && !rel?.value.match(/^me /)) {
 					const part = txt.split("@");
 
 					if (part.length === 2 && href) {
-						//#region ホスト名部分が省略されているので復元する
-						const acct = `${txt}@${new URL(href.value).hostname}`;
-						text += acct;
+						//#region The host name part is omitted, so restore it.
+						return [`${txt}@${new URL(href.value).hostname}`];
 						//#endregion
 					} else if (part.length === 3) {
-						text += txt;
+						return [txt];
 					}
 					// その他
 				} else {
-					const generateLink = () => {
-						if (!(href || txt)) {
-							return "";
-						}
-						if (!href) {
-							return txt;
-						}
-						if (!txt || txt === href.value) {
-							// #6383: Missing text node
-							if (href.value.match(urlRegexFull)) {
-								return href.value;
-							} else {
-								return `<${href.value}>`;
-							}
-						}
-						if (href.value.match(urlRegex) && !href.value.match(urlRegexFull)) {
-							return `[${txt}](<${href.value}>)`; // #6846
+					if (!(href || txt)) {
+						return [""];
+					}
+					if (!href) {
+						return [txt];
+					}
+					if (!txt || txt === href.value) {
+						// #6383: Missing text node
+						if (href.value.match(urlRegexFull)) {
+							return [href.value];
 						} else {
-							return `[${txt}](${href.value})`;
+							return [`<${href.value}>`];
 						}
-					};
-
-					text += generateLink();
+					}
+					if (href.value.match(urlRegex) && !href.value.match(urlRegexFull)) {
+						return [`[${txt}](<${href.value}>)`]; // #6846
+					} else {
+						return [`[${txt}](${href.value})`];
+					}
 				}
 				break;
 			}
 
 			case "h1": {
-				appendChildren(node.childNodes);
-				text += "\n";
-				break;
+				return [
+					"\n\n",
+					"**$[x2 ",
+					appendChildren(node.childNodes),
+					" ]**",
+				];
+			}
+
+			case "h2":
+			case "h3": {
+				return [
+					"\n\n",
+					"**",
+					appendChildren(node.childNodes),
+					"**",
+				];
 			}
 
 			case "b":
 			case "strong": {
-				text += "**";
-				appendChildren(node.childNodes);
-				text += "**";
-				break;
+				return [
+					"**",
+					appendChildren(node.childNodes),
+					"**",
+				];
 			}
 
 			case "small": {
-				text += "<small>";
-				appendChildren(node.childNodes);
-				text += "</small>";
-				break;
+				return [
+					"<small>",
+					appendChildren(node.childNodes),
+					"</small>",
+				];
 			}
 
 			case "s":
 			case "del": {
-				text += "~~";
-				appendChildren(node.childNodes);
-				text += "~~";
-				break;
+				return [
+					"~~",
+					appendChildren(node.childNodes),
+					"~~",
+				];
 			}
 
 			case "i":
 			case "em": {
-				text += "<i>";
-				appendChildren(node.childNodes);
-				text += "</i>";
-				break;
+				return [
+					"<i>",
+					appendChildren(node.childNodes),
+					"</i>",
+				];
 			}
 
 			// block code (<pre><code>)
@@ -152,41 +160,70 @@ export function fromHtml(html: string, hashtagNames?: string[]): string {
 					node.childNodes.length === 1 &&
 					node.childNodes[0].nodeName === "code"
 				) {
-					text += "\n```\n";
-					text += getText(node.childNodes[0]);
-					text += "\n```\n";
+					return [
+						"\n```\n",
+						getText(node.childNodes[0]), // obviously get raw text
+						"\n```\n",
+					];
 				} else {
-					appendChildren(node.childNodes);
+					return appendChildren(node.childNodes);
 				}
-				break;
 			}
 
 			// inline code (<code>)
 			case "code": {
-				text += "`";
-				appendChildren(node.childNodes);
-				text += "`";
-				break;
+				return [
+					"`",
+					appendChildren(node.childNodes),
+					"`",
+				];
 			}
 
 			case "blockquote": {
-				const t = getText(node);
-				if (t) {
-					text += "\n> ";
-					text += t.split("\n").join("\n> ");
-				}
-				break;
+				return [
+					"\n> ",
+					toMFM(node.childNodes).split("\n").join("\n> ").trim(),
+				];
 			}
 
 			case "p":
-			case "h2":
-			case "h3":
 			case "h4":
 			case "h5":
 			case "h6": {
-				text += "\n\n";
-				appendChildren(node.childNodes);
-				break;
+				return [
+					"\n\n",
+					appendChildren(node.childNodes),
+				];
+			}
+
+			case "ul": {
+				return [
+					"\n  ",
+					toMFM(node.childNodes, "ul").split("\n").join("\n  ").trim(),
+				]
+			}
+			case "ol": {
+				return [
+					"\n  ",
+					toMFM(node.childNodes, "ol").split("\n").join("\n  ").trim(),
+				]
+			}
+
+			case "li": {
+				if (background === "ol") {
+					return [
+						"\n",
+						`${index}. `,
+						toMFM(node.childNodes).split("\n").join("\n   ").trim(),
+					];
+				} else {
+					return [
+						"\n",
+						"- ",
+						toMFM(node.childNodes).split("\n").join("\n  ").trim(),
+					];
+				}
+				
 			}
 
 			// other block elements
@@ -194,19 +231,38 @@ export function fromHtml(html: string, hashtagNames?: string[]): string {
 			case "header":
 			case "footer":
 			case "article":
-			case "li":
 			case "dt":
 			case "dd": {
-				text += "\n";
-				appendChildren(node.childNodes);
-				break;
+				return [
+					"\n",
+					appendChildren(node.childNodes),
+				];
+			}
+
+			case "ruby": {
+				const rtText = node.childNodes.filter(n => n.nodeName === "rt").map(n => getText(n));
+				const rubyText = node.childNodes.filter(n => treeAdapter.isTextNode(n)).map(n => getText(n));
+				if (
+					rubyText && rtText
+				) {
+					return [
+						"$[ruby ",
+						rubyText,
+						"|",
+						rtText,
+						" ]",
+					]
+				} else {
+					return appendChildren(node.childNodes);
+				}
 			}
 
 			default: {
 				// includes inline elements
-				appendChildren(node.childNodes);
-				break;
+				return appendChildren(node.childNodes);
 			}
 		}
+
+		return [];
 	}
 }

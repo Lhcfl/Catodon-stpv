@@ -14,6 +14,7 @@ import MkA from "@/components/global/MkA.vue";
 import { host } from "@/config";
 import { reducedMotion } from "@/scripts/reduced-motion";
 import { defaultStore } from "@/store";
+import MkTime from "@/components/global/MkTime.vue"
 
 export default defineComponent({
 	props: {
@@ -61,7 +62,7 @@ export default defineComponent({
 		const validNumber = (n: string | null | undefined) => {
 			if (n == null) return null;
 			const parsed = parseFloat(n);
-			return !isNaN(parsed) && isFinite(parsed) && parsed > 0;
+			return !Number.isNaN(parsed) && Number.isFinite(parsed) && parsed > 0;
 		};
 		// const validEase = (e: string | null | undefined) => {
 		// 	if (e == null) return null;
@@ -299,6 +300,44 @@ export default defineComponent({
 									if (!/^[0-9a-f]{3,6}$/i.test(color)) color = "f00";
 									style = `background-color: #${color};`;
 									break;
+								}
+								case 'ruby': {
+									if (token.children.length === 1) {
+										const child = token.children[0];
+										const text = child.type === 'text' ? child.props.text : '';
+										// if (!disableNyaize && shouldNyaize) {
+										// 	text = doNyaize(text);
+										// }
+										if (text.includes("|")) {
+											return h('ruby', {}, [text.split('|')[0], h('rt', text.split('|')[1])]);
+										} else {
+											return h('ruby', {}, [text.split(' ')[0], h('rt', text.split(' ')[1])]);
+										}
+									} else {
+										const rt = token.children.at(-1)!;
+										const text = rt.type === 'text' ? rt.props.text : '';
+										// if (!disableNyaize && shouldNyaize) {
+										// 	text = doNyaize(text);
+										// }
+										return h('ruby', {}, [...genEl(token.children.slice(0, token.children.length - 1), scale), h('rt', text.trim())]);
+									}
+								}
+								case 'unixtime': {
+									const child = token.children[0];
+									const unixtime = parseInt(child.type === 'text' ? child.props.text : '');
+									return h('span', {
+										style: 'display: inline-block; font-size: 90%; border: solid 1px var(--divider); border-radius: 999px; padding: 4px 10px 4px 6px;',
+									}, [
+										h('i', {
+											class: 'ti ti-clock',
+											style: 'margin-right: 0.25em;',
+										}),
+										h(MkTime, {
+											key: Math.random(),
+											time: unixtime * 1000,
+											mode: 'detail',
+										}),
+									]);
 								}
 								case "small": {
 									return h(

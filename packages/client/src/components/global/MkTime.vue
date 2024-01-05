@@ -25,15 +25,29 @@ const props = withDefaults(
 	},
 );
 
+function getDateSafe(n: Date | string | number) {
+	try {
+		if (n instanceof Date) {
+			return n;
+		}
+		return new Date(n);
+	} catch (err) {
+		return {
+			getTime: () => NaN,
+		};
+	}
+}
+
 const _time =
 	props.time == null
 		? NaN
 		: typeof props.time === "number"
-		? props.time
-		: (props.time instanceof Date
-				? props.time
-				: new Date(props.time)
-		  ).getTime();
+		  ? props.time
+		  : (props.time instanceof Date
+					? props.time
+					: new Date(props.time)
+		    ).getTime();
+
 const invalid = Number.isNaN(_time);
 const absolute = !invalid ? dateTimeFormat.format(_time) : i18n.ts._ago.invalid;
 
