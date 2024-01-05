@@ -87,11 +87,6 @@ html {
 	text-size-adjust: none;
 	-webkit-text-size-adjust: none;
 
-	&.useCJKFont {
-		font-family: "Hiragino Maru Gothic Pro", "BIZ UDGothic",
-			"Atkinson Hyperlegible", Roboto, HelveticaNeue, Arial, sans-serif;
-	}
-
 	&.useSystemFont {
 		font-family:
 			system-ui,

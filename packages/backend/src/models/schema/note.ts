@@ -1,3 +1,5 @@
+import { langmap } from "@/misc/langmap.js";
+
 export const packedNoteSchema = {
 	type: "object",
 	properties: {
@@ -17,6 +19,11 @@ export const packedNoteSchema = {
 		text: {
 			type: "string",
 			optional: false,
+			nullable: true,
+		},
+		lang: {
+			type: "string",
+			enum: [...Object.keys(langmap)],
 			nullable: true,
 		},
 		cw: {

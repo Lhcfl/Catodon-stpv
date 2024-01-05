@@ -10,6 +10,7 @@ export const permissions = consts.permissions;
 export const notificationTypes = consts.notificationTypes;
 export const noteVisibilities = consts.noteVisibilities;
 export const mutedNoteReasons = consts.mutedNoteReasons;
+export const languages = consts.languages;
 export const ffVisibility = consts.ffVisibility;
 
 // api extractor not supported yet

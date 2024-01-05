@@ -17,6 +17,7 @@ import { ApiError } from "@/server/api/error.js";
 import define from "@/server/api/define.js";
 import { HOUR } from "@/const.js";
 import { getNote } from "@/server/api/common/getters.js";
+import { langmap } from "@/misc/langmap.js";
 
 export const meta = {
 	tags: ["notes"],
@@ -108,7 +109,11 @@ export const paramDef = {
 			},
 		},
 		text: { type: "string", maxLength: MAX_NOTE_TEXT_LENGTH, nullable: true },
-		lang: { type: "string", nullable: true, maxLength: 10 },
+		lang: {
+			type: "string",
+			enum: Object.keys(langmap),
+			nullable: true,
+		},
 		cw: { type: "string", nullable: true, maxLength: 100 },
 		localOnly: { type: "boolean", default: false },
 		noExtractMentions: { type: "boolean", default: false },
