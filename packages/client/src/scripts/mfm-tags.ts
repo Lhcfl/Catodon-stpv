@@ -23,4 +23,6 @@ export const MFM_TAGS = [
 	"fade",
 	"small",
 	"center",
+	"ruby",
+	"unixtime",
 ];
