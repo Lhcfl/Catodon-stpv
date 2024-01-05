@@ -13,12 +13,12 @@ import { normalizeForSearch } from "@/misc/normalize-for-search.js";
 ..が理想だけどPostgreSQLでどうするのか分からないので単に「直近Aの内に投稿されたユニーク投稿数が多いハッシュタグ」で妥協する
 */
 
-const rangeA = 1000 * 60 * 60; // 60分
+const rangeA = 1000 * 60 * 60 * 2; // 2 days
 //const rangeB = 1000 * 60 * 120; // 2時間
 //const coefficient = 1.25; // 「n倍」の部分
 //const requiredUsers = 3; // 最低何人がそのタグを投稿している必要があるか
 
-const max = 5;
+const max = 100;
 
 export const meta = {
 	tags: ["hashtags"],

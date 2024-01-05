@@ -98,7 +98,7 @@ defineExpose<WidgetComponentExpose>({
 <style lang="scss" scoped>
 .wbrkwala {
 	height: (62px + 1px) + (62px + 1px) + (62px + 1px) + (62px + 1px) + 62px;
-	overflow: hidden;
+	overflow: scroll;
 
 	> .tags {
 		.chart-move {
