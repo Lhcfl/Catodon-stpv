@@ -1690,9 +1690,9 @@ _visibility:
   home: "Public - Unlisted"
   homeDescription: "Public post, but not listed in public timelines"
   followers: "Followers only"
-  followersDescription: "Make visible to your followers and mentioned members only"
+  followersDescription: "Visible to your followers and mentioned members only"
   specified: "Private post"
-  specifiedDescription: "Make visible for specified members only"
+  specifiedDescription: "Visible to specified members only"
   localOnly: "This server only"
   localOnlyDescription: "Not visible to members from other servers"
 _postForm:
