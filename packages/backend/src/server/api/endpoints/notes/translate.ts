@@ -58,11 +58,71 @@ export default define(meta, paramDef, async (ps, user) => {
 
 	const instance = await fetchMeta();
 
-	if (instance.deeplAuthKey == null && instance.libreTranslateApiUrl == null) {
-		return 204; // TODO: 良い感じのエラー返す
+	let targetLang = ps.targetLang;
+
+	if (!instance.deeplAuthKey && !instance.libreTranslateApiUrl) {
+		const MAX_TRANSLATE = 15000;
+		const MAX_TRANSLATE_PER_REQ = 1500;
+		
+		const toTranslate: string[] = [];
+
+		for (let i = 0; i < note.text.length && i < MAX_TRANSLATE; i += MAX_TRANSLATE_PER_REQ) {
+			toTranslate.push(note.text.slice(i, i + MAX_TRANSLATE_PER_REQ));
+		}
+
+		const googleTranslate = async (toTranslate: string) => {
+			const googleUrl = new URL("https://translate.google.com/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto")
+			googleUrl.searchParams.append("tl", targetLang.replaceAll("-", "_"));
+			googleUrl.searchParams.append("q", toTranslate);
+			
+			const res = await fetch(googleUrl.toString());
+			const json = await res.json() as {
+				sentences: {
+						/** translated text */
+						trans: string,
+						/** original text */
+						orig: string,
+					}[],
+				src: string,
+			};
+
+			return {
+				sourceLang: json.src,
+				text: json.sentences.map(s => s.trans).join(" "),
+			};
+		}
+
+		const result: {
+			sourceLang?: string,
+			text: string,
+		} = {
+			text: "",
+		};
+
+		for (const text of toTranslate) {
+			// If it is not the first request, sleep 500 milliseconds to prevent 429 too many requests.
+			if (!result.text) {
+				await new Promise(r => setTimeout(r, 500));
+			}
+			try {
+				const res = await googleTranslate(text);
+				result.sourceLang ||= res.sourceLang;
+				result.text += res.text;
+			} catch (err) {
+				result.text += "... (an error occurred during translate)"
+				return result;
+			}
+		}
+
+		if (note.text.length > MAX_TRANSLATE + MAX_TRANSLATE_PER_REQ) {
+			result.text += "... (text is too long to translate)"
+		}
+
+		return result;
+	
 	}
 
-	let targetLang = ps.targetLang;
+	
 	if (targetLang.includes("-")) targetLang = targetLang.split("-")[0];
 	if (targetLang.includes("_")) targetLang = targetLang.split("_")[0];
 
