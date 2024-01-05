@@ -460,8 +460,8 @@ export default define(meta, paramDef, async (ps, me) => {
 
 		enableServiceWorker: instance.enableServiceWorker,
 
-		translatorAvailable:
-			!!instance.deeplAuthKey || !!instance.libreTranslateApiUrl,
+		translatorAvailable: true,
+			// !!instance.deeplAuthKey || !!instance.libreTranslateApiUrl,
 		defaultReaction: instance.defaultReaction,
 		enableServerMachineStats: instance.enableServerMachineStats,
 		enableIdenticonGeneration: instance.enableIdenticonGeneration,
