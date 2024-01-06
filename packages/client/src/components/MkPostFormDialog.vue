@@ -33,6 +33,7 @@ const props = defineProps<{
 	specified?: firefish.entities.User;
 	initialText?: string;
 	initialVisibility?: typeof firefish.noteVisibilities;
+	initialLanguage?: typeof firefish.languages;
 	initialFiles?: firefish.entities.DriveFile[];
 	initialLocalOnly?: boolean;
 	initialVisibleUsers?: firefish.entities.User[];

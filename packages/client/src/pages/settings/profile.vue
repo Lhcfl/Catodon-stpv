@@ -231,14 +231,14 @@ function saveFields() {
 
 function save() {
 	os.apiWithDialog("i/update", {
-		name: profile.name || null,
-		description: profile.description || null,
-		location: profile.location || null,
-		birthday: profile.birthday || null,
-		lang: profile.lang || null,
+		name: profile.name ?? undefined,
+		description: profile.description ?? undefined,
+		location: profile.location ?? undefined,
+		birthday: profile.birthday ?? undefined,
+		lang: profile.lang ?? undefined,
 		isBot: !!profile.isBot,
 		isCat: !!profile.isCat,
-		speakAsCat: !!profile.speakAsCat,
+		speakAsCat: profile.isCat ? !!profile.speakAsCat : undefined,
 	});
 }
 

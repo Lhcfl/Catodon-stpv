@@ -123,8 +123,8 @@ function checkForSplash() {
 
 	// #region Set lang attr
 	const html = document.documentElement;
-	html.setAttribute("lang", lang || "en-US");
-	html.setAttribute("dir", langmap[lang || "en-US"].rtl ? "rtl" : "ltr");
+	html.setAttribute("lang", lang ?? "en-US");
+	html.setAttribute("dir", langmap[lang ?? "en-US"]?.rtl === true ? "rtl" : "ltr");
 	//#endregion
 
 	// #region loginId
