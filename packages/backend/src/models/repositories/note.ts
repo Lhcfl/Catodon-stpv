@@ -198,6 +198,10 @@ export const NoteRepository = db.getRepository(Note).extend({
 			host,
 		);
 
+		const threadRepliesCount = note.replyId
+			? null
+			: await NoteRepository.countBy({ threadId: note.id });
+
 		const reactionEmoji = await populateEmojis(reactionEmojiNames, host);
 		const packed: Packed<"Note"> = await awaitAll({
 			id: note.id,
@@ -214,6 +218,7 @@ export const NoteRepository = db.getRepository(Note).extend({
 				note.visibility === "specified" ? note.visibleUserIds : undefined,
 			renoteCount: note.renoteCount,
 			repliesCount: note.repliesCount,
+			threadRepliesCount,
 			reactions: convertReactions(note.reactions),
 			reactionEmojis: reactionEmoji,
 			emojis: noteEmoji,

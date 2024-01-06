@@ -41,6 +41,9 @@
 						note.repliesCount,
 						i18n.ts.reply,
 						i18n.ts.replies,
+						note.threadRepliesCount > note.repliesCount
+							? note.threadRepliesCount - note.repliesCount
+							: null,
 					)
 				}}
 			</option>
@@ -208,10 +211,23 @@ const softMuteReasonI18nSrc = (what?: string) => {
 	return i18n.ts.userSaysSomething;
 };
 
-const wordWithCount = (count: number, singular: string, plural: string) => {
+function wordWithCount(
+	count: number,
+	singular: string,
+	plural: string,
+	additionalCount?: number | null,
+) {
 	if (count === 0) return plural;
-	return `${count} ${count === 1 ? singular : plural}`;
-};
+	if (additionalCount && additionalCount > 0) {
+		if (isFinite(additionalCount)) {
+			return `${count} (+${additionalCount}) ${plural}`;
+		} else {
+			return `${count}+ ${count === 1 ? singular : plural}`;
+		}
+	} else {
+		return `${count} ${count === 1 ? singular : plural}`;
+	}
+}
 
 // plugin
 if (noteViewInterruptors.length > 0) {
@@ -355,11 +371,40 @@ function blur() {
 	noteEl.value.blur();
 }
 
+const FETCH_LIMIT = 99;
+const FETCH_DEPTH = 12;
+
+function threadRepliesCountAccurate(childNotes) {
+	const childMap = {};
+	for (const cn of childNotes) {
+		if (cn.replyId) {
+			childMap[cn.replyId] ??= [];
+			childMap[cn.replyId].push(cn.id);
+			if (childMap[cn.replyId].length >= FETCH_LIMIT) return false;
+		} else {
+			// renote is not accurate
+			return false;
+		}
+	}
+	const calculateDepth = (id) => {
+		let res = 0;
+		if (childMap[id]) {
+			for (const cm of childMap[id]) {
+				res = Math.max(calculateDepth(cm), res);
+			}
+		}
+		return res + 1;
+	};
+	if (calculateDepth(note.value.id) > FETCH_DEPTH) return false;
+	// accurate
+	return true;
+}
+
 directReplies.value = null;
 os.api("notes/children", {
 	noteId: note.value.id,
-	limit: 30,
-	depth: 12,
+	limit: FETCH_LIMIT, // Change it back to 30 after adding pagination
+	depth: FETCH_DEPTH,
 }).then((res) => {
 	res = res.reduce((acc, resNote) => {
 		if (resNote.userId == note.value.userId) {
@@ -371,6 +416,13 @@ os.api("notes/children", {
 	directReplies.value = res
 		.filter((resNote) => resNote.replyId === note.value.id)
 		.reverse();
+	if (!note.value.threadRepliesCount) {
+		if (threadRepliesCountAccurate(res)) {
+			note.value.threadRepliesCount = res.length;
+		} else {
+			note.value.threadRepliesCount = Infinity; // special tag
+		}
+	}
 	directQuotes.value = res.filter(
 		(resNote) => resNote.renoteId === note.value.id,
 	);
