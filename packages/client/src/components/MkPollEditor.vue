@@ -113,7 +113,7 @@ const atDate = ref(
 );
 const atTime = ref("00:00");
 const after = ref(0);
-const unit = ref("second");
+const unit = ref("day");
 
 if (props.modelValue.expiresAt) {
 	expiration.value = "at";
