@@ -43,7 +43,7 @@ main {
 }
 
 * {
-	font-family: BIZ UDGothic, Roboto, HelveticaNeue, Arial, sans-serif;
+	font-family: Roboto, HelveticaNeue, Arial, sans-serif;
 }
 #firefish_app {
 	display: none !important;
